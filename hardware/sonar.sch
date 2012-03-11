@@ -1,0 +1,407 @@
+EESchema Schematic File Version 2  date Sun 11 Mar 2012 08:12:43 PM ART
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:special
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:STM32VLDISCOVERY
+LIBS:DLP-USB232R
+LIBS:SRF02
+LIBS:W25Q80BV
+EELAYER 25  0
+EELAYER END
+$Descr A4 11700 8267
+encoding utf-8
+Sheet 1 1
+Title "sonar-invidentes"
+Date "11 mar 2012"
+Rev "0.1"
+Comp "Departamento de Ingeniería Eléctrica y de Computadoras, Universidad Nacional del Sur"
+Comment1 "Directores: Ricardo Cayssials, Edgardo Ferro"
+Comment2 "Juan Bajo <jmbajo@gmail.com>"
+Comment3 "Pablo Odorico <pablo.odorico@gmail.com>"
+Comment4 ""
+$EndDescr
+Text GLabel 2050 4750 2    60   Input ~ 0
+AnalogAudio
+Text GLabel 6050 2950 0    60   BiDi ~ 0
+I2C
+Text GLabel 5750 4150 0    60   BiDi ~ 0
+SPI
+Text GLabel 7200 5850 0    60   BiDi ~ 0
+UART
+Wire Wire Line
+	8700 5550 8550 5550
+Wire Wire Line
+	8550 5550 8550 5650
+Wire Wire Line
+	6000 5650 8550 5650
+Wire Wire Line
+	6000 5650 6000 5150
+Wire Wire Line
+	10250 4750 10250 4450
+Wire Wire Line
+	10250 4450 10150 4450
+Wire Wire Line
+	9350 4750 9350 4600
+Wire Wire Line
+	9350 4600 9400 4600
+Wire Wire Line
+	10150 4700 10150 4750
+Wire Wire Line
+	4700 2850 4700 2550
+Wire Wire Line
+	4700 2550 4550 2550
+Wire Wire Line
+	4600 2850 4600 2800
+Wire Wire Line
+	4600 2800 4550 2800
+Wire Wire Line
+	3700 2850 3700 2700
+Wire Wire Line
+	3700 2700 3800 2700
+Wire Wire Line
+	5550 3250 5550 2000
+Connection ~ 7500 2100
+Wire Wire Line
+	7500 1900 7500 2100
+Connection ~ 6450 2300
+Wire Wire Line
+	6450 1900 6450 2300
+Connection ~ 6150 2100
+Wire Wire Line
+	6150 1900 6150 2100
+Wire Wire Line
+	5650 2100 8850 2100
+Wire Wire Line
+	5650 2100 5650 3350
+Wire Wire Line
+	5650 3350 5300 3350
+Wire Wire Line
+	5850 2450 5850 2300
+Wire Wire Line
+	8950 1900 8950 2200
+Connection ~ 7400 2000
+Wire Wire Line
+	8750 1900 8750 2000
+Wire Wire Line
+	6050 2000 6050 1900
+Wire Wire Line
+	1900 5200 1900 5050
+Wire Wire Line
+	5450 4450 8600 4450
+Wire Wire Line
+	5450 4450 5450 3950
+Wire Wire Line
+	5450 3950 5300 3950
+Wire Wire Line
+	5300 3750 5900 3750
+Wire Wire Line
+	5900 3750 5900 3550
+Wire Wire Line
+	5900 3550 9050 3550
+Wire Wire Line
+	9050 3550 9050 4150
+Wire Wire Line
+	9050 4150 8500 4150
+Wire Wire Line
+	6800 3950 5900 3950
+Wire Wire Line
+	5900 3950 5900 4050
+Wire Wire Line
+	5900 4050 5300 4050
+Wire Wire Line
+	10800 5050 10950 5050
+Wire Wire Line
+	10950 5050 10950 4950
+Wire Wire Line
+	10950 4950 10800 4950
+Wire Wire Line
+	6800 4150 6500 4150
+Wire Wire Line
+	8500 3850 8600 3850
+Wire Wire Line
+	8600 3850 8600 3800
+Wire Wire Line
+	8500 3950 8700 3950
+Wire Wire Line
+	6000 5150 5300 5150
+Wire Wire Line
+	5300 5050 5900 5050
+Wire Wire Line
+	5550 3250 5300 3250
+Wire Wire Line
+	10950 5950 10950 5750
+Wire Wire Line
+	2750 2950 2750 3250
+Wire Wire Line
+	2750 3250 3000 3250
+Wire Wire Line
+	5300 5750 5500 5750
+Wire Wire Line
+	5500 5750 5500 5950
+Wire Wire Line
+	8900 3900 8900 3800
+Wire Wire Line
+	8900 3800 8600 3800
+Wire Wire Line
+	6500 4150 6500 4100
+Wire Wire Line
+	6650 4150 6650 4050
+Connection ~ 6650 4150
+Wire Wire Line
+	6650 4050 6800 4050
+Wire Wire Line
+	10950 5750 10800 5750
+Wire Wire Line
+	6800 3850 5300 3850
+Wire Wire Line
+	8500 4050 8600 4050
+Wire Wire Line
+	8600 4050 8600 4450
+Wire Wire Line
+	3000 4850 1600 4850
+Wire Wire Line
+	1900 5050 1600 5050
+Wire Wire Line
+	7400 2000 7400 1900
+Connection ~ 6050 2000
+Wire Wire Line
+	8850 2100 8850 1900
+Wire Wire Line
+	9150 1900 9150 2300
+Wire Wire Line
+	5300 3450 5750 3450
+Wire Wire Line
+	5750 3450 5750 2200
+Wire Wire Line
+	5750 2200 8950 2200
+Wire Wire Line
+	6250 1900 6250 2200
+Connection ~ 6250 2200
+Wire Wire Line
+	7800 1900 7800 2300
+Connection ~ 7800 2300
+Wire Wire Line
+	7600 1900 7600 2200
+Connection ~ 7600 2200
+Wire Wire Line
+	8750 2000 5550 2000
+Wire Wire Line
+	9150 2300 5850 2300
+Wire Wire Line
+	3800 2800 3750 2800
+Wire Wire Line
+	3750 2800 3750 2850
+Wire Wire Line
+	3800 2550 3650 2550
+Wire Wire Line
+	3650 2550 3650 2850
+Wire Wire Line
+	4550 2700 4650 2700
+Wire Wire Line
+	4650 2700 4650 2850
+Wire Wire Line
+	9400 4700 9400 4750
+Wire Wire Line
+	10150 4600 10200 4600
+Wire Wire Line
+	10200 4600 10200 4750
+Wire Wire Line
+	9400 4450 9300 4450
+Wire Wire Line
+	9300 4450 9300 4750
+Wire Wire Line
+	5900 5050 5900 5750
+Wire Wire Line
+	5900 5750 8700 5750
+$Comp
+L USB ConsoleIO
+U 0 1 4F5D2B28
+P 9800 4250
+F 0 "ConsoleIO" H 9750 4650 60  0000 C CNN
+F 1 "USB" V 9550 4400 60  0000 C CNN
+	0    9800 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L USB STLink
+U 0 1 4F5D2A57
+P 4200 2350
+F 0 "STLink" H 4150 2750 60  0000 C CNN
+F 1 "USB" V 3950 2500 60  0000 C CNN
+	0    4200 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F5D2938
+P 5850 2450
+F 0 "#PWR?" H 5850 2450 30  0001 C CNN
+F 1 "GND" H 5850 2380 30  0001 C CNN
+	1    5850 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F5D27E0
+P 1900 5200
+F 0 "#PWR?" H 1900 5200 30  0001 C CNN
+F 1 "GND" H 1900 5130 30  0001 C CNN
+	1    1900 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L SPEAKER Test
+U 0 1 4F5D2767
+P 1300 4950
+F 0 "Test" H 1200 5200 70  0000 C CNN
+F 1 "SPEAKER" H 1200 4700 70  0000 C CNN
+	0    1300 4950
+	-1   0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 4F5D23D8
+P 6500 4100
+F 0 "#PWR?" H 6500 4200 30  0001 C CNN
+F 1 "VCC" H 6500 4200 30  0000 C CNN
+	1    6500 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 4F5D2377
+P 8700 3950
+F 0 "#PWR?" H 8700 4050 30  0001 C CNN
+F 1 "VCC" H 8700 4050 30  0000 C CNN
+	1    8700 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F5D235D
+P 8900 3900
+F 0 "#PWR?" H 8900 3900 30  0001 C CNN
+F 1 "GND" H 8900 3830 30  0001 C CNN
+	1    8900 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F5D21AD
+P 5500 5950
+F 0 "#PWR?" H 5500 5950 30  0001 C CNN
+F 1 "GND" H 5500 5880 30  0001 C CNN
+	1    5500 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L SRF02 SLeft
+U 1 1 4F5D1EE0
+P 6250 1150
+F 0 "SLeft" H 6250 1050 50  0000 C CNN
+F 1 "SRF02" H 6250 1250 50  0000 C CNN
+F 2 "MODULE" H 6250 1150 50  0001 C CNN
+F 3 "DOCUMENTATION" H 6250 1150 50  0001 C CNN
+	1    6250 1150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SRF02 SRight
+U 1 1 4F5D1ECE
+P 8950 1150
+F 0 "SRight" H 8950 1050 50  0000 C CNN
+F 1 "SRF02" H 8950 1250 50  0000 C CNN
+F 2 "MODULE" H 8950 1150 50  0001 C CNN
+F 3 "DOCUMENTATION" H 8950 1150 50  0001 C CNN
+	1    8950 1150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SRF02 SCenter
+U 1 1 4F5D1EC8
+P 7600 1150
+F 0 "SCenter" H 7600 1050 50  0000 C CNN
+F 1 "SRF02" H 7600 1250 50  0000 C CNN
+F 2 "MODULE" H 7600 1150 50  0001 C CNN
+F 3 "DOCUMENTATION" H 7600 1150 50  0001 C CNN
+	1    7600 1150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F5D1E6B
+P 10950 5950
+F 0 "#PWR?" H 10950 5950 30  0001 C CNN
+F 1 "GND" H 10950 5880 30  0001 C CNN
+	1    10950 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 4F5D1D45
+P 2750 2950
+F 0 "#PWR?" H 2750 3050 30  0001 C CNN
+F 1 "VCC" H 2750 3050 30  0000 C CNN
+	1    2750 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L W25Q80BV FlashMem
+U 0 1 4F5D1604
+P 7650 4000
+F 0 "FlashMem" H 7650 3900 50  0000 C CNN
+F 1 "W25Q80BV" H 7650 4100 50  0000 C CNN
+F 2 "MODULE" H 7650 4000 50  0001 C CNN
+F 3 "DOCUMENTATION" H 7650 4000 50  0001 C CNN
+	0    7650 4000
+	-1   0    0    1   
+$EndComp
+$Comp
+L DLP-USB232R UARTtoUSB
+U 0 1 4F5D15FA
+P 9750 5350
+F 0 "UARTtoUSB" H 9750 5250 50  0000 C CNN
+F 1 "DLP-USB232R" H 9750 5450 50  0000 C CNN
+F 2 "MODULE" H 9750 5350 50  0001 C CNN
+F 3 "DOCUMENTATION" H 9750 5350 50  0001 C CNN
+	0    9750 5350
+	-1   0    0    1   
+$EndComp
+$Comp
+L STM32VLDISCOVERY U1
+U 1 1 4F5D0FE0
+P 4150 4400
+F 0 "U1" H 4150 4300 50  0000 C CNN
+F 1 "STM32VLDISCOVERY" H 4150 4500 50  0000 C CNN
+F 2 "MODULE" H 4150 4400 50  0001 C CNN
+F 3 "DOCUMENTATION" H 4150 4400 50  0001 C CNN
+	1    4150 4400
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
