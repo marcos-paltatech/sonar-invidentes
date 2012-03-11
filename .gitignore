@@ -1,0 +1,13 @@
+*.[oa]
+*~
+*.bak
+Makefile
+bin/
+obj/
+ui_*
+moc_*
+qrc_*
+.directory
+*.user
+*.user.*
+*bmp
