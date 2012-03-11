@@ -1,0 +1,55 @@
+Memory info 
+  Page size   : 256 bytes 
+  Page count  : 4096 
+  Total memory: 1048576 bytes 
+
+Reading RAW samples from "samples" 
+  - Track0.raw |  38906 bytes ->  152 pages | Start page 0   
+  - Track1.raw |  64160 bytes ->  251 pages | Start page 152 
+  - Track2.raw |  51874 bytes ->  203 pages | Start page 403 
+  - Track3.raw | 101701 bytes ->  398 pages | Start page 606 
+  - Track4.raw |  66208 bytes ->  259 pages | Start page 1004
+  - Track5.raw |  83954 bytes ->  328 pages | Start page 1263
+  - Track6.raw |  33445 bytes ->  131 pages | Start page 1591
+We will use 1722 pages: 42% of total
+
+Making memory image. 
+  - Track0.raw, start at 0x009800,   6 bytes of filling
+  - Track1.raw, start at 0x019300,  96 bytes of filling
+  - Track2.raw, start at 0x025E00,  94 bytes of filling
+  - Track3.raw, start at 0x03EC00, 187 bytes of filling
+  - Track4.raw, start at 0x04EF00,  96 bytes of filling
+  - Track5.raw, start at 0x063700,  14 bytes of filling
+  - Track6.raw, start at 0x06BA00,  91 bytes of filling
+Done. 
+
+Full Image checksum: 
+  0xC7712912
+
+Saving image file... 
+Done 
+
+C code: 
+#define TRACKS_COUNT  7 
+uint16_t TRACKS_PAGES[] = { 
+       0,  // Track Index  0: "Track0.raw"
+     152,  // Track Index  1: "Track1.raw"
+     403,  // Track Index  2: "Track2.raw"
+     606,  // Track Index  3: "Track3.raw"
+    1004,  // Track Index  4: "Track4.raw"
+    1263,  // Track Index  5: "Track5.raw"
+    1591,  // Track Index  6: "Track6.raw"
+    1722,  // Not a track, used to calculate the last track's size
+} 
+
+Setting up serial. 
+setupPort: Opening port "/dev/ttyUSB0" 
+Done. 
+
+Writing data, make sure the MCU is ready.
+ 
+Page count confirmation OK. 
+Sending pages. 
+Page 1721 of 1722: 99.9%  
+Done! 
+
