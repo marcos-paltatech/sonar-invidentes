@@ -1,4 +1,5 @@
 Libraries:
+- BTM511.lib
 - DLP-USB232R.lib
 - SRF02.lib
 - STM32VLDISCOVERY.lib
