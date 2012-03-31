@@ -1,0 +1,65 @@
+Informacion headset:
+	MAC 00:1A:0E:E5:08:1D
+	DevClass 0x200404
+		Major Service Class: Audio
+		Major Device Class: Audio
+		Minor Device Class: Headset
+	FriendlyName "Motorola H270"
+
+Setear friendly name
+AT+BTN="Sonar"
+
+Setear device class:
+	Major Devclass "Phone"
+	Minor Devclass "Smartphone"
+	Major Service Class "Audio"
+ATS515=$20020C
+
+Salvar datos
+AT&W
+
+Reiniciar
+ATZ
+
+Busqueda:
+	Setear tiempo de busqueda maxima en seg
+	ATS517=10	
+	Hacer un query mostrando todos los datos del dispositivo
+	AT+BTIE
+	
+Configuracion:
+	IO/Capability: no input or output
+	ATS321=3
+	Setear PIN por defecto
+	AT+BTK="0000"	
+	AT+BTW001A0EE5081D
+	
+	Deberia recibir:
+	PAIR 0 001A0EE5081D 00
+	Con el primer parametro == 0	
+
+Headset Profile, rol de Gateway de audio	
+	ats102=$8
+	at&w
+	atz
+
+Conexion
+	AT+HSGD001A0EE5081D
+	
+	Recibo
+	CONNECT 001A0EE5081D,1108,> # El primer parametro deberia ser la MAC del dev, y el segundo 1108 indicando que somos un audio gateway
+	HSG"VGS7" # Indica el volumen actual del auricular
+	HSG"VGM9" # Indica la ganancia de microfono actual
+	
+	Iniciar transmision de audio
+	AT+HSGA
+	
+	Parar transmision de audio
+	AT+HSGR
+	
+Cuando el heaset se apaga manda
+	NO CARRIER 1112
+	
+Configuracion de audio
+	Desactivar amplificador de microfono
+	ATS415=0
