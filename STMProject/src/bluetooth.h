@@ -37,4 +37,6 @@ void btStopPlaying();
 // Interrupcion de comunicacion con el modulo bluetooth
 void USART3_IRQHandler(void);
 
+void EXTI0_IRQHandler(void);
+
 #endif

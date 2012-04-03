@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <STM32vldiscovery.h> // Usado para el pushbutton
+#include "audioplayer.h" // Para la interrupcion
 
 // Variables y configuracion para interactuar con comandos AT
 static const int atLineLen= 16;
@@ -74,6 +76,8 @@ void setupBluetooth()
     nvicConfig.NVIC_IRQChannelCmd= ENABLE;
     NVIC_Init(&nvicConfig);
     // Por defecto esta deshabilitada
+
+    STM32vldiscovery_PBInit(BUTTON_USER, BUTTON_MODE_EXTI);
 }
 
 //
@@ -394,4 +398,19 @@ void USART3_IRQHandler(void)
         btState= BT_DISCONNECTED;
         printf("BT Disconnected.\r\n");
     }
+}
+
+//
+// Manejo del boton
+//
+void EXTI0_IRQHandler(void)
+{
+    if(!STM32vldiscovery_PBGetState(BUTTON_USER))
+        return;
+
+	static int trackId= 0;
+	playerPlayTrack(trackId);
+	trackId= (trackId+1) % 7;
+
+    EXTI_ClearITPendingBit(USER_BUTTON_EXTI_LINE);
 }
