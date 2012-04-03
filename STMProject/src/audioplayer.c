@@ -86,7 +86,6 @@ static bool playerSetup()
     dmaConfig.DMA_Priority= DMA_Priority_High;
     dmaConfig.DMA_M2M= DMA_M2M_Disable;
     DMA_Init(DMA1_Channel3, &dmaConfig);
-    //DMA_ITConfig(DMA1_Channel3, DMA_IT_TC, ENABLE);
     DMA_Cmd(DMA1_Channel3, ENABLE);
 
     // Activar clock DAC1
@@ -207,6 +206,8 @@ void playerStop()
     TIM_Cmd(TIM6, DISABLE);
     // Desactivar DMA
     DMA1_Channel3->CCR= 0;
+    // Desactivar el DAC
+    DAC_Cmd(DAC_Channel_1, DISABLE);
     printf("Stopped playing.\r\n");
 }
 

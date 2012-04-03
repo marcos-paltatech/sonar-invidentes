@@ -18,6 +18,10 @@ cmd_type readCmd(char* cmd, int len)
         type= CMD_PLAY;
     else if(!strncasecmp("btconnect", cmd, readLen))
         type= CMD_BTCONNECT;
+    else if(!strncasecmp("btcall", cmd, readLen))
+        type= CMD_BTCALL;
+    else if(!strncasecmp("bthang", cmd, readLen))
+        type= CMD_BTHANG;
     else if(!strncasecmp("flashmem", cmd, readLen))
         type= CMD_FLASHMEM;
     else if(!strncasecmp("memcheck", cmd, readLen))
@@ -40,6 +44,8 @@ void cmdHelp()
     printf("  selftest   Verificar hardware/software.\r\n");
     printf("  play       Reproducir un track.\r\n");
     printf("  btconnect  Establecer conexion por bluetooth y llamar al headset.\r\n");
+    printf("  btcall     Empezar a transmitir audio por bluetooth.\r\n");
+    printf("  bthang     Terminar de transmitir audio por bluetooth.\r\n");
     printf("  flashmem   Entrar en modo para programar memoria flash.\r\n");
     printf("  memcheck   Calcular y mostrar checksum total de memoria flash.\r\n");
     printf("  quit       Terminar.\r\n");

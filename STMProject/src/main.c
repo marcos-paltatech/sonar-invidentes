@@ -45,12 +45,18 @@ int main(void)
         case CMD_PLAY:
             playerPlayTrack(0xFF);
             break;
-        case CMD_BTCONNECT:
-            if(btConnect()) {
-                btStartPlaying();
-                playerPlay(0, 1700);
-                btStopPlaying();
-            }
+        case CMD_BTCONNECT: {
+            uint32_t startTime= getMsecs();
+            if(!btConnect())
+                printf("Error al conectarse por Bluetooth.\r\n");
+            else
+                printf("Conexion exitosa en %.1f segs.\r\n", (getMsecs()-startTime)/1000.0f);
+            break; }
+        case CMD_BTCALL:
+            btStartPlaying();
+            break;
+        case CMD_BTHANG:
+            btStopPlaying();
             break;
         case CMD_FLASHMEM:
             printf("Entrando en modo para programar memoria flash...");

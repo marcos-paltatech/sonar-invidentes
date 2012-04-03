@@ -69,8 +69,8 @@ void setupBluetooth()
     // Interrupcion de datos entrantes por USART !! ver prioridad
     NVIC_InitTypeDef nvicConfig;
     nvicConfig.NVIC_IRQChannel= USART3_IRQn;
-    nvicConfig.NVIC_IRQChannelPreemptionPriority= 1;
-    nvicConfig.NVIC_IRQChannelSubPriority= 2;
+    nvicConfig.NVIC_IRQChannelPreemptionPriority= 0;
+    nvicConfig.NVIC_IRQChannelSubPriority= 1;
     nvicConfig.NVIC_IRQChannelCmd= ENABLE;
     NVIC_Init(&nvicConfig);
     // Por defecto esta deshabilitada
@@ -232,6 +232,13 @@ bool btConnect()
     }
     printf("BT Modulo encontrado: '%s'.\r\n", cmd);
 
+    printf("BT Reiniciando modulo.\r\n");
+    atWrite("ATZ\r", 4);
+    if(!atReadOK(5000)) {
+        printf("BT Error al reiniciar modulo.\r\n");
+        return false;
+    }
+
     btState= BT_DISCONNECTED;
     // En este estado podriamos configurar el modulo, pero ya deberian estar todas
     // las configuraciones de config_bt.txt hechas y almacenadas con AT&W; ATZ
@@ -241,6 +248,7 @@ bool btConnect()
     USART_ITConfig(USART3, USART_IT_RXNE, DISABLE);
 
     // QUERY
+    ledBlueSetPeriod(1000);
     printf("BT Buscando headsets.\r\n");
 
     const uint8_t queryRetries= 5;
@@ -250,6 +258,7 @@ bool btConnect()
         atWrite(cmd, strlen(cmd));
         if(!atReadMACs(5000)) { // Doy un tiempo de espera mayor al programado en ATS517
             printf("BT Error al leer MACs.");
+            ledBlueSet(false);
             return false;
         }
         if(!devsFound)
@@ -258,6 +267,7 @@ bool btConnect()
     }
     if(!devsFound) {
         printf("BT No se encontro ningun headset.\r\n");
+        ledBlueSet(false);
         return false;
     }
 
@@ -279,34 +289,41 @@ bool btConnect()
     atWrite(cmd, strlen(cmd));
     if(!atReadOK(1000)) {
         printf("BT Error configurando PIN.\r\n");
+        ledBlueSet(false);
         return false;
     }
     sleep(200);
 
     // Iniciar pairing
+    ledBlueSetPeriod(200);
     printf("BT Empezando pairing.\r\n");
     sprintf(cmd, "AT+BTW%s\r", devsAddrs[devIndex]);
     atWrite(cmd, strlen(cmd));
     if(!atReadOK(1000)) {
         printf("BT Error, no llego el OK de AT+BTW.\r\n");
+        ledBlueSet(false);
         return false;
     }
     // Esperar algo como "PAIR 0 001A0EE5081D 00" por 8 segundos
     if(!atReadLine(cmd, cmdLen, 8000) || strncmp("PAIR ", cmd, 5) || cmd[5]!='0') {
         printf("BT Error de pairing, recibi linea '%s'.\r\n", cmd);
+        ledBlueSet(false);
         return false;
     }
     printf("BT Pairing OK.\r\n");
-    sleep(300);
+    sleep(500);
 
     // CONNECTION
+    ledBlueSetPeriod(50);
     printf("BT Empezando conexion.\r\n");
     sprintf(cmd, "AT+HSGD%s\r", devsAddrs[devIndex]);
     atWrite(cmd, strlen(cmd));
     if(!atReadLine(cmd, cmdLen, 8000) || strncmp("CONNECT ", cmd, 8)) {
         printf("BT Error de conexion, recibi linea '%s'.\r\n", cmd);
+        ledBlueSet(false);
         return false;
     }
+    ledBlueSetPeriod(700);
     printf("BT Conexion OK.\r\n");
     btState= BT_CONNECTED;
 
@@ -320,7 +337,7 @@ bool btConnect()
 void btStartPlaying()
 {
     if(btState != BT_CONNECTED) {
-        printf("BT btStartPlaying: Estado no conectado.");
+        printf("BT btStartPlaying: Estado no conectado.\r\n");
         return;
     }
     btState= BT_STARTEDPLAY;
@@ -331,7 +348,7 @@ void btStartPlaying()
 void btStopPlaying()
 {
     if(btState != BT_PLAYING) {
-        printf("BT btStopPlaying: No estoy reproduciendo.");
+        printf("BT btStopPlaying: No estoy reproduciendo.\r\n");
         return;
     }
     atWrite("AT+HSGR\r", 8);
@@ -364,13 +381,16 @@ void USART3_IRQHandler(void)
     // HSG"AU1"
     if(!strncmp("HSG\"AU1", atLine, 7)) {
         btState= BT_PLAYING;
+        ledBlueSet(true);
         printf("BT Playing.\r\n");
     // HSG"AU0"
     } else if(!strncmp("HSG\"AU0", atLine, 7)) {
         btState= BT_CONNECTED;
+        ledBlueSetPeriod(700);
         printf("BT Stopped.\r\n");
     // NO CARRIER 1112
     } else if(!strncmp("NO CARR", atLine, 7)) {
+        ledBlueSet(false);
         btState= BT_DISCONNECTED;
         printf("BT Disconnected.\r\n");
     }

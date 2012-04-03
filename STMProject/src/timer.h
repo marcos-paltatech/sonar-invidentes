@@ -4,6 +4,12 @@
 #include "global.h"
 #include "stm32f10x.h"
 
+//
+// System timer
+// Provee funciones de sleep, timing, etc.
+// Tambien maneja los LEDs de la placa.
+//
+
 // Busywait de una condicion, con timeout en milisegundos
 #define waitForCondTimout(cond, timeout) { \
     uint32_t mt=getMsecs()+(timeout); \
@@ -17,6 +23,17 @@ uint32_t getMsecs();
 // Sleep con busy-wait
 void sleep(uint32_t msecs);
 
+// Interupcion del systimer
 void SysTick_Handler(void);
+
+//
+// Funciones para manejar LEDs
+//
+
+void ledBlueSet(bool on);
+void ledBlueSetPeriod(uint16_t period);
+
+void yellowBlueSet(bool on);
+void yellowBlueSetPeriod(uint16_t period);
 
 #endif

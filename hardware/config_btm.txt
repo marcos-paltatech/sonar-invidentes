@@ -29,7 +29,12 @@ IO/Capability: no input or output
 	ATS321=3	
 
 Headset Profile, rol de Gateway de audio	
-	ats102=$8
+	ATS102=$8
+	
+Setear gain de entrada a -1db
+	ATS590=2
+Desactivar RING despues de conectarse
+	ATS345=0
 	
 Desactivar echo de consola:
 ATE0
@@ -64,6 +69,7 @@ Conexion
 	CONNECT 001A0EE5081D,1108,> # El primer parametro deberia ser la MAC del dev, y el segundo 1108 indicando que somos un audio gateway
 	HSG"VGS7" # Indica el volumen actual del auricular
 	HSG"VGM9" # Indica la ganancia de microfono actual
+	(no recibo ok)
 	
 	Iniciar transmision de audio
 	AT+HSGA

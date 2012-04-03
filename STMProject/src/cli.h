@@ -5,6 +5,8 @@ typedef enum {
     CMD_SELFTEST,
     CMD_PLAY,
     CMD_BTCONNECT,
+    CMD_BTCALL,
+    CMD_BTHANG,
     CMD_FLASHMEM,
     CMD_MEMCHECK,
     CMD_QUIT,
