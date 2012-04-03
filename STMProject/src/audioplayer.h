@@ -7,7 +7,8 @@
 void playerPlay(uint32_t page, uint32_t pageCount);
 void playerStop();
 
-// Funciones usadas por DMA1_Channel3_IRQHandler()
-void playerDMATransfer();
+// Interrupciones usadas
+void DMA1_Channel3_IRQHandler(void);
+void TIM6_DAC_IRQHandler(void);
 
 #endif

@@ -95,7 +95,8 @@ static bool playerSetup()
     DAC_StructInit(&dacConfig);
     dacConfig.DAC_Trigger= DAC_Trigger_T6_TRGO; // TIM6 trigger
     dacConfig.DAC_WaveGeneration= DAC_WaveGeneration_None;
-    dacConfig.DAC_OutputBuffer= DAC_OutputBuffer_Enable;
+    // No necesitamos el buffer si tenemos alta impedancia de entrada
+    dacConfig.DAC_OutputBuffer= DAC_OutputBuffer_Disable;
     DAC_Init(DAC_Channel_1, &dacConfig);
     DAC_Cmd(DAC_Channel_1, ENABLE);
     // Activar DMA para el DAC
@@ -132,29 +133,7 @@ void playerReadData()
     pcmCurrentPage += PLAYER_BUFFER_PAGES;
 }
 
-// pageCount debe ser multiplo de PLAYER_BUFFER_PAGES;
-void playerPlay(uint32_t page, uint32_t pageCount)
-{
-    pcmCurrentPage= page;
-    pcmLastPage= page + pageCount - 1;
-
-    // Es necesario configurar DMA, TIM6, etc. en cada play
-    // porque al pararlos en playerStop se desconfiguran
-    if(!playerSetup())
-        return;
-
-    // Activar el timer
-    TIM_Cmd(TIM6, ENABLE);
-
-    // Seleccionamos pcmBuffer1 y lo llenamos
-    pcmBufferIndex= 0;
-    playerReadData();
-
-    // Empezamos la transmision DMA de pcmBuffer1
-    // Cuando se termine se va a llamar a DMA1_Channel3_IRQHandler()
-    playerDMATransfer();
-}
-
+static
 void playerDMATransfer()
 {
     // Verificamos si hay que terminar
@@ -178,6 +157,29 @@ void playerDMATransfer()
     playerReadData();
 }
 
+// pageCount debe ser multiplo de PLAYER_BUFFER_PAGES;
+void playerPlay(uint32_t page, uint32_t pageCount)
+{
+    pcmCurrentPage= page;
+    pcmLastPage= page + pageCount - 1;
+
+    // Es necesario configurar DMA, TIM6, etc. en cada play
+    // porque al pararlos en playerStop se desconfiguran
+    if(!playerSetup())
+        return;
+
+    // Activar el timer
+    TIM_Cmd(TIM6, ENABLE);
+
+    // Seleccionamos pcmBuffer1 y lo llenamos
+    pcmBufferIndex= 0;
+    playerReadData();
+
+    // Empezamos la transmision DMA de pcmBuffer1
+    // Cuando se termine se va a llamar a DMA1_Channel3_IRQHandler()
+    playerDMATransfer();
+}
+
 void playerStop()
 {
     // Desactivar el timer que mueve al DAC
@@ -186,4 +188,30 @@ void playerStop()
     // Desactivar DMA
     DMA1_Channel3->CCR= 0;
     printf("Stopped playing.\r\n");
+}
+
+
+// Interrupcion que se ejecuta cuando el DMA1 Channel 3 termina
+// de transmitir los datos en memoria.
+// Cuando pasa esto empezamos el DMA de otro buffer ya cargado,
+// y cargamos el que se utilizo. Asi siempre hay un buffer listo para
+// transmitir.
+void DMA1_Channel3_IRQHandler()
+{
+    if(DMA_GetITStatus(DMA1_IT_TC3) == RESET)
+        return;
+
+    playerDMATransfer();
+
+    DMA_ClearITPendingBit(DMA1_IT_TC3);
+    //printf("DMA %d\r\n", pcmBufferIndex);
+}
+
+// Interrupcion del TIM6 al DAC
+// Esta interrupcion es la que le indica al DAC que tiene que pedirle
+// datos al engine DMA, y se ejecuta una vez por sample de audio.
+void TIM6_DAC_IRQHandler(void)
+{
+    if(TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET)
+        TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
 }

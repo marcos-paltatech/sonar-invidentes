@@ -22,6 +22,9 @@
 void flashSetupSPI();
 uint32_t flashGetID();
 
+// Devuelve true si se pudo comunicar con la memoria y el id es el esperado
+bool flashTest();
+
 // Escribir una pagina en memoria, addr deberia estar alineado a FLASH_PAGE_SIZE
 // Las paginas deben ser borradas antes de ser escritas
 void flashWritePage(uint8_t* data, uint16_t len, uint32_t addr);

@@ -49,3 +49,37 @@ int _read_r (void *reent, uint16_t fd, char *ptr, uint32_t len)
     }
     return len;
 }
+
+int readLine(char *ptr, uint16_t len)
+{
+    bool endLine= false;
+    uint16_t i= 0;
+    do {
+        // Leer
+        waitWhile(USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET);
+        ptr[i]= USART_ReceiveData(USART1);
+        // Echo
+        waitWhile(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+        USART_SendData(USART1, ptr[i]);
+
+        if(ptr[i]==127) {
+            i= MAX(i-1, 0);
+        } else {
+            endLine= ptr[i]=='\r';
+            i++;
+        }
+    } while(i < len && !endLine);
+
+    // Fin de linea
+    waitWhile(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+    USART_SendData(USART1, '\n');
+
+    const uint16_t readLen= i<len ? i : len-1;
+    // Setear fin de linea
+    if(i < len)
+        ptr[readLen-1]= 0; // Eliminar el \r
+    else
+        ptr[readLen]= 0;
+
+    return readLen;
+}

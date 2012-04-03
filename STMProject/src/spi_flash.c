@@ -236,3 +236,8 @@ uint32_t flashFullChecksum()
 
     return sum;
 }
+
+bool flashTest()
+{
+    return flashGetID()==FLASH_ID_W25Q80BV;
+}

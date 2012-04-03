@@ -6,42 +6,56 @@ Informacion headset:
 		Minor Device Class: Headset
 	FriendlyName "Motorola H270"
 
+======================================================================
+Configuracion
+======================================================================	
+	
 Setear friendly name
-AT+BTN="Sonar"
+	AT+BTN="Sonar"
 
 Setear device class:
 	Major Devclass "Phone"
 	Minor Devclass "Smartphone"
 	Major Service Class "Audio"
-ATS515=$20020C
+	ATS515=$20020C
+	
+Busqueda:	
+	Setear tiempo de busqueda maxima en seg
+	ATS517=4
+	Setear cantidad de resultados maximos
+	ATS518=5
+
+IO/Capability: no input or output
+	ATS321=3	
+
+Headset Profile, rol de Gateway de audio	
+	ats102=$8
+	
+Desactivar echo de consola:
+ATE0
 
 Salvar datos
 AT&W
 
 Reiniciar
 ATZ
-
-Busqueda:
-	Setear tiempo de busqueda maxima en seg
-	ATS517=10	
-	Hacer un query mostrando todos los datos del dispositivo
-	AT+BTIE
+	
+======================================================================
+Comandos en tiepo de ejecucion
+	
+Hacer un query de headsets mostrando todos los datos del dispositivo
+	AT+BTI200404
+	Recibo una MAC por linea y termina con OK
 	
 Configuracion:
-	IO/Capability: no input or output
-	ATS321=3
 	Setear PIN por defecto
-	AT+BTK="0000"	
-	AT+BTW001A0EE5081D
+	AT+BTK="0000"
+	Recibo OK
 	
-	Deberia recibir:
+	AT+BTW001A0EE5081D
+	Recibo OK, y luego (pueden ser segundos):
 	PAIR 0 001A0EE5081D 00
-	Con el primer parametro == 0	
-
-Headset Profile, rol de Gateway de audio	
-	ats102=$8
-	at&w
-	atz
+	Con el primer parametro == 0 si no hubo error
 
 Conexion
 	AT+HSGD001A0EE5081D
@@ -56,6 +70,11 @@ Conexion
 	
 	Parar transmision de audio
 	AT+HSGR
+	
+	Cuando la tramision empieza (por mi comando o por el boton) llega
+	HSG"AU1"	
+	Cuando termina
+	HSG"AU0"	
 	
 Cuando el heaset se apaga manda
 	NO CARRIER 1112
