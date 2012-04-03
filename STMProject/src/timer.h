@@ -6,7 +6,7 @@
 
 // Busywait de una condicion, con timeout en milisegundos
 #define waitForCondTimout(cond, timeout) { \
-    uint32_t mt=getMsecs()+timeout; \
+    uint32_t mt=getMsecs()+(timeout); \
     while(!(cond) && getMsecs()<mt); }
 
 void setupTimer();

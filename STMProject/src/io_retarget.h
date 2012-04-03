@@ -4,7 +4,8 @@
 #include "global.h"
 #include "stm32f10x.h"
 
-void setupRetargetUSART1();
+// Retarget de STDIN/STDOUT por USART1 remapeado a PA9/PA10
+void setupRetarget();
 
 // Atollic-specific Redefinitions
 int _write_r(void *reent, uint16_t fd, const char *ptr, uint32_t len);

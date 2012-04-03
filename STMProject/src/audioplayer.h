@@ -5,6 +5,11 @@
 #include "spi_flash.h"
 
 void playerPlay(uint32_t page, uint32_t pageCount);
+
+// Reproduce un track de los listados en audiotracks.h
+// Si trackId==255, se muestra un menu para elegir track
+void playerPlayTrack(uint8_t trackId);
+
 void playerStop();
 
 // Interrupciones usadas

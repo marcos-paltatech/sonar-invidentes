@@ -18,8 +18,9 @@
 
 #define FLASH_ID_W25Q80BV   0xEF4014
 
-
-void flashSetupSPI();
+// Configura SPI para usar la memoria flash
+void flashSetup();
+// Devuelve el ID de la memoria flash, deberia ser igual a FLASH_ID_W25Q80BV
 uint32_t flashGetID();
 
 // Devuelve true si se pudo comunicar con la memoria y el id es el esperado
@@ -33,7 +34,7 @@ void flashReadBuffer(uint8_t* data, uint16_t len, uint32_t addr);
 // Borrar toda la memoria
 void flashEraseAll();
 
-// Modo para programar la memoria flash via serie
+// Modo para programar la memoria flash via STDIN/STDOUT
 void flashProgramMode();
 // Checksum de toda la memoria
 // La suma de los adler32 de todas las paginas

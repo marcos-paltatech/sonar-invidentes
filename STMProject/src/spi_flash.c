@@ -4,6 +4,7 @@
 #include "STM32vldiscovery.h"
 
 #include "adler32.h"
+#include "io_retarget.h" // Usado por el modo para programar la memoria
 
 static bool setupDone= false;
 
@@ -59,7 +60,7 @@ void flashWaitWriteEnd()
 }
 
 
-void flashSetupSPI()
+void flashSetup()
 {
     if(setupDone)
         return;

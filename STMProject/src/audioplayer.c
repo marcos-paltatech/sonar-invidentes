@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "stm32f10x_tim.h"
 #include "stm32f10x_rcc.h"
+#include "audiotracks.h"
 
 // Paginas de memoria en uno de los pcmBuffers
 #define PLAYER_BUFFER_PAGES     2
@@ -114,7 +115,7 @@ static bool playerSetup()
     TIM_ITConfig(TIM6, TIM_IT_Update, ENABLE);
 
     // Configurar memoria
-    flashSetupSPI();
+    flashSetup();
 
     return true;
 }
@@ -178,6 +179,25 @@ void playerPlay(uint32_t page, uint32_t pageCount)
     // Empezamos la transmision DMA de pcmBuffer1
     // Cuando se termine se va a llamar a DMA1_Channel3_IRQHandler()
     playerDMATransfer();
+}
+
+void playerPlayTrack(uint8_t trackId)
+{
+    if(trackId == 0xFF) {
+        printf("Seleccionar track track:\r\n");
+        for(int i=0; i<TRACKS_COUNT; i++) {
+            const uint16_t start= TRACKS_PAGES[i];
+            const uint16_t len= TRACKS_PAGES[i+1]-TRACKS_PAGES[i];
+            printf("  - Track %2d | Start %3d, Length %3d.\r\n", i, start, len);
+        }
+        char c;
+        do {
+            _read_r(0, 0, &c, 1);
+            trackId= c - '0';
+        } while(trackId < 0 || trackId >= TRACKS_COUNT);
+        printf("Reproduciendo track %d.\r\n", trackId);
+    }
+    playerPlay(TRACKS_PAGES[trackId], TRACKS_PAGES[trackId+1]-TRACKS_PAGES[trackId]);
 }
 
 void playerStop()

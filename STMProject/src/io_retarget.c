@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-void setupRetargetUSART1()
+void setupRetarget()
 {
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO, ENABLE);
 
@@ -58,9 +58,12 @@ int readLine(char *ptr, uint16_t len)
         // Leer
         waitWhile(USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET);
         ptr[i]= USART_ReceiveData(USART1);
-        // Echo
-        waitWhile(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
-        USART_SendData(USART1, ptr[i]);
+
+        // Echo del caracter. Si es backspace y estamos en la posicion 0 no mostrarlo.
+        if(ptr[i]!=127 || i) {
+            waitWhile(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+            USART_SendData(USART1, ptr[i]);
+        }
 
         if(ptr[i]==127) {
             i= MAX(i-1, 0);
