@@ -1,0 +1,9 @@
+Interfaz USART TX/RX de MCU con pines
+Poder sacar USART TX/RX de BTM511 con jumpers
+Interfaz STLink de MCU con pines
+
+Pulsador reset general
+Pulsador user
+Led azul Bt
+Led verde
+Led rojo

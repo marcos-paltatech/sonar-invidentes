@@ -33,9 +33,12 @@ Headset Profile, rol de Gateway de audio
 	
 Setear gain de entrada a -1db
 	ATS590=2
+Desactivar amplificador de microfono
+    ATS415=0
+
 Desactivar RING despues de conectarse
-	ATS345=0
-	
+    ATS345=0
+
 Desactivar echo de consola:
 ATE0
 
@@ -85,6 +88,3 @@ Conexion
 Cuando el heaset se apaga manda
 	NO CARRIER 1112
 	
-Configuracion de audio
-	Desactivar amplificador de microfono
-	ATS415=0
