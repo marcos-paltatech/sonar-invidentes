@@ -95,7 +95,6 @@ static bool playerSetup()
     DAC_StructInit(&dacConfig);
     dacConfig.DAC_Trigger= DAC_Trigger_T6_TRGO; // TIM6 trigger
     dacConfig.DAC_WaveGeneration= DAC_WaveGeneration_None;
-    // No necesitamos el buffer si tenemos alta impedancia de entrada
     dacConfig.DAC_OutputBuffer= DAC_OutputBuffer_Disable;
     DAC_Init(DAC_Channel_1, &dacConfig);
     DAC_Cmd(DAC_Channel_1, ENABLE);

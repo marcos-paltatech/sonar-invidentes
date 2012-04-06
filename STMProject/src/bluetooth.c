@@ -301,31 +301,55 @@ bool btConnect()
     // Iniciar pairing
     ledBlueSetPeriod(200);
     printf("BT Empezando pairing.\r\n");
-    sprintf(cmd, "AT+BTW%s\r", devsAddrs[devIndex]);
-    atWrite(cmd, strlen(cmd));
-    if(!atReadOK(1000)) {
-        printf("BT Error, no llego el OK de AT+BTW.\r\n");
-        ledBlueSet(false);
-        return false;
+
+    const uint8_t pairRetries= 5;
+    uint8_t pairTries= 0;
+    bool pairOk= false;
+    while(!pairOk && pairTries < pairRetries) {
+		sprintf(cmd, "AT+BTW%s\r", devsAddrs[devIndex]);
+		atWrite(cmd, strlen(cmd));
+		if(!atReadOK(1000)) {
+			printf("BT Error, no llego el OK de AT+BTW.\r\n");
+			ledBlueSet(false);
+			return false;
+		}
+		// Esperar algo como "PAIR 0 001A0EE5081D 00" por 8 segundos
+		if(!atReadLine(cmd, cmdLen, 8000) || strncmp("PAIR ", cmd, 5) || cmd[5]!='0') {
+			printf("BT Error de pairing, recibi linea '%s'.\r\n", cmd);
+			pairOk= false;
+		} else {
+			pairOk= true;
+		}
     }
-    // Esperar algo como "PAIR 0 001A0EE5081D 00" por 8 segundos
-    if(!atReadLine(cmd, cmdLen, 8000) || strncmp("PAIR ", cmd, 5) || cmd[5]!='0') {
-        printf("BT Error de pairing, recibi linea '%s'.\r\n", cmd);
-        ledBlueSet(false);
-        return false;
+    if(!pairOk) {
+    	ledBlueSet(false);
+    	printf("BT Error de pairing.\r\n");
+    	return false;
     }
     printf("BT Pairing OK.\r\n");
-    sleep(500);
+    sleep(200);
 
     // CONNECTION
     ledBlueSetPeriod(50);
     printf("BT Empezando conexion.\r\n");
-    sprintf(cmd, "AT+HSGD%s\r", devsAddrs[devIndex]);
-    atWrite(cmd, strlen(cmd));
-    if(!atReadLine(cmd, cmdLen, 8000) || strncmp("CONNECT ", cmd, 8)) {
-        printf("BT Error de conexion, recibi linea '%s'.\r\n", cmd);
-        ledBlueSet(false);
-        return false;
+
+    const uint8_t connRetries= 5;
+    uint8_t connTries= 0;
+    bool connOk= false;
+    while(!connOk && connTries < connRetries) {
+		sprintf(cmd, "AT+HSGD%s\r", devsAddrs[devIndex]);
+		atWrite(cmd, strlen(cmd));
+		if(!atReadLine(cmd, cmdLen, 8000) || strncmp("CONNECT ", cmd, 8)) {
+			printf("BT Error de conexion, recibi linea '%s'.\r\n", cmd);
+			connOk= false;
+		} else {
+			connOk= true;
+		}
+    }
+    if(!connOk) {
+		printf("BT Error de conexion.\r\n", cmd);
+		ledBlueSet(false);
+		return false;
     }
     ledBlueSetPeriod(700);
     printf("BT Conexion OK.\r\n");
