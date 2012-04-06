@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Thu 05 Apr 2012 10:35:07 PM ART
+EESchema Schematic File Version 2  date Fri 06 Apr 2012 06:00:18 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -283,6 +283,15 @@ F 1 "CP1" H 3950 4850 50  0000 L CNN
 	1    3900 4950
 	0    -1   -1   0   
 $EndComp
+$Comp
+L +5V #PWR?
+U 1 1 4F7F5B96
+P 6250 1800
+F 0 "#PWR?" H 6250 1890 20  0001 C CNN
+F 1 "+5V" H 6250 1890 30  0000 C CNN
+	1    6250 1800
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
 	1100 2400 700  2400
 Wire Wire Line
@@ -319,7 +328,7 @@ Wire Wire Line
 Wire Wire Line
 	3200 3800 3450 3800
 Wire Wire Line
-	10550 2100 7250 2100
+	6250 2100 10550 2100
 Wire Wire Line
 	10400 1500 10400 1400
 Wire Wire Line
@@ -508,4 +517,9 @@ Wire Wire Line
 	3300 4950 3700 4950
 Wire Wire Line
 	4100 4950 4700 4950
+Wire Wire Line
+	6250 2100 6250 1800
+Connection ~ 7250 2100
+Text Notes 5650 1500 0    60   ~ 0
+Fuente de 5V regulada, para\ndisminuir ruido en el DAC.
 $EndSCHEMATC
