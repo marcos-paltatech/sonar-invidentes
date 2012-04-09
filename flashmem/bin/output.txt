@@ -1,0 +1,60 @@
+Memory info 
+  Page size   : 256 bytes 
+  Page count  : 4096 
+  Total memory: 1048576 bytes 
+
+Reading RAW samples from "./samples/" 
+  - 1khz.raw | 399999 bytes -> 1563 pages | Start page 0   
+  - Track0.raw |  38906 bytes ->  152 pages | Start page 1563
+  - Track1.raw |  64160 bytes ->  251 pages | Start page 1715
+  - Track2.raw |  51874 bytes ->  203 pages | Start page 1966
+  - Track3.raw | 101701 bytes ->  398 pages | Start page 2169
+  - Track4.raw |  66208 bytes ->  259 pages | Start page 2567
+  - Track5.raw |  83954 bytes ->  328 pages | Start page 2826
+  - Track6.raw |  33445 bytes ->  131 pages | Start page 3154
+  - chirp.raw | 159999 bytes ->  625 pages | Start page 3285
+We will use 3910 pages: 95% of total
+
+Making memory image. 
+  - 1khz.raw, start at 0x061B00, 129 bytes of filling
+  - Track0.raw, start at 0x06B300,   6 bytes of filling
+  - Track1.raw, start at 0x07AE00,  96 bytes of filling
+  - Track2.raw, start at 0x087900,  94 bytes of filling
+  - Track3.raw, start at 0x0A0700, 187 bytes of filling
+  - Track4.raw, start at 0x0B0A00,  96 bytes of filling
+  - Track5.raw, start at 0x0C5200,  14 bytes of filling
+  - Track6.raw, start at 0x0CD500,  91 bytes of filling
+  - chirp.raw, start at 0x0F4600,   1 bytes of filling
+Done. 
+
+Full Image checksum: 
+  0x34064872
+
+Saving image file... 
+Done 
+
+C code: 
+#define TRACKS_COUNT  9 
+const uint16_t TRACKS_PAGES[] = { 
+       0,  // Track Index  0: "1khz.raw"
+    1563,  // Track Index  1: "Track0.raw"
+    1715,  // Track Index  2: "Track1.raw"
+    1966,  // Track Index  3: "Track2.raw"
+    2169,  // Track Index  4: "Track3.raw"
+    2567,  // Track Index  5: "Track4.raw"
+    2826,  // Track Index  6: "Track5.raw"
+    3154,  // Track Index  7: "Track6.raw"
+    3285,  // Track Index  8: "chirp.raw"
+    3910   // Not a track, used to calculate the last track's size
+}; 
+
+Setting up serial. 
+setupPort: Opening port "/dev/ttyUSB0" 
+Done. 
+
+Writing data, make sure the MCU is ready.
+ 
+Page count confirmation OK. 
+Sending pages. 
+Page 3909 of 3910: 100.0%  
+Done!

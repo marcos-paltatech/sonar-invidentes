@@ -21,7 +21,7 @@ uint32_t adler32(uint8_t* data, uint32_t len)
     return (b << 16) | a;
 }
 
-void sendData(AbstractSerial& serial, char* data, int len)
+void sendData(AbstractSerial& serial, const char* data, int len)
 {
     int sent= 0;
     while(sent < len)
@@ -168,11 +168,15 @@ int main(int argc, char *argv[])
     qDebug() << "Done.";
 
     qDebug() << "\nWriting data, make sure the MCU is ready.\n";
+    // Send flashmem command
+    sendData(serial, "flashmem\r", 9);
+    sleep(1);
     // Write page number (uint16_t)
     sendData(serial, (char*)&usedPages, 2);
     // Wait for confirmation on page number (uint16_t)
-    uint16_t pagesConfirm;
-    recivData(serial, (char*)&pagesConfirm, 2);
+    uint16_t pagesConfirm= 0;
+    while(pagesConfirm != usedPages)
+        recivData(serial, (char*)&pagesConfirm, 2);
     if(pagesConfirm != usedPages) {
         qDebug() << "Error receiving page count confirmation: " << pagesConfirm;
         return EXIT_FAILURE;
