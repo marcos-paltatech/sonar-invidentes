@@ -153,7 +153,7 @@ int main(int argc, char *argv[])
                samplesNames[i].toLatin1().data());
         temp += samplesPages[i];
     }
-    qDebug("    %4d,  // Not a track, used to calculate the last track's size", temp);
+    qDebug("    %4d   // Not a track, used to calculate the last track's size", temp);
     qDebug() << "};";
 
     if(argc==3 and QString(argv[2])=="dummy") {
