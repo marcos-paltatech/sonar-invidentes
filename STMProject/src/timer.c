@@ -5,13 +5,13 @@
 #define TIMER_FREQ  100 // 10ms
 static uint32_t msecs;
 
-#define LEDYELLOW   LED3
+#define LEDGREEN   LED3
 #define LEDBLUE     LED4
 
 static uint16_t bluePeriod; // 0==Off, 0xFFFF=On
 static uint32_t blueLastToggle;
-static uint16_t yellowPeriod; // 0==Off, 0xFFFF=On
-static uint32_t yellowLastToggle;
+static uint16_t greenPeriod; // 0==Off, 0xFFFF=On
+static uint32_t greenLastToggle;
 
 void setupTimer()
 {
@@ -23,11 +23,11 @@ void setupTimer()
     uint32_t sysClock= clocks.SYSCLK_Frequency;
 
     STM32vldiscovery_LEDInit(LEDBLUE);
-    STM32vldiscovery_LEDInit(LEDYELLOW);
+    STM32vldiscovery_LEDInit(LEDGREEN);
     bluePeriod= 0;
-    yellowPeriod= 0;
+    greenPeriod= 0;
     blueLastToggle= 0;
-    yellowLastToggle= 0;
+    greenLastToggle= 0;
 
     // Iniciar systimer
     SysTick_Config(sysClock/TIMER_FREQ);
@@ -44,9 +44,9 @@ void SysTick_Handler(void)
         STM32vldiscovery_LEDToggle(LEDBLUE);
         blueLastToggle= msecs;
     }
-    if(yellowPeriod && yellowPeriod!=0xFFFF && msecs-yellowLastToggle>=yellowPeriod) {
+    if(greenPeriod && greenPeriod!=0xFFFF && msecs-greenLastToggle>=greenPeriod) {
         STM32vldiscovery_LEDToggle(LEDBLUE);
-        yellowLastToggle= msecs;
+        greenLastToggle= msecs;
     }
 }
 
@@ -81,19 +81,19 @@ void ledBlueSetPeriod(uint16_t period)
     bluePeriod= period;
 }
 
-void yellowBlueSet(bool on)
+void ledGreenSet(bool on)
 {
     if(on) {
-        yellowPeriod= 0xFFFF;
-        STM32vldiscovery_LEDOn(LEDYELLOW);
+        greenPeriod= 0xFFFF;
+        STM32vldiscovery_LEDOn(LEDGREEN);
     } else {
-        yellowPeriod= 0x0000;
-        STM32vldiscovery_LEDOff(LEDYELLOW);
+        greenPeriod= 0x0000;
+        STM32vldiscovery_LEDOff(LEDGREEN);
     }
 }
 
-void ledYellowSetPeriod(uint16_t period)
+void ledGreenSetPeriod(uint16_t period)
 {
-    yellowPeriod= period;
+    greenPeriod= period;
 }
 

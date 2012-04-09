@@ -434,7 +434,7 @@ void EXTI0_IRQHandler(void)
 
 	static int trackId= 0;
 	playerPlayTrack(trackId);
-	trackId= (trackId+1) % 7;
+	trackId= (trackId+1) % 9;
 
     EXTI_ClearITPendingBit(USER_BUTTON_EXTI_LINE);
 }

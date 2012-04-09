@@ -33,7 +33,7 @@ void SysTick_Handler(void);
 void ledBlueSet(bool on);
 void ledBlueSetPeriod(uint16_t period);
 
-void yellowBlueSet(bool on);
-void yellowBlueSetPeriod(uint16_t period);
+void ledGreenSet(bool on);
+void ledGreenSetPeriod(uint16_t period);
 
 #endif
