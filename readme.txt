@@ -1,5 +1,12 @@
+audio/
+    Tracks de audio, instrucciones para grabar tracks, etc.
+    Utilizamos Audacity para manipular audio.
+
 datasheets/
     Datasheets de componentes, application notes, etc.
+
+doc/
+    Archivos de documentacion varios.
 
 flashmem/
     Programa para flashear la memoria flash del sistema.

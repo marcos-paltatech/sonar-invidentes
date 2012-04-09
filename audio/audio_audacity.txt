@@ -1,0 +1,6 @@
+Una vez grabadas los tracks:
+
+File -> Export Multiple
+    Export Format: Other uncompressed files
+    Options: RAW (header-less), Unsigned 8 bit PCM
+    
