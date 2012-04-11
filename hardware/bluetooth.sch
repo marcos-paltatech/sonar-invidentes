@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Tue 10 Apr 2012 10:24:32 PM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:10:14 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -61,10 +61,10 @@ F 1 "C" H 9750 5350 50  0000 L CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
+L GND #PWR012
 U 1 1 4F84ADFC
 P 9700 5800
-F 0 "#PWR?" H 9700 5800 30  0001 C CNN
+F 0 "#PWR012" H 9700 5800 30  0001 C CNN
 F 1 "GND" H 9700 5730 30  0001 C CNN
 	1    9700 5800
 	1    0    0    -1  
@@ -94,10 +94,10 @@ F 1 "JUMPER" H 8350 5270 40  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
+L GND #PWR013
 U 1 1 4F84B3A8
 P 6950 4300
-F 0 "#PWR?" H 6950 4300 30  0001 C CNN
+F 0 "#PWR013" H 6950 4300 30  0001 C CNN
 F 1 "GND" H 6950 4230 30  0001 C CNN
 	1    6950 4300
 	1    0    0    -1  
@@ -107,19 +107,19 @@ The jumpers can be used to use another audio input,\nor use the audio output els
 Text GLabel 6300 2400 2    60   Input ~ 0
 3.3V
 $Comp
-L GND #PWR?
+L GND #PWR014
 U 1 1 4F84B82D
 P 4400 4100
-F 0 "#PWR?" H 4400 4100 30  0001 C CNN
+F 0 "#PWR014" H 4400 4100 30  0001 C CNN
 F 1 "GND" H 4400 4030 30  0001 C CNN
 	1    4400 4100
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
+L GND #PWR015
 U 1 1 4F84B83C
 P 5750 2400
-F 0 "#PWR?" H 5750 2400 30  0001 C CNN
+F 0 "#PWR015" H 5750 2400 30  0001 C CNN
 F 1 "GND" H 5750 2330 30  0001 C CNN
 	1    5750 2400
 	1    0    0    -1  
@@ -162,19 +162,19 @@ NoConn ~ 4600 3500
 NoConn ~ 5700 2550
 NoConn ~ 5800 2550
 $Comp
-L JUMPER ATRX
+L JUMPER AT_RX
 U 1 1 4F84CD79
 P 2800 3600
-F 0 "ATRX" H 2800 3750 60  0000 C CNN
+F 0 "AT_RX" H 2800 3750 60  0000 C CNN
 F 1 "JUMPER" H 2800 3520 40  0000 C CNN
 	1    2800 3600
 	-1   0    0    -1  
 $EndComp
 $Comp
-L JUMPER ATTX
+L JUMPER AT_TX
 U 1 1 4F84CD7F
 P 2800 3950
-F 0 "ATTX" H 2800 4100 60  0000 C CNN
+F 0 "AT_TX" H 2800 4100 60  0000 C CNN
 F 1 "JUMPER" H 2800 3870 40  0000 C CNN
 	1    2800 3950
 	-1   0    0    -1  
@@ -183,6 +183,44 @@ Text Notes 1750 3200 0    60   ~ 0
 The jumpers allow the module's UART to\nbe connected to a PC to be configured.
 Text Notes 1750 4250 0    60   ~ 0
 Default: 9600, N, 8, 1
+Text GLabel 9550 750  0    60   Input ~ 0
+3.3V
+$Comp
+L C C?
+U 1 1 4F8547A5
+P 9900 950
+F 0 "C?" H 9950 1050 50  0000 L CNN
+F 1 "100nF" H 9950 850 50  0000 L CNN
+	1    9900 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 4F8547AB
+P 10200 950
+F 0 "C?" H 10250 1050 50  0000 L CNN
+F 1 "100nF" H 10250 850 50  0000 L CNN
+	1    10200 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 4F8547B1
+P 10500 950
+F 0 "C?" H 10550 1050 50  0000 L CNN
+F 1 "100nF" H 10550 850 50  0000 L CNN
+	1    10500 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F8547B7
+P 9550 1250
+F 0 "#PWR?" H 9550 1250 30  0001 C CNN
+F 1 "GND" H 9550 1180 30  0001 C CNN
+	1    9550 1250
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
 	9300 5000 10250 5000
 Connection ~ 9700 5000
@@ -211,10 +249,6 @@ Wire Notes Line
 	7950 4450 7950 5950
 Wire Notes Line
 	7950 5950 8650 5950
-Wire Wire Line
-	7000 5200 7000 5000
-Connection ~ 7000 5000
-Connection ~ 7000 5000
 Wire Wire Line
 	6850 4300 6850 5350
 Connection ~ 6850 5100
@@ -276,4 +310,15 @@ Wire Notes Line
 	3700 4350 3700 3000
 Wire Notes Line
 	3700 3000 1650 3000
+Wire Wire Line
+	7000 5200 7000 5000
+Connection ~ 7000 5000
+Wire Wire Line
+	9550 1150 9550 1250
+Wire Wire Line
+	10500 750  9550 750 
+Wire Wire Line
+	10500 1150 9550 1150
+Text Notes 9200 1500 0    60   ~ 0
+Capacitors to place near VDD's
 $EndSCHEMATC
