@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:03:40 PM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 06:21:20 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -50,6 +50,7 @@ U 1 1 4F854A45
 P 6250 3900
 F 0 "U4" H 6400 3704 60  0000 C CNN
 F 1 "LD1117DT33C" H 6250 4100 60  0000 C CNN
+F 4 "497-1235-1-ND" H 6250 3900 60  0001 C CNN "mfg#"
 	1    6250 3900
 	1    0    0    -1  
 $EndComp
@@ -59,14 +60,15 @@ U 1 1 4F854A57
 P 6250 4800
 F 0 "U5" H 6400 4604 60  0000 C CNN
 F 1 "LD1117DT50C" H 6250 5000 60  0000 C CNN
+F 4 "497-1237-1-ND" H 6250 4800 60  0001 C CNN "mfg#"
 	1    6250 4800
 	1    0    0    1   
 $EndComp
 $Comp
-L GND #PWR024
+L GND #PWR025
 U 1 1 4F854CC3
 P 7400 4450
-F 0 "#PWR024" H 7400 4450 30  0001 C CNN
+F 0 "#PWR025" H 7400 4450 30  0001 C CNN
 F 1 "GND" H 7400 4380 30  0001 C CNN
 	1    7400 4450
 	1    0    0    -1  
@@ -157,4 +159,6 @@ Connection ~ 6850 4850
 Connection ~ 6850 4850
 Wire Wire Line
 	4450 4350 4450 4050
+Text Notes 700  850  0    118  ~ 24
+Power Supply
 $EndSCHEMATC

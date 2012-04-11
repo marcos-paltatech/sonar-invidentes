@@ -1,6 +1,6 @@
-update=Tue 10 Apr 2012 04:56:32 PM ART
+update=Wed 11 Apr 2012 04:50:59 PM ART
 version=1
-last_client=kicad
+last_client=cvpcb
 [eeschema]
 version=1
 LibDir=lib
@@ -50,11 +50,6 @@ LibName14=BTM511
 LibName15=SRF02
 LibName16=W25Q80BV
 LibName17=STM32F100RBT6B
-[cvpcb]
-version=1
-NetIExt=net
-[cvpcb/libraries]
-EquName1=devcms
 [pcbnew]
 version=1
 PadDrlX=320
@@ -73,7 +68,6 @@ TxtLar=120
 MSegLar=150
 LastNetListRead=
 [pcbnew/libraries]
-LibDir=
 LibName1=sockets
 LibName2=connect
 LibName3=discret
@@ -85,5 +79,11 @@ LibName8=led
 LibName9=dip_sockets
 LibName10=pga_sockets
 LibName11=valves
+LibDir=
 [general]
 version=1
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms

@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:03:40 PM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 06:21:20 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -39,6 +39,7 @@ F 0 "U2" H 5650 4000 50  0000 C CNN
 F 1 "BTM511" H 5650 4200 50  0000 C CNN
 F 2 "MODULE" H 5650 4100 50  0001 C CNN
 F 3 "DOCUMENTATION" H 5650 4100 50  0001 C CNN
+F 4 "BTM511-ND" H 5650 4100 60  0001 C CNN "mfg#"
 	1    5650 4100
 	-1   0    0    1   
 $EndComp
@@ -337,4 +338,6 @@ Wire Wire Line
 Wire Wire Line
 	9100 5150 9100 5000
 Connection ~ 9100 5000
+Text Notes 650  800  0    118  ~ 24
+Bluetooth Module
 $EndSCHEMATC

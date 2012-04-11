@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:03:40 PM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 06:21:20 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -39,21 +39,13 @@ F 0 "U3" H 5900 3950 50  0000 C CNN
 F 1 "W25Q80BV" H 5900 4150 50  0000 C CNN
 F 2 "MODULE" H 5900 4050 50  0001 C CNN
 F 3 "DOCUMENTATION" H 5900 4050 50  0001 C CNN
+F 4 "W25Q80BVSSIG-ND" H 5900 4050 60  0001 C CNN "mfg#"
 	1    5900 4050
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR023
-U 1 1 4F84D228
-P 4950 4350
-F 0 "#PWR023" H 4950 4350 30  0001 C CNN
-F 1 "GND" H 4950 4280 30  0001 C CNN
-	1    4950 4350
 	1    0    0    -1  
 $EndComp
 Text GLabel 4950 4100 0    60   Input ~ 0
 3.3V
-Text GLabel 6950 3900 2    60   Input ~ 0
+Text GLabel 7850 3900 2    60   Input ~ 0
 3.3V
 Text HLabel 6850 4100 2    60   Input ~ 0
 MEM_CLK
@@ -63,16 +55,37 @@ Text HLabel 4950 3900 0    60   Input ~ 0
 MEM_NCS
 Text HLabel 4950 4000 0    60   Output ~ 0
 MEM_MISO
+$Comp
+L GND #PWR023
+U 1 1 4F85D530
+P 4950 4300
+F 0 "#PWR023" H 4950 4300 30  0001 C CNN
+F 1 "GND" H 4950 4230 30  0001 C CNN
+	1    4950 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C22
+U 1 1 4F85DDDE
+P 7550 4100
+F 0 "C22" H 7600 4200 50  0000 L CNN
+F 1 "100nF" H 7600 4000 50  0000 L CNN
+	1    7550 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR024
+U 1 1 4F85DE08
+P 7550 4300
+F 0 "#PWR024" H 7550 4300 30  0001 C CNN
+F 1 "GND" H 7550 4230 30  0001 C CNN
+	1    7550 4300
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
 	5050 4100 4950 4100
 Wire Wire Line
 	6850 4000 6750 4000
-Wire Wire Line
-	6750 3900 6950 3900
-Wire Wire Line
-	6850 4000 6850 3900
-Connection ~ 6850 3900
-Connection ~ 6850 3900
 Wire Wire Line
 	6750 4100 6850 4100
 Wire Wire Line
@@ -82,7 +95,18 @@ Wire Wire Line
 Wire Wire Line
 	5050 4000 4950 4000
 Wire Wire Line
-	4950 4350 4950 4200
+	5050 4200 4950 4200
 Wire Wire Line
-	4950 4200 5050 4200
+	4950 4200 4950 4300
+Wire Wire Line
+	6750 3900 7850 3900
+Wire Wire Line
+	6850 4000 6850 3900
+Connection ~ 6850 3900
+Wire Wire Line
+	7550 3900 7550 3900
+Connection ~ 7550 3900
+Connection ~ 7550 3900
+Text Notes 650  800  0    118  ~ 24
+Flash Memory
 $EndSCHEMATC

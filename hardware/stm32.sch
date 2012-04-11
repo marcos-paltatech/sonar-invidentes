@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:03:40 PM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 06:21:20 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -37,6 +37,7 @@ U 1 1 4F84A0DC
 P 2950 4200
 F 0 "U1" H 1200 7850 60  0000 L CNN
 F 1 "STM32F100RBT6B" H 1200 7750 60  0000 L CNN
+F 4 "497-10494-ND" H 2950 4200 60  0001 C CNN "mfg#"
 	1    2950 4200
 	-1   0    0    -1  
 $EndComp
@@ -301,6 +302,7 @@ U 1 1 4F84E234
 P 9050 900
 F 0 "C4" H 9100 1000 50  0000 L CNN
 F 1 "100nF" H 9100 800 50  0000 L CNN
+F 4 "sada" H 9050 900 60  0001 C CNN "mfg#"
 	1    9050 900 
 	1    0    0    -1  
 $EndComp
@@ -382,6 +384,7 @@ U 1 1 4F850943
 P 7050 1000
 F 0 "X1" H 7050 1150 60  0000 C CNN
 F 1 "8Mhz" H 7050 850 60  0000 C CNN
+F 4 "X165-ND" H 7050 1000 60  0001 C CNN "mfg#"
 	1    7050 1000
 	0    -1   -1   0   
 $EndComp
@@ -838,4 +841,6 @@ Wire Wire Line
 	6550 2700 6450 2700
 Wire Wire Line
 	6450 2700 6450 2800
+Text Notes 700  850  0    118  ~ 24
+MCU
 $EndSCHEMATC

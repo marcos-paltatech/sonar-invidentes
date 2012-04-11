@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:03:40 PM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 06:21:20 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -230,4 +230,6 @@ Connection ~ 3600 4450
 Wire Wire Line
 	3600 3600 3600 3500
 Connection ~ 3600 3500
+Text Notes 700  850  0    118  ~ 24
+Sensors
 $EndSCHEMATC
