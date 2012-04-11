@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:10:14 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:24:52 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -43,28 +43,28 @@ F 3 "DOCUMENTATION" H 5650 4100 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L CP1 1uF
+L CP1 C20
 U 1 1 4F84ADF0
 P 9100 5000
-F 0 "1uF" H 9150 5100 50  0000 L CNN
-F 1 "CP1" H 9150 4900 50  0000 L CNN
+F 0 "C20" H 9150 5100 50  0000 L CNN
+F 1 "1uF" H 9150 4900 50  0000 L CNN
 	1    9100 5000
 	0    -1   -1   0   
 $EndComp
 $Comp
-L C 4.7nF
+L C C21
 U 1 1 4F84ADF6
 P 9700 5450
-F 0 "4.7nF" H 9750 5550 50  0000 L CNN
-F 1 "C" H 9750 5350 50  0000 L CNN
+F 0 "C21" H 9750 5550 50  0000 L CNN
+F 1 "4.7nF" H 9750 5350 50  0000 L CNN
 	1    9700 5450
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR012
+L GND #PWR017
 U 1 1 4F84ADFC
 P 9700 5800
-F 0 "#PWR012" H 9700 5800 30  0001 C CNN
+F 0 "#PWR017" H 9700 5800 30  0001 C CNN
 F 1 "GND" H 9700 5730 30  0001 C CNN
 	1    9700 5800
 	1    0    0    -1  
@@ -73,31 +73,31 @@ Text HLabel 10250 5000 2    60   Input ~ 0
 DACInput
 Text Notes 9500 5250 2    60   ~ 0
 Coupling Cap.
-Text Notes 9950 5500 0    60   ~ 0
+Text Notes 10000 5400 0    60   ~ 0
 Low-pass filter to\nsmooth DAC's output.
 $Comp
-L JUMPER AU+
+L JUMPER AU+1
 U 1 1 4F84AECC
 P 8350 5000
-F 0 "AU+" H 8350 5150 60  0000 C CNN
+F 0 "AU+1" H 8350 5150 60  0000 C CNN
 F 1 "JUMPER" H 8350 4920 40  0000 C CNN
 	1    8350 5000
 	1    0    0    -1  
 $EndComp
 $Comp
-L JUMPER AU-
+L JUMPER AU-1
 U 1 1 4F84AF11
 P 8350 5350
-F 0 "AU-" H 8350 5500 60  0000 C CNN
+F 0 "AU-1" H 8350 5500 60  0000 C CNN
 F 1 "JUMPER" H 8350 5270 40  0000 C CNN
 	1    8350 5350
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR013
+L GND #PWR018
 U 1 1 4F84B3A8
 P 6950 4300
-F 0 "#PWR013" H 6950 4300 30  0001 C CNN
+F 0 "#PWR018" H 6950 4300 30  0001 C CNN
 F 1 "GND" H 6950 4230 30  0001 C CNN
 	1    6950 4300
 	1    0    0    -1  
@@ -107,19 +107,19 @@ The jumpers can be used to use another audio input,\nor use the audio output els
 Text GLabel 6300 2400 2    60   Input ~ 0
 3.3V
 $Comp
-L GND #PWR014
+L GND #PWR019
 U 1 1 4F84B82D
 P 4400 4100
-F 0 "#PWR014" H 4400 4100 30  0001 C CNN
+F 0 "#PWR019" H 4400 4100 30  0001 C CNN
 F 1 "GND" H 4400 4030 30  0001 C CNN
 	1    4400 4100
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR015
+L GND #PWR020
 U 1 1 4F84B83C
 P 5750 2400
-F 0 "#PWR015" H 5750 2400 30  0001 C CNN
+F 0 "#PWR020" H 5750 2400 30  0001 C CNN
 F 1 "GND" H 5750 2330 30  0001 C CNN
 	1    5750 2400
 	1    0    0    -1  
@@ -162,19 +162,19 @@ NoConn ~ 4600 3500
 NoConn ~ 5700 2550
 NoConn ~ 5800 2550
 $Comp
-L JUMPER AT_RX
+L JUMPER AT_RX1
 U 1 1 4F84CD79
 P 2800 3600
-F 0 "AT_RX" H 2800 3750 60  0000 C CNN
+F 0 "AT_RX1" H 2800 3750 60  0000 C CNN
 F 1 "JUMPER" H 2800 3520 40  0000 C CNN
 	1    2800 3600
 	-1   0    0    -1  
 $EndComp
 $Comp
-L JUMPER AT_TX
+L JUMPER AT_TX1
 U 1 1 4F84CD7F
 P 2800 3950
-F 0 "AT_TX" H 2800 4100 60  0000 C CNN
+F 0 "AT_TX1" H 2800 4100 60  0000 C CNN
 F 1 "JUMPER" H 2800 3870 40  0000 C CNN
 	1    2800 3950
 	-1   0    0    -1  
@@ -186,41 +186,43 @@ Default: 9600, N, 8, 1
 Text GLabel 9550 750  0    60   Input ~ 0
 3.3V
 $Comp
-L C C?
+L C C13
 U 1 1 4F8547A5
 P 9900 950
-F 0 "C?" H 9950 1050 50  0000 L CNN
+F 0 "C13" H 9950 1050 50  0000 L CNN
 F 1 "100nF" H 9950 850 50  0000 L CNN
 	1    9900 950 
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C C14
 U 1 1 4F8547AB
 P 10200 950
-F 0 "C?" H 10250 1050 50  0000 L CNN
+F 0 "C14" H 10250 1050 50  0000 L CNN
 F 1 "100nF" H 10250 850 50  0000 L CNN
 	1    10200 950 
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C C15
 U 1 1 4F8547B1
 P 10500 950
-F 0 "C?" H 10550 1050 50  0000 L CNN
+F 0 "C15" H 10550 1050 50  0000 L CNN
 F 1 "100nF" H 10550 850 50  0000 L CNN
 	1    10500 950 
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
+L GND #PWR021
 U 1 1 4F8547B7
 P 9550 1250
-F 0 "#PWR?" H 9550 1250 30  0001 C CNN
+F 0 "#PWR021" H 9550 1250 30  0001 C CNN
 F 1 "GND" H 9550 1180 30  0001 C CNN
 	1    9550 1250
 	1    0    0    -1  
 $EndComp
+Text Notes 9200 1500 0    60   ~ 0
+Capacitors to place near VDD's
 Wire Wire Line
 	9300 5000 10250 5000
 Connection ~ 9700 5000
@@ -319,6 +321,20 @@ Wire Wire Line
 	10500 750  9550 750 
 Wire Wire Line
 	10500 1150 9550 1150
-Text Notes 9200 1500 0    60   ~ 0
-Capacitors to place near VDD's
+Wire Wire Line
+	9900 750  9900 750 
+Connection ~ 9900 750 
+Connection ~ 9900 750 
+Wire Wire Line
+	10200 750  10200 750 
+Connection ~ 10200 750 
+Connection ~ 10200 750 
+Wire Wire Line
+	10200 1150 10200 1150
+Connection ~ 10200 1150
+Connection ~ 10200 1150
+Wire Wire Line
+	9900 1150 9900 1150
+Connection ~ 9900 1150
+Connection ~ 9900 1150
 $EndSCHEMATC

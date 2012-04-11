@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:10:14 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:24:52 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -276,10 +276,10 @@ Text GLabel 6900 6250 0    60   Input ~ 0
 Text Notes 6400 6500 0    60   ~ 0
 STLink SWD for programming\nand debugging.
 $Comp
-L C C?
+L C C7
 U 1 1 4F84E188
 P 9900 2850
-F 0 "C?" H 9950 2950 50  0000 L CNN
+F 0 "C7" H 9950 2950 50  0000 L CNN
 F 1 "100nF" H 9950 2750 50  0000 L CNN
 	1    9900 2850
 	-1   0    0    1   
@@ -296,64 +296,64 @@ $EndComp
 Text GLabel 8700 700  0    60   Input ~ 0
 3.3V
 $Comp
-L C C?
+L C C4
 U 1 1 4F84E234
 P 9050 900
-F 0 "C?" H 9100 1000 50  0000 L CNN
+F 0 "C4" H 9100 1000 50  0000 L CNN
 F 1 "100nF" H 9100 800 50  0000 L CNN
 	1    9050 900 
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C C5
 U 1 1 4F84E243
 P 9350 900
-F 0 "C?" H 9400 1000 50  0000 L CNN
+F 0 "C5" H 9400 1000 50  0000 L CNN
 F 1 "100nF" H 9400 800 50  0000 L CNN
 	1    9350 900 
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C C6
 U 1 1 4F84E252
 P 9650 900
-F 0 "C?" H 9700 1000 50  0000 L CNN
+F 0 "C6" H 9700 1000 50  0000 L CNN
 F 1 "100nF" H 9700 800 50  0000 L CNN
 	1    9650 900 
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C C9
 U 1 1 4F84E261
 P 9950 900
-F 0 "C?" H 10000 1000 50  0000 L CNN
+F 0 "C9" H 10000 1000 50  0000 L CNN
 F 1 "100nF" H 10000 800 50  0000 L CNN
 	1    9950 900 
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C C10
 U 1 1 4F84E270
 P 10250 900
-F 0 "C?" H 10300 1000 50  0000 L CNN
+F 0 "C10" H 10300 1000 50  0000 L CNN
 F 1 "100nF" H 10300 800 50  0000 L CNN
 	1    10250 900 
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C C11
 U 1 1 4F84E27F
 P 10550 900
-F 0 "C?" H 10600 1000 50  0000 L CNN
+F 0 "C11" H 10600 1000 50  0000 L CNN
 F 1 "100nF" H 10600 800 50  0000 L CNN
 	1    10550 900 
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C C12
 U 1 1 4F84E28E
 P 10850 900
-F 0 "C?" H 10900 1000 50  0000 L CNN
+F 0 "C12" H 10900 1000 50  0000 L CNN
 F 1 "100nF" H 10900 800 50  0000 L CNN
 	1    10850 900 
 	1    0    0    -1  
@@ -386,73 +386,73 @@ F 1 "8Mhz" H 7050 850 60  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R R?
+L R R8
 U 1 1 4F85095C
 P 6650 1350
-F 0 "R?" V 6730 1350 50  0000 C CNN
+F 0 "R8" V 6730 1350 50  0000 C CNN
 F 1 "220" V 6650 1350 50  0000 C CNN
 	1    6650 1350
 	0    -1   -1   0   
 $EndComp
 $Comp
-L C C?
+L C C2
 U 1 1 4F85096B
 P 7400 650
-F 0 "C?" H 7450 750 50  0000 L CNN
+F 0 "C2" H 7450 750 50  0000 L CNN
 F 1 "20pF" H 7450 550 50  0000 L CNN
 	1    7400 650 
 	0    -1   1    0   
 $EndComp
 $Comp
-L C C?
+L C C3
 U 1 1 4F850978
 P 7400 1350
-F 0 "C?" H 7450 1450 50  0000 L CNN
+F 0 "C3" H 7450 1450 50  0000 L CNN
 F 1 "20pF" H 7450 1250 50  0000 L CNN
 	1    7400 1350
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR?
+L GND #PWR012
 U 1 1 4F850AA9
 P 7700 1450
-F 0 "#PWR?" H 7700 1450 30  0001 C CNN
+F 0 "#PWR012" H 7700 1450 30  0001 C CNN
 F 1 "GND" H 7700 1380 30  0001 C CNN
 	1    7700 1450
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R R6
 U 1 1 4F8514FB
 P 5000 3700
-F 0 "R?" V 5080 3700 50  0000 C CNN
+F 0 "R6" V 5080 3700 50  0000 C CNN
 F 1 "10K" V 5000 3700 50  0000 C CNN
 	1    5000 3700
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR?
+L GND #PWR013
 U 1 1 4F8515C3
 P 5350 3800
-F 0 "#PWR?" H 5350 3800 30  0001 C CNN
+F 0 "#PWR013" H 5350 3800 30  0001 C CNN
 F 1 "GND" H 5350 3730 30  0001 C CNN
 	1    5350 3800
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R R7
 U 1 1 4F85167E
 P 5500 7150
-F 0 "R?" V 5580 7150 50  0000 C CNN
+F 0 "R7" V 5580 7150 50  0000 C CNN
 F 1 "10K" V 5500 7150 50  0000 C CNN
 	1    5500 7150
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR?
+L GND #PWR014
 U 1 1 4F851684
 P 5850 7250
-F 0 "#PWR?" H 5850 7250 30  0001 C CNN
+F 0 "#PWR014" H 5850 7250 30  0001 C CNN
 F 1 "GND" H 5850 7180 30  0001 C CNN
 	1    5850 7250
 	1    0    0    -1  
@@ -464,10 +464,10 @@ PA0
 Text Label 9050 2550 2    60   ~ 0
 NRST
 $Comp
-L C C?
+L C C8
 U 1 1 4F851FD5
 P 9900 3750
-F 0 "C?" H 9950 3850 50  0000 L CNN
+F 0 "C8" H 9950 3850 50  0000 L CNN
 F 1 "100nF" H 9950 3650 50  0000 L CNN
 	1    9900 3750
 	-1   0    0    1   
@@ -477,26 +477,26 @@ L SW_PUSH SW2
 U 1 1 4F851FE1
 P 9450 3950
 F 0 "SW2" H 9600 4060 50  0000 C CNN
-F 1 "USERBTN" H 9450 3870 50  0000 C CNN
+F 1 "USR_BTN" H 9450 3870 50  0000 C CNN
 	1    9450 3950
 	0    -1   -1   0   
 $EndComp
 Text Label 9050 3450 2    60   ~ 0
 PA0
 $Comp
-L R R?
+L R R10
 U 1 1 4F851FEF
 P 10300 3950
-F 0 "R?" V 10380 3950 50  0000 C CNN
+F 0 "R10" V 10380 3950 50  0000 C CNN
 F 1 "10K" V 10300 3950 50  0000 C CNN
 	1    10300 3950
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R R9
 U 1 1 4F852194
 P 9900 4200
-F 0 "R?" V 9980 4200 50  0000 C CNN
+F 0 "R9" V 9980 4200 50  0000 C CNN
 F 1 "100" V 9900 4200 50  0000 C CNN
 	1    9900 4200
 	1    0    0    -1  
@@ -504,10 +504,10 @@ $EndComp
 Text GLabel 9350 4450 0    60   Input ~ 0
 3.3V
 $Comp
-L GND #PWR?
+L GND #PWR015
 U 1 1 4F8524C2
 P 10300 4450
-F 0 "#PWR?" H 10300 4450 30  0001 C CNN
+F 0 "#PWR015" H 10300 4450 30  0001 C CNN
 F 1 "GND" H 10300 4380 30  0001 C CNN
 	1    10300 4450
 	1    0    0    -1  
@@ -543,12 +543,21 @@ PC9
 Text Notes 9050 1300 0    60   ~ 0
 Capacitors to place near VDD's
 $Comp
-L C C?
+L C C1
 U 1 1 4F8559B5
 P 5350 2100
-F 0 "C?" H 5400 2200 50  0000 L CNN
+F 0 "C1" H 5400 2200 50  0000 L CNN
 F 1 "1uF" H 5400 2000 50  0000 L CNN
 	1    5350 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR016
+U 1 1 4F855D7B
+P 5350 2300
+F 0 "#PWR016" H 5350 2300 30  0001 C CNN
+F 1 "GND" H 5350 2230 30  0001 C CNN
+	1    5350 2300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -673,7 +682,7 @@ Wire Notes Line
 Wire Wire Line
 	8700 700  10850 700 
 Wire Wire Line
-	10850 1100 8700 1100
+	8700 1100 10850 1100
 Wire Wire Line
 	8700 1100 8700 1200
 Wire Wire Line
@@ -683,7 +692,7 @@ Wire Wire Line
 Wire Wire Line
 	9900 2550 9900 2650
 Wire Wire Line
-	9900 3150 9450 3150
+	9450 3150 9900 3150
 Wire Wire Line
 	7700 650  7700 1450
 Connection ~ 7700 1350
@@ -772,13 +781,62 @@ Wire Wire Line
 	4850 1900 5750 1900
 Wire Wire Line
 	4950 1700 4750 1700
-$Comp
-L GND #PWR?
-U 1 1 4F855D7B
-P 5350 2300
-F 0 "#PWR?" H 5350 2300 30  0001 C CNN
-F 1 "GND" H 5350 2230 30  0001 C CNN
-	1    5350 2300
-	1    0    0    -1  
-$EndComp
+Wire Wire Line
+	5350 1900 5350 1900
+Connection ~ 5350 1900
+Connection ~ 5350 1900
+Wire Wire Line
+	9050 700  9050 700 
+Connection ~ 9050 700 
+Connection ~ 9050 700 
+Wire Wire Line
+	9050 1100 9050 1100
+Connection ~ 9050 1100
+Connection ~ 9050 1100
+Wire Wire Line
+	9350 1100 9350 1100
+Connection ~ 9350 1100
+Connection ~ 9350 1100
+Wire Wire Line
+	9350 700  9350 700 
+Connection ~ 9350 700 
+Connection ~ 9350 700 
+Wire Wire Line
+	9650 700  9650 700 
+Connection ~ 9650 700 
+Connection ~ 9650 700 
+Wire Wire Line
+	9650 1100 9650 1100
+Connection ~ 9650 1100
+Connection ~ 9650 1100
+Wire Wire Line
+	9950 1100 9950 1100
+Connection ~ 9950 1100
+Connection ~ 9950 1100
+Wire Wire Line
+	9950 700  9950 700 
+Connection ~ 9950 700 
+Connection ~ 9950 700 
+Wire Wire Line
+	10250 700  10250 700 
+Connection ~ 10250 700 
+Connection ~ 10250 700 
+Wire Wire Line
+	10250 1100 10250 1100
+Connection ~ 10250 1100
+Connection ~ 10250 1100
+Wire Wire Line
+	10550 1100 10550 1100
+Connection ~ 10550 1100
+Connection ~ 10550 1100
+Wire Wire Line
+	10550 700  10550 700 
+Connection ~ 10550 700 
+Connection ~ 10550 700 
+Wire Wire Line
+	9450 2550 9450 2550
+Connection ~ 9450 2550
+Connection ~ 9450 2550
+Connection ~ 9900 3150
+Connection ~ 9900 3150
 $EndSCHEMATC

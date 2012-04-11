@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:10:15 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:24:52 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -32,10 +32,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L CONN_2 P?
+L CONN_2 P5
 U 1 1 4F854A2A
 P 4100 3950
-F 0 "P?" V 4050 3950 40  0000 C CNN
+F 0 "P5" V 4050 3950 40  0000 C CNN
 F 1 "VIN" V 4150 3950 40  0000 C CNN
 	1    4100 3950
 	-1   0    0    -1  
@@ -63,10 +63,10 @@ F 1 "LD1117DT50C" H 6250 5000 60  0000 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L GND #PWR?
+L GND #PWR024
 U 1 1 4F854CC3
 P 7400 4450
-F 0 "#PWR?" H 7400 4450 30  0001 C CNN
+F 0 "#PWR024" H 7400 4450 30  0001 C CNN
 F 1 "GND" H 7400 4380 30  0001 C CNN
 	1    7400 4450
 	1    0    0    -1  
@@ -76,37 +76,37 @@ Text GLabel 7400 3850 2    60   Output ~ 0
 Text GLabel 7400 4850 2    60   Output ~ 0
 3.3V
 $Comp
-L CP1 C?
+L CP1 C17
 U 1 1 4F8552D8
 P 5650 4600
-F 0 "C?" H 5700 4700 50  0000 L CNN
+F 0 "C17" H 5700 4700 50  0000 L CNN
 F 1 "100nF" H 5700 4500 50  0000 L CNN
 	1    5650 4600
 	1    0    0    1   
 $EndComp
 $Comp
-L CP1 C?
+L CP1 C19
 U 1 1 4F8552F1
 P 6850 4600
-F 0 "C?" H 6900 4700 50  0000 L CNN
+F 0 "C19" H 6900 4700 50  0000 L CNN
 F 1 "10uF" H 6900 4500 50  0000 L CNN
 	1    6850 4600
 	1    0    0    1   
 $EndComp
 $Comp
-L CP1 C?
+L CP1 C16
 U 1 1 4F855303
 P 5650 4100
-F 0 "C?" H 5700 4200 50  0000 L CNN
+F 0 "C16" H 5700 4200 50  0000 L CNN
 F 1 "100nF" H 5700 4000 50  0000 L CNN
 	1    5650 4100
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP1 C?
+L CP1 C18
 U 1 1 4F855309
 P 6850 4100
-F 0 "C?" H 6900 4200 50  0000 L CNN
+F 0 "C18" H 6900 4200 50  0000 L CNN
 F 1 "10uF" H 6900 4000 50  0000 L CNN
 	1    6850 4100
 	1    0    0    -1  

@@ -11,3 +11,7 @@ qrc_*
 *.user
 *.user.*
 *bmp
+*dcm
+*cache*
+*ps
+*bck

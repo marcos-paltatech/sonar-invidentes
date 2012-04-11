@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:10:14 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:24:52 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -47,10 +47,10 @@ $EndComp
 Text GLabel 2750 3500 0    60   Input ~ 0
 5V
 $Comp
-L GND #PWR016
+L GND #PWR022
 U 1 1 4F85598B
 P 5000 4600
-F 0 "#PWR016" H 5000 4600 30  0001 C CNN
+F 0 "#PWR022" H 5000 4600 30  0001 C CNN
 F 1 "GND" H 5000 4530 30  0001 C CNN
 	1    5000 4600
 	1    0    0    -1  
