@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 03:48:29 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 01:47:25 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -72,9 +72,9 @@ F 1 "GND" H 7400 4380 30  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 7400 3850 2    60   Output ~ 0
-5V
-Text GLabel 7400 4850 2    60   Output ~ 0
 3.3V
+Text GLabel 7400 4850 2    60   Output ~ 0
+5V
 $Comp
 L CP1 C17
 U 1 1 4F8552D8

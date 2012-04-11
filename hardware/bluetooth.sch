@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 03:48:29 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 01:47:25 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -45,35 +45,35 @@ $EndComp
 $Comp
 L CP1 C20
 U 1 1 4F84ADF0
-P 9100 5000
-F 0 "C20" H 9150 5100 50  0000 L CNN
-F 1 "1uF" H 9150 4900 50  0000 L CNN
-	1    9100 5000
-	0    -1   -1   0   
+P 9700 5000
+F 0 "C20" H 9750 5100 50  0000 L CNN
+F 1 "1uF" H 9750 4900 50  0000 L CNN
+	1    9700 5000
+	0    1    -1   0   
 $EndComp
 $Comp
 L C C21
 U 1 1 4F84ADF6
-P 9700 5350
-F 0 "C21" H 9750 5450 50  0000 L CNN
-F 1 "4.7nF" H 9750 5250 50  0000 L CNN
-	1    9700 5350
+P 9100 5350
+F 0 "C21" H 9150 5450 50  0000 L CNN
+F 1 "4.7nF" H 9150 5250 50  0000 L CNN
+	1    9100 5350
 	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR017
 U 1 1 4F84ADFC
-P 9700 5800
-F 0 "#PWR017" H 9700 5800 30  0001 C CNN
-F 1 "GND" H 9700 5730 30  0001 C CNN
-	1    9700 5800
+P 9100 5800
+F 0 "#PWR017" H 9100 5800 30  0001 C CNN
+F 1 "GND" H 9100 5730 30  0001 C CNN
+	1    9100 5800
 	1    0    0    -1  
 $EndComp
 Text HLabel 10250 5000 2    60   Input ~ 0
 DACInput
-Text Notes 9500 5250 2    60   ~ 0
+Text Notes 10100 5250 2    60   ~ 0
 Coupling Cap.
-Text Notes 10000 5400 0    60   ~ 0
+Text Notes 9300 5750 0    60   ~ 0
 Low-pass filter to\nsmooth DAC's output.
 $Comp
 L JUMPER AU+1
@@ -222,13 +222,9 @@ F 1 "GND" H 9550 1180 30  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Notes 9200 1500 0    60   ~ 0
-Capacitors to place near VDD's
+Capacitors to be placed near VDD's
 Wire Wire Line
-	9300 5000 10250 5000
-Connection ~ 9700 5000
-Connection ~ 9700 5000
-Wire Wire Line
-	9700 5550 9700 5800
+	9100 5550 9100 5800
 Wire Notes Line
 	11000 4700 11000 5950
 Wire Notes Line
@@ -240,11 +236,9 @@ Wire Wire Line
 Wire Wire Line
 	6850 5100 6700 5100
 Wire Wire Line
-	9700 5650 8650 5650
-Wire Wire Line
 	8650 5650 8650 5350
 Wire Wire Line
-	8900 5000 8650 5000
+	8650 5000 9500 5000
 Wire Notes Line
 	7950 4450 7950 5950
 Wire Notes Line
@@ -335,7 +329,12 @@ Connection ~ 9900 1150
 Wire Wire Line
 	6700 4200 6950 4200
 Connection ~ 6950 4200
+Connection ~ 9100 5650
 Wire Wire Line
-	9700 5000 9700 5150
-Connection ~ 9700 5650
+	8650 5650 9100 5650
+Wire Wire Line
+	9900 5000 10250 5000
+Wire Wire Line
+	9100 5150 9100 5000
+Connection ~ 9100 5000
 $EndSCHEMATC

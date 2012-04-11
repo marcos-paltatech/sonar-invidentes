@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 03:48:29 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 01:47:25 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -55,10 +55,14 @@ Text GLabel 4950 4100 0    60   Input ~ 0
 3.3V
 Text GLabel 6950 3900 2    60   Input ~ 0
 3.3V
-Wire Wire Line
-	5050 4200 4950 4200
-Wire Wire Line
-	4950 4200 4950 4350
+Text HLabel 6850 4100 2    60   Input ~ 0
+MEM_CLK
+Text HLabel 6850 4200 2    60   Input ~ 0
+MEM_MOSI
+Text HLabel 4950 3900 0    60   Input ~ 0
+MEM_NCS
+Text HLabel 4950 4000 0    60   Output ~ 0
+MEM_MISO
 Wire Wire Line
 	5050 4100 4950 4100
 Wire Wire Line
@@ -77,12 +81,8 @@ Wire Wire Line
 	5050 3900 4950 3900
 Wire Wire Line
 	5050 4000 4950 4000
-Text HLabel 6850 4100 2    60   Input ~ 0
-MEM_CLK
-Text HLabel 6850 4200 2    60   Input ~ 0
-MEM_MOSI
-Text HLabel 4950 3900 0    60   Input ~ 0
-MEM_NCS
-Text HLabel 4950 4000 0    60   Output ~ 0
-MEM_MISO
+Wire Wire Line
+	4950 4350 4950 4200
+Wire Wire Line
+	4950 4200 5050 4200
 $EndSCHEMATC

@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 03:48:29 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 01:47:25 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -415,10 +415,10 @@ $EndComp
 $Comp
 L GND #PWR012
 U 1 1 4F850AA9
-P 7700 1450
-F 0 "#PWR012" H 7700 1450 30  0001 C CNN
-F 1 "GND" H 7700 1380 30  0001 C CNN
-	1    7700 1450
+P 7700 1500
+F 0 "#PWR012" H 7700 1500 30  0001 C CNN
+F 1 "GND" H 7700 1430 30  0001 C CNN
+	1    7700 1500
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -532,8 +532,8 @@ Text Label 6550 2600 2    60   ~ 0
 RX
 Text Label 6550 2700 2    60   ~ 0
 GND
-Text Notes 6850 1600 2    60   ~ 0
-Oscillator.
+Text Notes 7800 1650 2    60   ~ 0
+Oscillator (from the Discovery).
 Text Label 6500 3800 2    60   ~ 0
 PC7
 Text Label 6500 4100 2    60   ~ 0
@@ -541,7 +541,7 @@ PC8
 Text Label 6500 4400 2    60   ~ 0
 PC9
 Text Notes 9050 1300 0    60   ~ 0
-Capacitors to place near VDD's
+Capacitors to be placed near VDD's
 $Comp
 L C C1
 U 1 1 4F8559B5
@@ -570,10 +570,6 @@ Wire Wire Line
 	6550 5400 6450 5400
 Wire Wire Line
 	6450 5400 6450 5500
-Wire Wire Line
-	6550 2700 6450 2700
-Wire Wire Line
-	6450 2700 6450 2800
 Wire Notes Line
 	7850 2950 6300 2950
 Wire Wire Line
@@ -692,10 +688,6 @@ Wire Wire Line
 Wire Wire Line
 	9450 3150 9900 3150
 Wire Wire Line
-	7700 650  7700 1450
-Connection ~ 7700 1350
-Connection ~ 7700 1350
-Wire Wire Line
 	4600 1350 6400 1350
 Wire Wire Line
 	7050 1300 7050 1350
@@ -749,10 +741,6 @@ Wire Notes Line
 	10450 2150 8750 2150
 Wire Wire Line
 	7200 1350 6900 1350
-Wire Wire Line
-	7700 650  7600 650 
-Wire Wire Line
-	7700 1350 7600 1350
 Wire Wire Line
 	6400 1250 6400 650 
 Wire Wire Line
@@ -839,4 +827,15 @@ Connection ~ 9900 3150
 Connection ~ 9900 3150
 Wire Wire Line
 	4950 7450 4600 7450
+Wire Wire Line
+	7700 1500 7700 650 
+Wire Wire Line
+	7700 650  7600 650 
+Wire Wire Line
+	7600 1350 7700 1350
+Connection ~ 7700 1350
+Wire Wire Line
+	6550 2700 6450 2700
+Wire Wire Line
+	6450 2700 6450 2800
 $EndSCHEMATC

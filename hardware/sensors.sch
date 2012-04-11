@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 03:48:29 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 01:47:25 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -139,7 +139,7 @@ SCL
 Text Label 6650 3450 0    60   ~ 0
 GND
 Text Notes 2000 4750 0    60   ~ 0
-STM32 pins tolerate\n5V logic leves.
+STM32 pins tolerate\n5V logic levels.
 Wire Wire Line
 	5000 4100 5250 4100
 Wire Wire Line
