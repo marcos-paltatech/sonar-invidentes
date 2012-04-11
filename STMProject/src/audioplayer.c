@@ -52,16 +52,13 @@ bool setAutoReload(TIM_TypeDef* tim, uint32_t rate, uint8_t channels)
 
 static bool playerSetup()
 {
-    // Setear "Interrupt and exception vectors table"
-    NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x00);
-    // Configurar tabla de prioridades a 2 bits
-    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+	// Es necesario que se haya llamado setupITs();
 
     NVIC_InitTypeDef nvicConfig;
     // TIM6 interrupt
     nvicConfig.NVIC_IRQChannel= TIM6_DAC_IRQn;
     nvicConfig.NVIC_IRQChannelPreemptionPriority= 0;
-    nvicConfig.NVIC_IRQChannelSubPriority= 1;
+    nvicConfig.NVIC_IRQChannelSubPriority= 0;
     nvicConfig.NVIC_IRQChannelCmd= ENABLE;
     NVIC_Init(&nvicConfig);
     // DMA1_Channel3 interrupt
@@ -228,13 +225,12 @@ void DMA1_Channel3_IRQHandler()
     playerDMATransfer();
 
     DMA_ClearITPendingBit(DMA1_IT_TC3);
-    //printf("DMA %d\r\n", pcmBufferIndex);
 }
 
 // Interrupcion del TIM6 al DAC
 // Esta interrupcion es la que le indica al DAC que tiene que pedirle
 // datos al engine DMA, y se ejecuta una vez por sample de audio.
-void TIM6_DAC_IRQHandler(void)
+void TIM6_DAC_IRQHandler()
 {
     if(TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET)
         TIM_ClearITPendingBit(TIM6, TIM_IT_Update);

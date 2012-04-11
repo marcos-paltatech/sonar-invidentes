@@ -2,6 +2,19 @@
 #include "global.h"
 #include <stdio.h>
 
+void setupITs()
+{
+    // Setear "Interrupt and exception vectors table"
+    NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x00);
+    // Configurar tabla de prioridades a 2 bits
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+
+    // Interrupciones usadas:
+    // 0,0	TIM6 para el DAC (audioplayer.c)
+    // 0,1	USART3 RX para leer respuestas del modulo bluetooth (bluetooth.c)
+    // 1,3	Interrupcion fin de buffer DMA (audioplayer.c)
+}
+
 void NMI_Handler(void)
 {
 }

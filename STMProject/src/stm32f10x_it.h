@@ -7,6 +7,8 @@
 
 #include "stm32f10x.h"
 
+void setupITs();
+
 void NMI_Handler(void);
 void HardFault_Handler(void);
 void MemManage_Handler(void);

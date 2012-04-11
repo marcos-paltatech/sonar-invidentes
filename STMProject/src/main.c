@@ -5,6 +5,7 @@
 #include "STM32vldiscovery.h"
 #include "stm32f10x.h"
 
+#include "stm32f10x_it.h"
 #include "global.h"
 #include "timer.h"
 #include "io_retarget.h"
@@ -15,6 +16,8 @@
 
 int main(void)
 {
+	// Configuracion de tabla de interrupciones
+	setupITs();
     // System timer, usado por varios modulos
     setupTimer();
     // USART stdin/stdout
@@ -63,7 +66,7 @@ int main(void)
             flashProgramMode();
             break;
         case CMD_MEMCHECK:
-            printf("Calculando checksum total de memoria..\r\n");
+            printf("Calculando checksum total de memoria...\r\n");
             printf("Checksum: 0x%08X\r\n", flashFullChecksum());
             break;
         case CMD_QUIT:

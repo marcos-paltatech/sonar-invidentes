@@ -68,7 +68,7 @@ void setupBluetooth()
     USART_Init(USART3, &configUSART);
     USART_Cmd(USART3, ENABLE);
 
-    // Interrupcion de datos entrantes por USART !! ver prioridad
+    // Interrupcion de datos entrantes por USART
     NVIC_InitTypeDef nvicConfig;
     nvicConfig.NVIC_IRQChannel= USART3_IRQn;
     nvicConfig.NVIC_IRQChannelPreemptionPriority= 0;
