@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:45:27 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 03:48:29 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -40,7 +40,7 @@ L CONN_4 P3
 U 1 1 4F85593C
 P 5600 4250
 F 0 "P3" V 5550 4250 50  0000 C CNN
-F 1 "SENS_SPI" V 5650 4250 50  0000 C CNN
+F 1 "CONN_4" V 5650 4250 50  0000 C CNN
 	1    5600 4250
 	1    0    0    -1  
 $EndComp
@@ -67,10 +67,10 @@ $EndComp
 $Comp
 L R R5
 U 1 1 4F8559CC
-P 3800 3850
-F 0 "R5" V 3880 3850 50  0000 C CNN
-F 1 "4.7k" V 3800 3850 50  0000 C CNN
-	1    3800 3850
+P 3600 3850
+F 0 "R5" V 3680 3850 50  0000 C CNN
+F 1 "4.7k" V 3600 3850 50  0000 C CNN
+	1    3600 3850
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -118,10 +118,28 @@ $EndComp
 NoConn ~ 7850 3450
 NoConn ~ 7850 4400
 NoConn ~ 7850 5350
-Text Notes 4050 3800 0    60   ~ 0
+Text Notes 3850 3850 0    60   ~ 0
 I2C pull-up\nresistors
 Text Notes 6200 2650 0    60   ~ 0
 This is how the sensors would be connected to the\nI2C bus.
+Text Label 5250 4100 2    60   ~ 0
+VCC
+Text Label 5250 4200 2    60   ~ 0
+SDA
+Text Label 5250 4300 2    60   ~ 0
+SCL
+Text Label 5250 4400 2    60   ~ 0
+GND
+Text Label 6650 3150 0    60   ~ 0
+VCC
+Text Label 6650 3250 0    60   ~ 0
+SDA
+Text Label 6650 3350 0    60   ~ 0
+SCL
+Text Label 6650 3450 0    60   ~ 0
+GND
+Text Notes 2000 4750 0    60   ~ 0
+STM32 pins tolerate\n5V logic leves.
 Wire Wire Line
 	5000 4100 5250 4100
 Wire Wire Line
@@ -146,12 +164,6 @@ Connection ~ 3300 3500
 Wire Wire Line
 	3300 4100 3300 4200
 Connection ~ 3300 4200
-Wire Wire Line
-	3800 3600 3800 3500
-Connection ~ 3800 3500
-Wire Wire Line
-	3800 4100 3800 4450
-Connection ~ 3800 4450
 Wire Wire Line
 	7750 3450 7750 3550
 Wire Wire Line
@@ -212,22 +224,10 @@ Wire Wire Line
 	7850 3250 6650 3250
 Wire Wire Line
 	6650 3150 7850 3150
-Text Label 5250 4100 2    60   ~ 0
-VCC
-Text Label 5250 4200 2    60   ~ 0
-SDA
-Text Label 5250 4300 2    60   ~ 0
-SCL
-Text Label 5250 4400 2    60   ~ 0
-GND
-Text Label 6650 3150 0    60   ~ 0
-VCC
-Text Label 6650 3250 0    60   ~ 0
-SDA
-Text Label 6650 3350 0    60   ~ 0
-SCL
-Text Label 6650 3450 0    60   ~ 0
-GND
-Text Notes 2000 4750 0    60   ~ 0
-STM32 pins tolerate\n5V logic leves.
+Wire Wire Line
+	3600 4100 3600 4450
+Connection ~ 3600 4450
+Wire Wire Line
+	3600 3600 3600 3500
+Connection ~ 3600 3500
 $EndSCHEMATC

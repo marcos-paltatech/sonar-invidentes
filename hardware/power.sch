@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:45:27 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 03:48:29 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -36,7 +36,7 @@ L CONN_2 P5
 U 1 1 4F854A2A
 P 4100 3950
 F 0 "P5" V 4050 3950 40  0000 C CNN
-F 1 "VIN" V 4150 3950 40  0000 C CNN
+F 1 "CONN_2" V 4150 3950 40  0000 C CNN
 	1    4100 3950
 	-1   0    0    -1  
 $EndComp
