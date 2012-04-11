@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 01:47:25 PM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:03:40 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -24,7 +24,7 @@ encoding utf-8
 Sheet 5 6
 Title "Flash Memory"
 Date "11 apr 2012"
-Rev "0.1"
+Rev "0.3"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
 Comment2 "Authors: Pablo Odorico, Juan Bajo, Marcos Chaparro"
