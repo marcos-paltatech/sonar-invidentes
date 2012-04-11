@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:24:52 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:45:27 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -54,10 +54,10 @@ $EndComp
 $Comp
 L C C21
 U 1 1 4F84ADF6
-P 9700 5450
-F 0 "C21" H 9750 5550 50  0000 L CNN
-F 1 "4.7nF" H 9750 5350 50  0000 L CNN
-	1    9700 5450
+P 9700 5350
+F 0 "C21" H 9750 5450 50  0000 L CNN
+F 1 "4.7nF" H 9750 5250 50  0000 L CNN
+	1    9700 5350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -228,9 +228,7 @@ Wire Wire Line
 Connection ~ 9700 5000
 Connection ~ 9700 5000
 Wire Wire Line
-	9700 5000 9700 5250
-Wire Wire Line
-	9700 5650 9700 5800
+	9700 5550 9700 5800
 Wire Notes Line
 	11000 4700 11000 5950
 Wire Notes Line
@@ -258,8 +256,6 @@ Wire Wire Line
 	6850 4300 6700 4300
 Connection ~ 6850 4900
 Wire Wire Line
-	6700 4200 6950 4200
-Wire Wire Line
 	6950 3300 6950 4300
 Wire Notes Line
 	7950 4450 11000 4450
@@ -279,7 +275,6 @@ Wire Wire Line
 Connection ~ 6100 2400
 Wire Wire Line
 	6000 2400 6300 2400
-Connection ~ 6950 4200
 Wire Wire Line
 	6950 3300 6700 3300
 Wire Wire Line
@@ -337,4 +332,10 @@ Wire Wire Line
 	9900 1150 9900 1150
 Connection ~ 9900 1150
 Connection ~ 9900 1150
+Wire Wire Line
+	6700 4200 6950 4200
+Connection ~ 6950 4200
+Wire Wire Line
+	9700 5000 9700 5150
+Connection ~ 9700 5650
 $EndSCHEMATC

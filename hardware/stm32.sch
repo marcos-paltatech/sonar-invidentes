@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:24:52 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:45:27 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -589,8 +589,6 @@ Wire Notes Line
 Wire Wire Line
 	4950 7500 4950 7450
 Wire Wire Line
-	4950 7450 4600 7450
-Wire Wire Line
 	4950 5750 4950 5700
 Wire Wire Line
 	4950 5700 4600 5700
@@ -839,4 +837,6 @@ Connection ~ 9450 2550
 Connection ~ 9450 2550
 Connection ~ 9900 3150
 Connection ~ 9900 3150
+Wire Wire Line
+	4950 7450 4600 7450
 $EndSCHEMATC

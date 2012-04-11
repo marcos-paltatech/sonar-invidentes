@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:24:52 AM ART
+EESchema Schematic File Version 2  date Wed 11 Apr 2012 02:45:27 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -228,4 +228,6 @@ Text Label 6650 3350 0    60   ~ 0
 SCL
 Text Label 6650 3450 0    60   ~ 0
 GND
+Text Notes 2000 4750 0    60   ~ 0
+STM32 pins tolerate\n5V logic leves.
 $EndSCHEMATC
