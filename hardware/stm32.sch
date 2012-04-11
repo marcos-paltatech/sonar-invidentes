@@ -1,0 +1,522 @@
+EESchema Schematic File Version 2  date Tue 10 Apr 2012 10:24:32 PM ART
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:special
+LIBS:analog_switches
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:opto
+LIBS:BTM511
+LIBS:SRF02
+LIBS:W25Q80BV
+LIBS:STM32F100RBT6B
+LIBS:sonar_board-cache
+EELAYER 25  0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 6
+Title "STM32 MCU"
+Date "11 apr 2012"
+Rev "0.1"
+Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
+Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
+Comment2 "Authors: Pablo Odorico, Juan Bajo, Marcos Chaparro"
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L STM32F100RBT6B U1
+U 1 1 4F84A0DC
+P 2950 4200
+F 0 "U1" H 1200 7850 60  0000 L CNN
+F 1 "STM32F100RBT6B" H 1200 7750 60  0000 L CNN
+	1    2950 4200
+	-1   0    0    -1  
+$EndComp
+Text GLabel 4600 850  2    60   Input ~ 0
+3.3V
+NoConn ~ 4600 950 
+$Comp
+L GND #PWR?
+U 1 1 4F84A437
+P 4950 2000
+F 0 "#PWR?" H 4950 2000 30  0001 C CNN
+F 1 "GND" H 4950 1930 30  0001 C CNN
+	1    4950 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F84A446
+P 4950 2750
+F 0 "#PWR?" H 4950 2750 30  0001 C CNN
+F 1 "GND" H 4950 2680 30  0001 C CNN
+	1    4950 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F84A455
+P 4950 4050
+F 0 "#PWR?" H 4950 4050 30  0001 C CNN
+F 1 "GND" H 4950 3980 30  0001 C CNN
+	1    4950 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F84A464
+P 4950 5750
+F 0 "#PWR?" H 4950 5750 30  0001 C CNN
+F 1 "GND" H 4950 5680 30  0001 C CNN
+	1    4950 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F84A473
+P 4950 7500
+F 0 "#PWR?" H 4950 7500 30  0001 C CNN
+F 1 "GND" H 4950 7430 30  0001 C CNN
+	1    4950 7500
+	1    0    0    -1  
+$EndComp
+Text GLabel 4600 850  2    60   Input ~ 0
+3.3V
+Text GLabel 4600 2050 2    60   Input ~ 0
+3.3V
+Text GLabel 4600 2800 2    60   Input ~ 0
+3.3V
+Text GLabel 4600 4100 2    60   Input ~ 0
+3.3V
+Text GLabel 4600 5800 2    60   Input ~ 0
+3.3V
+Text GLabel 4600 7550 2    60   Input ~ 0
+3.3V
+Text HLabel 4600 6250 2    60   Output ~ 0
+AT_TX
+Text HLabel 4600 6350 2    60   Input ~ 0
+AT_RX
+Text HLabel 4600 6650 2    60   Output ~ 0
+MEM_CLK
+Text HLabel 4600 6750 2    60   Input ~ 0
+MEM_MISO
+Text HLabel 4600 6850 2    60   Output ~ 0
+MEM_MOSI
+Text HLabel 4600 6950 2    60   Output ~ 0
+MEM_NCS
+Text HLabel 4600 7250 2    60   BiDi ~ 0
+SENS_SCL
+Text HLabel 4600 7350 2    60   BiDi ~ 0
+SENS_SDA
+NoConn ~ 4600 7150
+NoConn ~ 4600 7050
+NoConn ~ 4600 6550
+NoConn ~ 4600 6450
+NoConn ~ 4600 6150
+NoConn ~ 4600 5500
+NoConn ~ 4600 5400
+NoConn ~ 4600 5100
+NoConn ~ 4600 4700
+NoConn ~ 4600 4600
+NoConn ~ 4600 4500
+NoConn ~ 4600 4400
+NoConn ~ 4600 4300
+NoConn ~ 4600 3900
+NoConn ~ 4600 3800
+NoConn ~ 4600 3600
+NoConn ~ 4600 3500
+NoConn ~ 4600 3400
+NoConn ~ 4600 3300
+NoConn ~ 4600 3200
+NoConn ~ 4600 3100
+NoConn ~ 4600 3000
+NoConn ~ 4600 2150
+NoConn ~ 4600 2250
+NoConn ~ 4600 1850
+NoConn ~ 4600 1750
+NoConn ~ 4600 1650
+NoConn ~ 4600 1550
+NoConn ~ 4600 1350
+NoConn ~ 4600 1250
+NoConn ~ 4600 1150
+NoConn ~ 4600 1050
+Text HLabel 5050 2900 2    60   Output ~ 0
+DACOutput
+$Comp
+L CONN_3 P1
+U 1 1 4F84BC06
+P 6900 5300
+F 0 "P1" V 6850 5300 50  0000 C CNN
+F 1 "STDIO" V 6950 5300 40  0000 C CNN
+	1    6900 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F84BC36
+P 6450 5500
+F 0 "#PWR?" H 6450 5500 30  0001 C CNN
+F 1 "GND" H 6450 5430 30  0001 C CNN
+	1    6450 5500
+	1    0    0    -1  
+$EndComp
+Text Notes 6400 4950 0    60   ~ 0
+STDIN/STDOUT serial used\nfor debugging purposes.
+Text Notes 7100 5250 0    60   ~ 0
+Default:\n115200,N,8,1
+$Comp
+L CONN_3 P2
+U 1 1 4F84BD42
+P 6900 2600
+F 0 "P2" V 6850 2600 50  0000 C CNN
+F 1 "UART2" V 6950 2600 40  0000 C CNN
+	1    6900 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F84BD48
+P 6450 2800
+F 0 "#PWR?" H 6450 2800 30  0001 C CNN
+F 1 "GND" H 6450 2730 30  0001 C CNN
+	1    6450 2800
+	1    0    0    -1  
+$EndComp
+Text Notes 6400 2350 0    60   ~ 0
+Extra serial for extensibility.
+$Comp
+L R R3
+U 1 1 4F84C44B
+P 6750 4400
+F 0 "R3" V 6830 4400 50  0000 C CNN
+F 1 "330" V 6750 4400 50  0000 C CNN
+	1    6750 4400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L LED D3
+U 1 1 4F84C45A
+P 7350 4400
+F 0 "D3" H 7350 4500 50  0000 C CNN
+F 1 "LED_R" H 7350 4300 50  0000 C CNN
+	1    7350 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R2
+U 1 1 4F84C538
+P 6750 4100
+F 0 "R2" V 6830 4100 50  0000 C CNN
+F 1 "330" V 6750 4100 50  0000 C CNN
+	1    6750 4100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L LED D2
+U 1 1 4F84C53E
+P 7350 4100
+F 0 "D2" H 7350 4200 50  0000 C CNN
+F 1 "LED_B" H 7350 4000 50  0000 C CNN
+	1    7350 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R1
+U 1 1 4F84C546
+P 6750 3800
+F 0 "R1" V 6830 3800 50  0000 C CNN
+F 1 "330" V 6750 3800 50  0000 C CNN
+	1    6750 3800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L LED D1
+U 1 1 4F84C54C
+P 7350 3800
+F 0 "D1" H 7350 3900 50  0000 C CNN
+F 1 "LED_G" H 7350 3700 50  0000 C CNN
+	1    7350 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F84C7A9
+P 7700 4500
+F 0 "#PWR?" H 7700 4500 30  0001 C CNN
+F 1 "GND" H 7700 4430 30  0001 C CNN
+	1    7700 4500
+	1    0    0    -1  
+$EndComp
+Text Notes 6400 3500 0    60   ~ 0
+Three leds (green, blue, red)\nused to display the status.
+$Comp
+L CONN_4 P4
+U 1 1 4F85C8FF
+P 7250 6100
+F 0 "P4" V 7200 6100 50  0000 C CNN
+F 1 "SWD" V 7300 6100 50  0000 C CNN
+	1    7250 6100
+	1    0    0    1   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F85CB3D
+P 6500 6250
+F 0 "#PWR?" H 6500 6250 30  0001 C CNN
+F 1 "GND" H 6500 6180 30  0001 C CNN
+	1    6500 6250
+	1    0    0    -1  
+$EndComp
+Text GLabel 6900 6250 0    60   Input ~ 0
+3.3V
+Text Notes 6400 6500 0    60   ~ 0
+STLink SWD for programming\nand debugging.
+$Comp
+L C C?
+U 1 1 4F84E188
+P 5700 1750
+F 0 "C?" H 5750 1850 50  0000 L CNN
+F 1 "100nF" H 5750 1650 50  0000 L CNN
+	1    5700 1750
+	-1   0    0    1   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F84E219
+P 5700 2100
+F 0 "#PWR?" H 5700 2100 30  0001 C CNN
+F 1 "GND" H 5700 2030 30  0001 C CNN
+	1    5700 2100
+	1    0    0    -1  
+$EndComp
+Text GLabel 8800 700  0    60   Input ~ 0
+3.3V
+$Comp
+L C C?
+U 1 1 4F84E234
+P 9150 900
+F 0 "C?" H 9200 1000 50  0000 L CNN
+F 1 "100nF" H 9200 800 50  0000 L CNN
+	1    9150 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 4F84E243
+P 9450 900
+F 0 "C?" H 9500 1000 50  0000 L CNN
+F 1 "100nF" H 9500 800 50  0000 L CNN
+	1    9450 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 4F84E252
+P 9750 900
+F 0 "C?" H 9800 1000 50  0000 L CNN
+F 1 "100nF" H 9800 800 50  0000 L CNN
+	1    9750 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 4F84E261
+P 10050 900
+F 0 "C?" H 10100 1000 50  0000 L CNN
+F 1 "100nF" H 10100 800 50  0000 L CNN
+	1    10050 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 4F84E270
+P 10350 900
+F 0 "C?" H 10400 1000 50  0000 L CNN
+F 1 "100nF" H 10400 800 50  0000 L CNN
+	1    10350 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 4F84E27F
+P 10650 900
+F 0 "C?" H 10700 1000 50  0000 L CNN
+F 1 "100nF" H 10700 800 50  0000 L CNN
+	1    10650 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 4F84E28E
+P 10950 900
+F 0 "C?" H 11000 1000 50  0000 L CNN
+F 1 "100nF" H 11000 800 50  0000 L CNN
+	1    10950 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 4F84E3A6
+P 8800 1200
+F 0 "#PWR?" H 8800 1200 30  0001 C CNN
+F 1 "GND" H 8800 1130 30  0001 C CNN
+	1    8800 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L SW_PUSH SW1
+U 1 1 4F84EC98
+P 5250 1750
+F 0 "SW1" H 5400 1860 50  0000 C CNN
+F 1 "SW_PUSH" H 5250 1670 50  0000 C CNN
+	1    5250 1750
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4600 2900 5050 2900
+Wire Wire Line
+	4600 5200 6550 5200
+Wire Wire Line
+	6550 5300 4600 5300
+Wire Wire Line
+	6550 5400 6450 5400
+Wire Wire Line
+	6450 5400 6450 5500
+Wire Wire Line
+	6550 2700 6450 2700
+Wire Wire Line
+	6450 2700 6450 2800
+Wire Notes Line
+	7850 2950 6300 2950
+Wire Wire Line
+	6550 2500 4600 2500
+Wire Wire Line
+	4600 2600 6550 2600
+Wire Notes Line
+	7850 2150 7850 2950
+Wire Notes Line
+	7850 2150 6300 2150
+Wire Notes Line
+	6300 2150 6300 2950
+Wire Wire Line
+	4950 7500 4950 7450
+Wire Wire Line
+	4950 7450 4600 7450
+Wire Wire Line
+	4950 5750 4950 5700
+Wire Wire Line
+	4950 5700 4600 5700
+Wire Wire Line
+	4950 4050 4950 4000
+Wire Wire Line
+	4950 4000 4600 4000
+Wire Wire Line
+	4950 2750 4950 2700
+Wire Wire Line
+	4950 2700 4600 2700
+Wire Wire Line
+	4950 2000 4950 1950
+Wire Wire Line
+	4950 1950 4600 1950
+Wire Wire Line
+	5900 5000 4600 5000
+Wire Wire Line
+	5900 4400 5900 5000
+Wire Wire Line
+	7000 4400 7150 4400
+Wire Wire Line
+	6500 4400 5900 4400
+Wire Wire Line
+	7000 4100 7150 4100
+Wire Wire Line
+	7000 3800 7150 3800
+Wire Wire Line
+	4600 4900 5800 4900
+Wire Wire Line
+	5800 4900 5800 4100
+Wire Wire Line
+	5800 4100 6500 4100
+Wire Wire Line
+	4600 4800 5700 4800
+Wire Wire Line
+	5700 4800 5700 3800
+Wire Wire Line
+	5700 3800 6500 3800
+Wire Wire Line
+	7550 3800 7700 3800
+Wire Wire Line
+	7700 3800 7700 4500
+Wire Wire Line
+	7550 4400 7700 4400
+Connection ~ 7700 4400
+Connection ~ 7700 4400
+Wire Wire Line
+	7550 4100 7700 4100
+Connection ~ 7700 4100
+Wire Notes Line
+	7850 4600 6300 4600
+Wire Notes Line
+	7850 3300 7850 4600
+Wire Notes Line
+	7850 3300 6300 3300
+Wire Notes Line
+	6300 3300 6300 4600
+Wire Notes Line
+	6300 4750 6300 5600
+Wire Notes Line
+	6300 4750 7850 4750
+Wire Notes Line
+	7850 4750 7850 5600
+Wire Notes Line
+	7850 5600 6300 5600
+Wire Wire Line
+	6500 6050 6900 6050
+Wire Wire Line
+	6500 6050 6500 6250
+Wire Wire Line
+	4600 5600 6100 5600
+Wire Wire Line
+	6100 5600 6100 5950
+Wire Wire Line
+	6100 5950 6900 5950
+Wire Wire Line
+	6900 6150 6100 6150
+Wire Wire Line
+	6100 6150 6100 6050
+Wire Wire Line
+	6100 6050 4600 6050
+Wire Notes Line
+	6300 5750 6300 6700
+Wire Notes Line
+	7850 6700 7850 5750
+Wire Notes Line
+	7850 5750 6300 5750
+Wire Notes Line
+	6300 6700 7850 6700
+Wire Wire Line
+	8800 700  10950 700 
+Wire Wire Line
+	10950 1100 8800 1100
+Wire Wire Line
+	8800 1100 8800 1200
+Wire Wire Line
+	4600 2500 4600 2350
+Wire Wire Line
+	5700 2050 5700 2100
+Wire Wire Line
+	5700 1450 5700 1550
+Wire Wire Line
+	5700 1950 5700 2050
+Wire Wire Line
+	5700 2050 5250 2050
+Wire Wire Line
+	5700 1450 4600 1450
+$EndSCHEMATC

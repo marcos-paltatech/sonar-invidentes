@@ -13,7 +13,12 @@ flashmem/
     Esta implementado en C++ con Qt y funciona en Linux.
 
 hardware/
-    Esquematicos y archivos relacionados al hardware del proyecto.
+    Esquematicos y archivos relacionados a la implementacion del proyecto en una placa.
+    El proyecto esta hecho con KiCAD.
+
+hardware_proto/
+    Esquematicos y archivos relacionados a la implementacion de prueba del proyecto,
+    utilizando una placa STM32-Discovery.
     El proyecto esta hecho con KiCAD.
 
 STMProject/
