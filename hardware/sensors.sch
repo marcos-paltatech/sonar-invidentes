@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 06:21:20 PM ART
+EESchema Schematic File Version 2  date Thu 12 Apr 2012 01:54:54 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -23,7 +23,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 4 6
 Title "Distance Sensors"
-Date "11 apr 2012"
+Date "12 apr 2012"
 Rev "0.3"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
@@ -41,6 +41,7 @@ U 1 1 4F85593C
 P 5600 4250
 F 0 "P3" V 5550 4250 50  0000 C CNN
 F 1 "CONN_4" V 5650 4250 50  0000 C CNN
+F 4 "68001-104HLF" H 5600 4250 60  0001 C CNN "mfg#"
 	1    5600 4250
 	1    0    0    -1  
 $EndComp
@@ -61,6 +62,7 @@ U 1 1 4F8559AE
 P 3300 3850
 F 0 "R4" V 3380 3850 50  0000 C CNN
 F 1 "4.7k" V 3300 3850 50  0000 C CNN
+F 4 "ERJ-3EKF4701V" H 3300 3850 60  0001 C CNN "mfg#"
 	1    3300 3850
 	1    0    0    -1  
 $EndComp
@@ -70,6 +72,7 @@ U 1 1 4F8559CC
 P 3600 3850
 F 0 "R5" V 3680 3850 50  0000 C CNN
 F 1 "4.7k" V 3600 3850 50  0000 C CNN
+F 4 "ERJ-3EKF4701V" H 3600 3850 60  0001 C CNN "mfg#"
 	1    3600 3850
 	1    0    0    -1  
 $EndComp
@@ -79,6 +82,7 @@ U 1 1 4F855C9B
 P 6300 3300
 F 0 "P99" V 6250 3300 50  0000 C CNN
 F 1 "CONN_4" V 6350 3300 50  0000 C CNN
+F 4 "N/A" H 6300 3300 60  0001 C CNN "mfg#"
 	1    6300 3300
 	-1   0    0    -1  
 $EndComp
@@ -90,6 +94,7 @@ F 0 "Sens0" H 8600 3250 50  0000 C CNN
 F 1 "SRF02" H 8600 3450 50  0000 C CNN
 F 2 "MODULE" H 8600 3350 50  0001 C CNN
 F 3 "DOCUMENTATION" H 8600 3350 50  0001 C CNN
+F 4 "N/A" H 8600 3350 60  0001 C CNN "mfg#"
 	1    8600 3350
 	1    0    0    -1  
 $EndComp
@@ -101,6 +106,7 @@ F 0 "Sens1" H 8600 4200 50  0000 C CNN
 F 1 "SRF02" H 8600 4400 50  0000 C CNN
 F 2 "MODULE" H 8600 4300 50  0001 C CNN
 F 3 "DOCUMENTATION" H 8600 4300 50  0001 C CNN
+F 4 "N/A" H 8600 4300 60  0001 C CNN "mfg#"
 	1    8600 4300
 	1    0    0    -1  
 $EndComp
@@ -112,6 +118,7 @@ F 0 "Sens2" H 8600 5150 50  0000 C CNN
 F 1 "SRF02" H 8600 5350 50  0000 C CNN
 F 2 "MODULE" H 8600 5250 50  0001 C CNN
 F 3 "DOCUMENTATION" H 8600 5250 50  0001 C CNN
+F 4 "N/A" H 8600 5250 60  0001 C CNN "mfg#"
 	1    8600 5250
 	1    0    0    -1  
 $EndComp

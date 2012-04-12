@@ -1,0 +1,32 @@
+Capacitores:
+    20p     C1608C0G1H200J          Package 0603
+    100n    C0603C104K4RACTU        Package 0603
+    4.7n    CC0603KRX7R9BB472       Package 0603
+    1u      GRM188R60J105KA01D      Package 0603
+    10u     JMK212BJ106KD-T         Package 0805
+
+Resistencias (Todos package 0603):
+    220     ERJ-3EKF2200V
+    330     ERJ-3EKF3300V
+    1k      ERJ-3EKF1001V
+    2k      ERJ-3EKF2001V
+    4.7k    ERJ-3EKF4701V
+    10k     ERJ-3EKF1002V
+
+Headers:
+    CONN2   68001-202HLF
+    CONN3   68000-103HLF
+    CONN4   68001-104HLF
+
+Leds (Todos package 0805):
+    Green   APT2012SGC
+    Blue    APT2012SYCK
+    Red     APT2012EC
+
+
+Cristales:    
+    8Mhz    ECS-80-20-4
+
+Otros:
+    SW      B3FS-1012
+    Jumper  QPC02SXGN-RC    

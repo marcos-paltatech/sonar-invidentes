@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 06:21:20 PM ART
+EESchema Schematic File Version 2  date Thu 12 Apr 2012 01:54:54 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -23,7 +23,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 5 6
 Title "Flash Memory"
-Date "11 apr 2012"
+Date "12 apr 2012"
 Rev "0.3"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
@@ -39,7 +39,7 @@ F 0 "U3" H 5900 3950 50  0000 C CNN
 F 1 "W25Q80BV" H 5900 4150 50  0000 C CNN
 F 2 "MODULE" H 5900 4050 50  0001 C CNN
 F 3 "DOCUMENTATION" H 5900 4050 50  0001 C CNN
-F 4 "W25Q80BVSSIG-ND" H 5900 4050 60  0001 C CNN "mfg#"
+F 4 "W25Q80BVSSIG" H 5900 4050 60  0001 C CNN "mfg#"
 	1    5900 4050
 	1    0    0    -1  
 $EndComp
@@ -70,6 +70,7 @@ U 1 1 4F85DDDE
 P 7550 4100
 F 0 "C22" H 7600 4200 50  0000 L CNN
 F 1 "100nF" H 7600 4000 50  0000 L CNN
+F 4 "C0603C104K4RACTU" H 7550 4100 60  0001 C CNN "mfg#"
 	1    7550 4100
 	1    0    0    -1  
 $EndComp

@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Apr 2012 06:21:20 PM ART
+EESchema Schematic File Version 2  date Thu 12 Apr 2012 01:54:54 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -23,7 +23,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 6
 Title "Bluetooth Module"
-Date "11 apr 2012"
+Date "12 apr 2012"
 Rev "0.3"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
@@ -37,20 +37,9 @@ U 1 1 4F84ADA4
 P 5650 4100
 F 0 "U2" H 5650 4000 50  0000 C CNN
 F 1 "BTM511" H 5650 4200 50  0000 C CNN
-F 2 "MODULE" H 5650 4100 50  0001 C CNN
-F 3 "DOCUMENTATION" H 5650 4100 50  0001 C CNN
-F 4 "BTM511-ND" H 5650 4100 60  0001 C CNN "mfg#"
+F 4 "BTM511" H 5650 4100 60  0001 C CNN "mfg#"
 	1    5650 4100
 	-1   0    0    1   
-$EndComp
-$Comp
-L CP1 C20
-U 1 1 4F84ADF0
-P 9700 5000
-F 0 "C20" H 9750 5100 50  0000 L CNN
-F 1 "1uF" H 9750 4900 50  0000 L CNN
-	1    9700 5000
-	0    1    -1   0   
 $EndComp
 $Comp
 L C C21
@@ -58,6 +47,7 @@ U 1 1 4F84ADF6
 P 9100 5350
 F 0 "C21" H 9150 5450 50  0000 L CNN
 F 1 "4.7nF" H 9150 5250 50  0000 L CNN
+F 4 "CC0603KRX7R9BB472" H 9100 5350 60  0001 C CNN "mfg#"
 	1    9100 5350
 	1    0    0    -1  
 $EndComp
@@ -82,6 +72,7 @@ U 1 1 4F84AECC
 P 8350 5000
 F 0 "AU+1" H 8350 5150 60  0000 C CNN
 F 1 "JUMPER" H 8350 4920 40  0000 C CNN
+F 4 "68001-202HLF" H 8350 5000 60  0001 C CNN "mfg#"
 	1    8350 5000
 	1    0    0    -1  
 $EndComp
@@ -91,6 +82,7 @@ U 1 1 4F84AF11
 P 8350 5350
 F 0 "AU-1" H 8350 5500 60  0000 C CNN
 F 1 "JUMPER" H 8350 5270 40  0000 C CNN
+F 4 "68001-202HLF" H 8350 5350 60  0001 C CNN "mfg#"
 	1    8350 5350
 	1    0    0    -1  
 $EndComp
@@ -168,6 +160,7 @@ U 1 1 4F84CD79
 P 2800 3600
 F 0 "AT_RX1" H 2800 3750 60  0000 C CNN
 F 1 "JUMPER" H 2800 3520 40  0000 C CNN
+F 4 "68001-202HLF" H 2800 3600 60  0001 C CNN "mfg#"
 	1    2800 3600
 	-1   0    0    -1  
 $EndComp
@@ -177,6 +170,7 @@ U 1 1 4F84CD7F
 P 2800 3950
 F 0 "AT_TX1" H 2800 4100 60  0000 C CNN
 F 1 "JUMPER" H 2800 3870 40  0000 C CNN
+F 4 "68001-202HLF" H 2800 3950 60  0001 C CNN "mfg#"
 	1    2800 3950
 	-1   0    0    -1  
 $EndComp
@@ -192,6 +186,8 @@ U 1 1 4F8547A5
 P 9900 950
 F 0 "C13" H 9950 1050 50  0000 L CNN
 F 1 "100nF" H 9950 850 50  0000 L CNN
+F 2 "0603" H 9900 950 60  0001 C CNN
+F 4 "C0603C104K4RACTU" H 9900 950 60  0001 C CNN "mfg#"
 	1    9900 950 
 	1    0    0    -1  
 $EndComp
@@ -201,6 +197,7 @@ U 1 1 4F8547AB
 P 10200 950
 F 0 "C14" H 10250 1050 50  0000 L CNN
 F 1 "100nF" H 10250 850 50  0000 L CNN
+F 4 "C0603C104K4RACTU" H 10200 950 60  0001 C CNN "mfg#"
 	1    10200 950 
 	1    0    0    -1  
 $EndComp
@@ -210,6 +207,7 @@ U 1 1 4F8547B1
 P 10500 950
 F 0 "C15" H 10550 1050 50  0000 L CNN
 F 1 "100nF" H 10550 850 50  0000 L CNN
+F 4 "C0603C104K4RACTU" H 10500 950 60  0001 C CNN "mfg#"
 	1    10500 950 
 	1    0    0    -1  
 $EndComp
@@ -340,4 +338,14 @@ Wire Wire Line
 Connection ~ 9100 5000
 Text Notes 650  800  0    118  ~ 24
 Bluetooth Module
+$Comp
+L C C20
+U 1 1 4F862FEB
+P 9700 5000
+F 0 "C20" H 9750 5100 50  0000 L CNN
+F 1 "1uF" H 9750 4900 50  0000 L CNN
+F 4 "GRM188R60J105KA01D" H 9700 5000 60  0001 C CNN "mfg#"
+	1    9700 5000
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
