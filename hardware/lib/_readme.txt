@@ -1,8 +1,9 @@
 Libraries:
-- BTM511.lib
+- BTM511.lib, BT511.mod
 - SRF02.lib
 - W25Q80BV.lib
 - STM32F100RBT6B.lib (based on Martin Ribelotta's library for the STM32F103R8T6)
+- LD1117xx.lib
 
 Author:
 Pablo Odorico <pablo.odorico@gmail.com>

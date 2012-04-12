@@ -50,6 +50,7 @@ LibName14=BTM511
 LibName15=SRF02
 LibName16=W25Q80BV
 LibName17=STM32F100RBT6B
+LibName18=LD1117xx
 [pcbnew]
 version=1
 PadDrlX=320

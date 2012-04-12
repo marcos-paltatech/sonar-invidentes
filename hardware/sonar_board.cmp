@@ -1,29 +1,15 @@
-Cmp-Mod V01 Created by CvPcb (2011-nov-30)-testing date = Thu 12 Apr 2012 03:52:27 PM ART
+Cmp-Mod V01 Created by CvPcb (2011-nov-30)-testing date = Thu 12 Apr 2012 08:39:48 PM ART
 
 BeginCmp
 TimeStamp = /4F84AD9A/4F84CD79;
-Reference = AT_RX1;
+Reference = AT1;
 ValeurCmp = JUMPER;
 IdModule  = SIL-2;
 EndCmp
 
 BeginCmp
 TimeStamp = /4F84AD9A/4F84CD7F;
-Reference = AT_TX1;
-ValeurCmp = JUMPER;
-IdModule  = SIL-2;
-EndCmp
-
-BeginCmp
-TimeStamp = /4F84AD9A/4F84AECC;
-Reference = AU+1;
-ValeurCmp = JUMPER;
-IdModule  = SIL-2;
-EndCmp
-
-BeginCmp
-TimeStamp = /4F84AD9A/4F84AF11;
-Reference = AU-1;
+Reference = AT2;
 ValeurCmp = JUMPER;
 IdModule  = SIL-2;
 EndCmp
@@ -113,7 +99,7 @@ IdModule  = SM0603;
 EndCmp
 
 BeginCmp
-TimeStamp = /4F84AD9A/4F8547A5;
+TimeStamp = /4F84AD9A/4F877382;
 Reference = C13;
 ValeurCmp = 100nF;
 IdModule  = SM0603;
@@ -136,14 +122,14 @@ EndCmp
 BeginCmp
 TimeStamp = /4F857ACF/4F8633E1;
 Reference = C16;
-ValeurCmp = 100n;
+ValeurCmp = 100nF;
 IdModule  = SM0603;
 EndCmp
 
 BeginCmp
 TimeStamp = /4F857ACF/4F8633EE;
 Reference = C17;
-ValeurCmp = 100n;
+ValeurCmp = 100nF;
 IdModule  = SM0603;
 EndCmp
 
@@ -309,6 +295,20 @@ IdModule  = SM0603;
 EndCmp
 
 BeginCmp
+TimeStamp = /4F84AD9A/4F84AF11;
+Reference = SDN2;
+ValeurCmp = JUMPER;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /4F84AD9A/4F84AECC;
+Reference = SND1;
+ValeurCmp = JUMPER;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
 TimeStamp = /4F84A04D/4F851FE1;
 Reference = SW2;
 ValeurCmp = SWITCH;
@@ -337,14 +337,14 @@ IdModule  = SO8N;
 EndCmp
 
 BeginCmp
-TimeStamp = /4F857ACF/4F854A45;
+TimeStamp = /4F857ACF/4F8766D2;
 Reference = U4;
 ValeurCmp = LD1117DT33C;
 IdModule  = DPAK2;
 EndCmp
 
 BeginCmp
-TimeStamp = /4F857ACF/4F854A57;
+TimeStamp = /4F857ACF/4F8766F3;
 Reference = U5;
 ValeurCmp = LD1117DT50C;
 IdModule  = DPAK2;

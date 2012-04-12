@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Thu 12 Apr 2012 03:25:29 PM ART
+EESchema Schematic File Version 2  date Thu 12 Apr 2012 08:38:20 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -16,6 +16,7 @@ LIBS:BTM511
 LIBS:SRF02
 LIBS:W25Q80BV
 LIBS:STM32F100RBT6B
+LIBS:LD1117xx
 EELAYER 25  0
 EELAYER END
 $Descr A4 11693 8268
@@ -66,20 +67,20 @@ Coupling Cap.
 Text Notes 9300 5750 0    60   ~ 0
 Low-pass filter to\nsmooth DAC's output.
 $Comp
-L JUMPER AU+1
+L JUMPER SND1
 U 1 1 4F84AECC
 P 8350 5000
-F 0 "AU+1" H 8350 5150 60  0000 C CNN
+F 0 "SND1" H 8350 5150 60  0000 C CNN
 F 1 "JUMPER" H 8350 4920 40  0000 C CNN
 F 4 "68001-202HLF" H 8350 5000 60  0001 C CNN "mfg#"
 	1    8350 5000
 	1    0    0    -1  
 $EndComp
 $Comp
-L JUMPER AU-1
+L JUMPER SDN2
 U 1 1 4F84AF11
 P 8350 5350
-F 0 "AU-1" H 8350 5500 60  0000 C CNN
+F 0 "SDN2" H 8350 5500 60  0000 C CNN
 F 1 "JUMPER" H 8350 5270 40  0000 C CNN
 F 4 "68001-202HLF" H 8350 5350 60  0001 C CNN "mfg#"
 	1    8350 5350
@@ -154,20 +155,20 @@ NoConn ~ 4600 3500
 NoConn ~ 5700 2550
 NoConn ~ 5800 2550
 $Comp
-L JUMPER AT_RX1
+L JUMPER AT1
 U 1 1 4F84CD79
 P 2800 3600
-F 0 "AT_RX1" H 2800 3750 60  0000 C CNN
+F 0 "AT1" H 2800 3750 60  0000 C CNN
 F 1 "JUMPER" H 2800 3520 40  0000 C CNN
 F 4 "68001-202HLF" H 2800 3600 60  0001 C CNN "mfg#"
 	1    2800 3600
 	-1   0    0    -1  
 $EndComp
 $Comp
-L JUMPER AT_TX1
+L JUMPER AT2
 U 1 1 4F84CD7F
 P 2800 3950
-F 0 "AT_TX1" H 2800 4100 60  0000 C CNN
+F 0 "AT2" H 2800 4100 60  0000 C CNN
 F 1 "JUMPER" H 2800 3870 40  0000 C CNN
 F 4 "68001-202HLF" H 2800 3950 60  0001 C CNN "mfg#"
 	1    2800 3950
@@ -179,17 +180,6 @@ Text Notes 1750 4250 0    60   ~ 0
 Default: 9600, N, 8, 1
 Text GLabel 9550 750  0    60   Input ~ 0
 3.3V
-$Comp
-L C C13
-U 1 1 4F8547A5
-P 9900 950
-F 0 "C13" H 9950 1050 50  0000 L CNN
-F 1 "100nF" H 9950 850 50  0000 L CNN
-F 2 "0603" H 9900 950 60  0001 C CNN
-F 4 "C0603C104K4RACTU" H 9900 950 60  0001 C CNN "mfg#"
-	1    9900 950 
-	1    0    0    -1  
-$EndComp
 $Comp
 L C C14
 U 1 1 4F8547AB
@@ -221,6 +211,36 @@ F 1 "GND" H 9550 1180 30  0001 C CNN
 $EndComp
 Text Notes 9200 1500 0    60   ~ 0
 Capacitors to be placed near VDD's
+Text Notes 650  800  0    118  ~ 24
+Bluetooth Module
+$Comp
+L C C20
+U 1 1 4F862FEB
+P 9700 5000
+F 0 "C20" H 9750 5100 50  0000 L CNN
+F 1 "1uF" H 9750 4900 50  0000 L CNN
+F 4 "GRM188R60J105KA01D" H 9700 5000 60  0001 C CNN "mfg#"
+	1    9700 5000
+	0    -1   -1   0   
+$EndComp
+Text Label 7850 5000 0    60   ~ 0
+POS
+Text Label 7850 5350 0    60   ~ 0
+GND
+Text Label 3550 3700 0    60   ~ 0
+TX
+Text Label 3550 3600 0    60   ~ 0
+RX
+$Comp
+L C C13
+U 1 1 4F877382
+P 9850 950
+F 0 "C13" H 9900 1050 50  0000 L CNN
+F 1 "100nF" H 9900 850 50  0000 L CNN
+F 4 "C0603C104K4RACTU" H 9850 950 60  0001 C CNN "mfg#"
+	1    9850 950 
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
 	9100 5550 9100 5800
 Wire Notes Line
@@ -238,9 +258,7 @@ Wire Wire Line
 Wire Wire Line
 	8650 5000 9500 5000
 Wire Notes Line
-	7950 4450 7950 5950
-Wire Notes Line
-	7950 5950 8650 5950
+	7800 5950 8650 5950
 Wire Wire Line
 	6850 4300 6850 5350
 Connection ~ 6850 5100
@@ -250,7 +268,7 @@ Connection ~ 6850 4900
 Wire Wire Line
 	6950 3300 6950 4300
 Wire Notes Line
-	7950 4450 11000 4450
+	7800 4450 11000 4450
 Wire Notes Line
 	11000 4450 11000 4750
 Wire Wire Line
@@ -305,25 +323,9 @@ Connection ~ 7000 5000
 Wire Wire Line
 	9550 1150 9550 1250
 Wire Wire Line
-	10500 750  9550 750 
-Wire Wire Line
-	10500 1150 9550 1150
-Wire Wire Line
-	9900 750  9900 750 
-Connection ~ 9900 750 
-Connection ~ 9900 750 
-Wire Wire Line
 	10200 750  10200 750 
-Connection ~ 10200 750 
-Connection ~ 10200 750 
 Wire Wire Line
 	10200 1150 10200 1150
-Connection ~ 10200 1150
-Connection ~ 10200 1150
-Wire Wire Line
-	9900 1150 9900 1150
-Connection ~ 9900 1150
-Connection ~ 9900 1150
 Wire Wire Line
 	6700 4200 6950 4200
 Connection ~ 6950 4200
@@ -335,16 +337,22 @@ Wire Wire Line
 Wire Wire Line
 	9100 5150 9100 5000
 Connection ~ 9100 5000
-Text Notes 650  800  0    118  ~ 24
-Bluetooth Module
-$Comp
-L C C20
-U 1 1 4F862FEB
-P 9700 5000
-F 0 "C20" H 9750 5100 50  0000 L CNN
-F 1 "1uF" H 9750 4900 50  0000 L CNN
-F 4 "GRM188R60J105KA01D" H 9700 5000 60  0001 C CNN "mfg#"
-	1    9700 5000
-	0    -1   -1   0   
-$EndComp
+Wire Notes Line
+	7800 4450 7800 5950
+Wire Wire Line
+	9850 750  9850 750 
+Wire Wire Line
+	10500 750  9550 750 
+Wire Wire Line
+	10500 1150 9550 1150
+Connection ~ 10200 750 
+Connection ~ 10200 750 
+Connection ~ 9850 750 
+Connection ~ 9850 750 
+Wire Wire Line
+	9850 1150 9850 1150
+Connection ~ 9850 1150
+Connection ~ 9850 1150
+Connection ~ 10200 1150
+Connection ~ 10200 1150
 $EndSCHEMATC

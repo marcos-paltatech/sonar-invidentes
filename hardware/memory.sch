@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Thu 12 Apr 2012 03:25:29 PM ART
+EESchema Schematic File Version 2  date Thu 12 Apr 2012 08:38:20 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -16,6 +16,7 @@ LIBS:BTM511
 LIBS:SRF02
 LIBS:W25Q80BV
 LIBS:STM32F100RBT6B
+LIBS:LD1117xx
 EELAYER 25  0
 EELAYER END
 $Descr A4 11693 8268
