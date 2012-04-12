@@ -20,7 +20,7 @@ Headers:
 
 Leds (Todos package 0805):
     Green   APT2012SGC
-    Blue    APT2012SYCK
+    Yellow  APT2012SYCK
     Red     APT2012EC
 
 

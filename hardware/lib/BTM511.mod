@@ -1,0 +1,402 @@
+PCBNEW-LibModule-V1  Thu 12 Apr 2012 03:10:27 PM ART
+# encoding utf-8
+$INDEX
+BTM511
+$EndINDEX
+$MODULE BTM511
+Po 0 0 0 15 4F871A4E 00000000 ~~
+Li BTM511
+Sc 00000000
+AR BTM511
+Op 0 0 0
+T0 0 -630 600 600 0 120 N V 21 N "BTM511"
+T1 0 748 600 600 0 120 N V 21 N "VAL**"
+DS 2953 -4331 6890 -4331 59 25
+DS 6890 -4331 6890 3543 59 25
+DS 6890 3543 2953 3543 59 25
+DS 2953 3543 2953 -4331 59 25
+DS 2165 -2756 4921 -2756 150 21
+DS 4921 -2756 4921 2756 150 21
+DS 4921 2756 4134 2756 150 21
+DS -4134 2756 -4921 2756 150 21
+DS -4921 2756 -4921 2559 150 21
+DS -4134 -2756 -4921 -2756 150 21
+DS -4921 -2756 -4921 -2559 150 21
+$PAD
+Sh "45" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -197 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "46" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -591 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "50" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -2166 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "49" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -1772 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "47" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -984 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "48" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -1378 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "52" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -2952 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "51" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -2558 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "53" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -3346 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "54" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -3740 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "44" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 197 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "43" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 591 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "41" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 1379 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "42" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 985 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "40" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 1771 -2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "32" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 3740 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "31" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 3346 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "27" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 1771 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "28" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 2165 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "30" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 2953 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "29" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 2559 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "25" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 985 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "26" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 1379 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "24" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 591 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "23" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po 197 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "13" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -3740 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "14" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -3346 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "16" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -2558 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "15" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -2952 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "19" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -1378 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "20" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -984 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "18" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -1772 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "17" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -2166 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "21" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -591 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "22" R 630 276 0 0 900
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -197 2677
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "12" R 630 276 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -4843 2165
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "10" R 630 276 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -4843 1377
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "11" R 630 276 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -4843 1771
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "9" R 630 276 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -4843 983
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "5" R 630 276 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -4843 -592
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "6" R 630 276 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -4843 -198
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "8" R 630 276 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -4843 590
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "7" R 630 276 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -4843 196
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "3" R 630 276 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -4843 -1378
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "4" R 630 276 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -4843 -984
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "2" R 630 276 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -4843 -1772
+.LocalClearance 31
+$EndPAD
+$PAD
+Sh "1" R 630 276 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 0 ""
+Po -4843 -2166
+.LocalClearance 31
+$EndPAD
+$EndMODULE  BTM511
+$EndLIBRARY

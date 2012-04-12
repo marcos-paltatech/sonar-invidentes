@@ -1,4 +1,4 @@
-update=Wed 11 Apr 2012 04:50:59 PM ART
+update=Thu 12 Apr 2012 03:51:47 PM ART
 version=1
 last_client=cvpcb
 [eeschema]
@@ -79,7 +79,8 @@ LibName8=led
 LibName9=dip_sockets
 LibName10=pga_sockets
 LibName11=valves
-LibDir=
+LibName12=BTM511
+LibDir=lib
 [general]
 version=1
 [cvpcb]
