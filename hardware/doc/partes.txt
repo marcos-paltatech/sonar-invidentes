@@ -1,5 +1,5 @@
 Capacitores:
-    20p     C1608C0G1H200J          Package 0603
+    20p     C1608C0G1H200JT         Package 0603
     100n    C0603C104K4RACTU        Package 0603
     4.7n    CC0603KRX7R9BB472       Package 0603
     1u      GRM188R60J105KA01D      Package 0603
@@ -25,8 +25,8 @@ Leds (Todos package 0805):
 
 
 Cristales:    
-    8Mhz    ECS-80-20-4
+    8Mhz    ECS-80-20-4X
 
 Otros:
     SW      B3FS-1012
-    Jumper  QPC02SXGN-RC    
+    Jumper  63429-202LF    

@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Thu 12 Apr 2012 08:38:20 PM ART
+EESchema Schematic File Version 2  date Fri 13 Apr 2012 01:18:07 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -17,13 +17,14 @@ LIBS:SRF02
 LIBS:W25Q80BV
 LIBS:STM32F100RBT6B
 LIBS:LD1117xx
+LIBS:sonar_board-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 6
 Title "STM32 MCU"
-Date "12 apr 2012"
+Date "13 apr 2012"
 Rev "0.3"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
@@ -382,7 +383,7 @@ U 1 1 4F850943
 P 7050 1000
 F 0 "X1" H 7050 1150 60  0000 C CNN
 F 1 "8Mhz" H 7050 850 60  0000 C CNN
-F 4 "ECS-80-20-4" H 7050 1000 60  0001 C CNN "mfg#"
+F 4 "ECS-80-20-4X" H 7050 1000 60  0001 C CNN "mfg#"
 	1    7050 1000
 	0    -1   -1   0   
 $EndComp
@@ -402,7 +403,7 @@ U 1 1 4F85096B
 P 7400 650
 F 0 "C2" H 7450 750 50  0000 L CNN
 F 1 "20pF" H 7450 550 50  0000 L CNN
-F 4 "C1608C0G1H200J" H 7400 650 60  0001 C CNN "mfg#"
+F 4 "C1608C0G1H200JT" H 7400 650 60  0001 C CNN "mfg#"
 	1    7400 650 
 	0    -1   1    0   
 $EndComp
@@ -412,7 +413,7 @@ U 1 1 4F850978
 P 7400 1350
 F 0 "C3" H 7450 1450 50  0000 L CNN
 F 1 "20pF" H 7450 1250 50  0000 L CNN
-F 4 "C1608C0G1H200J" H 7400 1350 60  0001 C CNN "mfg#"
+F 4 "C1608C0G1H200JT" H 7400 1350 60  0001 C CNN "mfg#"
 	1    7400 1350
 	0    -1   -1   0   
 $EndComp

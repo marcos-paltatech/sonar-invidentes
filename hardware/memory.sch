@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Thu 12 Apr 2012 08:38:20 PM ART
+EESchema Schematic File Version 2  date Fri 13 Apr 2012 01:18:07 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -17,13 +17,14 @@ LIBS:SRF02
 LIBS:W25Q80BV
 LIBS:STM32F100RBT6B
 LIBS:LD1117xx
+LIBS:sonar_board-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 5 6
 Title "Flash Memory"
-Date "12 apr 2012"
+Date "13 apr 2012"
 Rev "0.3"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
@@ -36,10 +37,10 @@ L W25Q80BV U3
 U 1 1 4F84D20F
 P 5900 4050
 F 0 "U3" H 5900 3950 50  0000 C CNN
-F 1 "W25Q80BV" H 5900 4150 50  0000 C CNN
+F 1 "SST25VF080B" H 5900 4150 50  0000 C CNN
 F 2 "MODULE" H 5900 4050 50  0001 C CNN
 F 3 "DOCUMENTATION" H 5900 4050 50  0001 C CNN
-F 4 "W25Q80BVSSIG" H 5900 4050 60  0001 C CNN "mfg#"
+F 4 "SST25VF080B-80-4I-SAE" H 5900 4050 60  0001 C CNN "mfg#"
 	1    5900 4050
 	1    0    0    -1  
 $EndComp

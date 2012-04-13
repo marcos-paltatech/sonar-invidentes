@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Thu 12 Apr 2012 08:38:20 PM ART
+EESchema Schematic File Version 2  date Fri 13 Apr 2012 01:18:07 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -17,13 +17,14 @@ LIBS:SRF02
 LIBS:W25Q80BV
 LIBS:STM32F100RBT6B
 LIBS:LD1117xx
+LIBS:sonar_board-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 6
 Title "Main Blocks"
-Date "12 apr 2012"
+Date "13 apr 2012"
 Rev "0.3"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"

@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Thu 12 Apr 2012 08:38:20 PM ART
+EESchema Schematic File Version 2  date Fri 13 Apr 2012 01:18:07 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -17,13 +17,14 @@ LIBS:SRF02
 LIBS:W25Q80BV
 LIBS:STM32F100RBT6B
 LIBS:LD1117xx
+LIBS:sonar_board-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 4 6
 Title "Distance Sensors"
-Date "12 apr 2012"
+Date "13 apr 2012"
 Rev "0.3"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
@@ -842,7 +843,7 @@ AC F3 07 00 00 5E 90 31 00 00 C0 0B 32 06 00 00 78 41 C6 00 00 00 2F C8 18 00 00
 14 08 92 24 48 52 35 93 99 77 43 60 46 04 49 3A CD 69 4B 47 47 47 BC 9B 02 00 00 E1 84 F1 18 00 
 00 E0 05 19 03 00 00 BC 20 63 00 00 80 17 64 0C 00 00 F0 82 8C 01 00 00 5E 90 31 00 00 C0 0B 32 
 06 00 00 78 41 C6 00 00 00 2F C8 18 00 00 E0 05 19 03 00 00 BC 20 63 00 00 80 97 FF 02 BE A3 2B 
-55 24 59 66 0C 00 00 00 00 49 45 4E 44 AE 42 60 82 12 $EndBitmap
+55 24 59 66 0C 00 00 00 00 49 45 4E 44 AE 42 60 82 6A $EndBitmap
 EndData
 $EndBitmap
 $EndSCHEMATC
