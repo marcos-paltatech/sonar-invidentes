@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sat 14 Apr 2012 04:05:21 AM ART
+EESchema Schematic File Version 2  date Sat 14 Apr 2012 04:13:28 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -356,4 +356,6 @@ Connection ~ 9850 1150
 Connection ~ 9850 1150
 Connection ~ 10200 1150
 Connection ~ 10200 1150
+Text Label 9100 5000 0    60   ~ 0
+SND_FILT
 $EndSCHEMATC
