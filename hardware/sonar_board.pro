@@ -81,6 +81,7 @@ LibName9=dip_sockets
 LibName10=pga_sockets
 LibName11=valves
 LibName12=BTM511
+LibName13=logos
 LibDir=lib
 [general]
 version=1
