@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Fri 13 Apr 2012 01:18:07 AM ART
+EESchema Schematic File Version 2  date Sat 14 Apr 2012 04:05:21 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -24,7 +24,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 6
 Title "Bluetooth Module"
-Date "13 apr 2012"
+Date "14 apr 2012"
 Rev "0.3"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
@@ -78,10 +78,10 @@ F 4 "68001-202HLF" H 8350 5000 60  0001 C CNN "mfg#"
 	1    0    0    -1  
 $EndComp
 $Comp
-L JUMPER SDN2
+L JUMPER SND2
 U 1 1 4F84AF11
 P 8350 5350
-F 0 "SDN2" H 8350 5500 60  0000 C CNN
+F 0 "SND2" H 8350 5500 60  0000 C CNN
 F 1 "JUMPER" H 8350 5270 40  0000 C CNN
 F 4 "68001-202HLF" H 8350 5350 60  0001 C CNN "mfg#"
 	1    8350 5350
@@ -225,13 +225,13 @@ F 4 "GRM188R60J105KA01D" H 9700 5000 60  0001 C CNN "mfg#"
 	0    -1   -1   0   
 $EndComp
 Text Label 7850 5000 0    60   ~ 0
-POS
+A+
 Text Label 7850 5350 0    60   ~ 0
-GND
-Text Label 3550 3700 0    60   ~ 0
-TX
-Text Label 3550 3600 0    60   ~ 0
-RX
+A-
+Text Label 3500 3700 0    60   ~ 0
+BTX
+Text Label 3500 3600 0    60   ~ 0
+BRX
 $Comp
 L C C13
 U 1 1 4F877382

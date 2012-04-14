@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Fri 13 Apr 2012 01:18:07 AM ART
+EESchema Schematic File Version 2  date Sat 14 Apr 2012 04:05:21 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -24,7 +24,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 4 6
 Title "Distance Sensors"
-Date "13 apr 2012"
+Date "14 apr 2012"
 Rev "0.3"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
@@ -82,7 +82,7 @@ I2C pull-up\nresistors
 Text Notes 6200 2650 0    60   ~ 0
 This is how the sensors would be connected to the\nI2C bus.
 Text Label 5250 4100 2    60   ~ 0
-VCC
+5V
 Text Label 5250 4200 2    60   ~ 0
 SDA
 Text Label 5250 4300 2    60   ~ 0
@@ -843,7 +843,7 @@ AC F3 07 00 00 5E 90 31 00 00 C0 0B 32 06 00 00 78 41 C6 00 00 00 2F C8 18 00 00
 14 08 92 24 48 52 35 93 99 77 43 60 46 04 49 3A CD 69 4B 47 47 47 BC 9B 02 00 00 E1 84 F1 18 00 
 00 E0 05 19 03 00 00 BC 20 63 00 00 80 17 64 0C 00 00 F0 82 8C 01 00 00 5E 90 31 00 00 C0 0B 32 
 06 00 00 78 41 C6 00 00 00 2F C8 18 00 00 E0 05 19 03 00 00 BC 20 63 00 00 80 97 FF 02 BE A3 2B 
-55 24 59 66 0C 00 00 00 00 49 45 4E 44 AE 42 60 82 6A $EndBitmap
+55 24 59 66 0C 00 00 00 00 49 45 4E 44 AE 42 60 82 00 $EndBitmap
 EndData
 $EndBitmap
 $EndSCHEMATC

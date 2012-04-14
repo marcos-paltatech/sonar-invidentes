@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Fri 13 Apr 2012 01:18:07 AM ART
+EESchema Schematic File Version 2  date Sat 14 Apr 2012 04:05:21 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -24,7 +24,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 6
 Title "STM32 MCU"
-Date "13 apr 2012"
+Date "14 apr 2012"
 Rev "0.3"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
@@ -103,9 +103,9 @@ Text GLabel 4600 5800 2    60   Input ~ 0
 Text GLabel 4600 7550 2    60   Input ~ 0
 3.3V
 Text HLabel 4600 6250 2    60   Output ~ 0
-AT_TX
+BTAT_TX
 Text HLabel 4600 6350 2    60   Input ~ 0
-AT_RX
+BTAT_RX
 Text HLabel 4600 6650 2    60   Output ~ 0
 MEM_CLK
 Text HLabel 4600 6750 2    60   Input ~ 0
@@ -349,26 +349,6 @@ F 4 "C0603C104K4RACTU" H 10250 900 60  0001 C CNN "mfg#"
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C11
-U 1 1 4F84E27F
-P 10550 900
-F 0 "C11" H 10600 1000 50  0000 L CNN
-F 1 "100nF" H 10600 800 50  0000 L CNN
-F 4 "C0603C104K4RACTU" H 10550 900 60  0001 C CNN "mfg#"
-	1    10550 900 
-	1    0    0    -1  
-$EndComp
-$Comp
-L C C12
-U 1 1 4F84E28E
-P 10850 900
-F 0 "C12" H 10900 1000 50  0000 L CNN
-F 1 "100nF" H 10900 800 50  0000 L CNN
-F 4 "C0603C104K4RACTU" H 10850 900 60  0001 C CNN "mfg#"
-	1    10850 900 
-	1    0    0    -1  
-$EndComp
-$Comp
 L GND #PWR010
 U 1 1 4F84E3A6
 P 8700 1200
@@ -477,10 +457,10 @@ F 4 "C0603C104K4RACTU" H 9850 2900 60  0001 C CNN "mfg#"
 	-1   0    0    1   
 $EndComp
 $Comp
-L SW_PUSH SW2
+L SW_PUSH SW1
 U 1 1 4F851FE1
 P 9400 3100
-F 0 "SW2" H 9550 3210 50  0000 C CNN
+F 0 "SW1" H 9550 3210 50  0000 C CNN
 F 1 "SWITCH" H 9400 3020 50  0000 C CNN
 F 4 "B3FS-1012" H 9400 3100 60  0001 C CNN "mfg#"
 	1    9400 3100
@@ -528,15 +508,15 @@ GND
 Text Label 6900 6150 2    60   ~ 0
 SWCLK
 Text Label 6550 5200 2    60   ~ 0
-TX
+STX
 Text Label 6550 5300 2    60   ~ 0
-RX
+SRX
 Text Label 6550 5400 2    60   ~ 0
 GND
 Text Label 6800 2500 2    60   ~ 0
-TX
+ETX
 Text Label 6800 2600 2    60   ~ 0
-RX
+ERX
 Text Label 6800 2700 2    60   ~ 0
 GND
 Text Notes 7800 1650 2    60   ~ 0
@@ -577,6 +557,16 @@ P 5350 1850
 F 0 "#PWR016" H 5350 1850 30  0001 C CNN
 F 1 "GND" H 5350 1780 30  0001 C CNN
 	1    5350 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C11
+U 1 1 4F88FEF3
+P 10550 900
+F 0 "C11" H 10600 1000 50  0000 L CNN
+F 1 "100nF" H 10600 800 50  0000 L CNN
+F 4 "C0603C104K4RACTU" H 10550 900 60  0001 C CNN "mfg#"
+	1    10550 900 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -693,10 +683,6 @@ Wire Notes Line
 Wire Notes Line
 	6300 6700 7850 6700
 Wire Wire Line
-	8700 700  10850 700 
-Wire Wire Line
-	8700 1100 10850 1100
-Wire Wire Line
 	8700 1100 8700 1200
 Wire Wire Line
 	4600 2500 4600 2350
@@ -807,21 +793,9 @@ Wire Wire Line
 Connection ~ 9950 700 
 Connection ~ 9950 700 
 Wire Wire Line
-	10250 700  10250 700 
-Connection ~ 10250 700 
-Connection ~ 10250 700 
+	8700 700  10550 700 
 Wire Wire Line
-	10250 1100 10250 1100
-Connection ~ 10250 1100
-Connection ~ 10250 1100
-Wire Wire Line
-	10550 1100 10550 1100
-Connection ~ 10550 1100
-Connection ~ 10550 1100
-Wire Wire Line
-	10550 700  10550 700 
-Connection ~ 10550 700 
-Connection ~ 10550 700 
+	8700 1100 10550 1100
 Wire Wire Line
 	4950 7450 4600 7450
 Wire Wire Line
@@ -843,4 +817,6 @@ Wire Notes Line
 	8750 2150 8750 3800
 Wire Wire Line
 	4600 2150 4950 2150
+Connection ~ 10250 700 
+Connection ~ 10250 1100
 $EndSCHEMATC

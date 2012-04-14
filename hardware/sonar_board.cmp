@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2011-nov-30)-testing date = Thu 12 Apr 2012 08:39:48 PM ART
+Cmp-Mod V01 Created by CvPcb (2011-nov-30)-testing date = Fri 13 Apr 2012 05:02:15 AM ART
 
 BeginCmp
 TimeStamp = /4F84AD9A/4F84CD79;
@@ -295,13 +295,6 @@ IdModule  = SM0603;
 EndCmp
 
 BeginCmp
-TimeStamp = /4F84AD9A/4F84AF11;
-Reference = SDN2;
-ValeurCmp = JUMPER;
-IdModule  = SIL-2;
-EndCmp
-
-BeginCmp
 TimeStamp = /4F84AD9A/4F84AECC;
 Reference = SND1;
 ValeurCmp = JUMPER;
@@ -309,8 +302,15 @@ IdModule  = SIL-2;
 EndCmp
 
 BeginCmp
+TimeStamp = /4F84AD9A/4F84AF11;
+Reference = SND2;
+ValeurCmp = JUMPER;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
 TimeStamp = /4F84A04D/4F851FE1;
-Reference = SW2;
+Reference = SW1;
 ValeurCmp = SWITCH;
 IdModule  = SW_PUSH_SMALL;
 EndCmp
@@ -332,8 +332,8 @@ EndCmp
 BeginCmp
 TimeStamp = /4F84D207/4F84D20F;
 Reference = U3;
-ValeurCmp = W25Q80BV;
-IdModule  = SO8N;
+ValeurCmp = SST25VF080B;
+IdModule  = SO8E;
 EndCmp
 
 BeginCmp
