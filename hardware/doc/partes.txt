@@ -12,11 +12,14 @@ Resistencias (Todos package 0603):
     2k      ERJ-3EKF2001V
     4.7k    ERJ-3EKF4701V
     10k     ERJ-3EKF1002V
+    100k    ERJ-3EKF1003V
+    499k    ERJ-3EKF4993V
 
 Headers:
     CONN2   68001-202HLF
     CONN3   68000-103HLF
     CONN4   68001-104HLF
+    CONN4   68760-304       Conector a 90º
 
 Leds (Todos package 0805):
     Green   APT2012SGC

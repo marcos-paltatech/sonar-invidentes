@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sat 14 Apr 2012 04:13:28 AM ART
+EESchema Schematic File Version 2  date Sun 15 Apr 2012 04:55:50 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -24,8 +24,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 5 6
 Title "Flash Memory"
-Date "14 apr 2012"
-Rev "0.3"
+Date "15 apr 2012"
+Rev "0.4"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
 Comment2 "Authors: Pablo Odorico, Juan Bajo, Marcos Chaparro"
@@ -57,10 +57,10 @@ MEM_NCS
 Text HLabel 4950 4000 0    60   Output ~ 0
 MEM_MISO
 $Comp
-L GND #PWR023
+L GND #PWR024
 U 1 1 4F85D530
 P 4950 4300
-F 0 "#PWR023" H 4950 4300 30  0001 C CNN
+F 0 "#PWR024" H 4950 4300 30  0001 C CNN
 F 1 "GND" H 4950 4230 30  0001 C CNN
 	1    4950 4300
 	1    0    0    -1  
@@ -76,10 +76,10 @@ F 4 "C0603C104K4RACTU" H 7550 4100 60  0001 C CNN "mfg#"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR024
+L GND #PWR025
 U 1 1 4F85DE08
 P 7550 4300
-F 0 "#PWR024" H 7550 4300 30  0001 C CNN
+F 0 "#PWR025" H 7550 4300 30  0001 C CNN
 F 1 "GND" H 7550 4230 30  0001 C CNN
 	1    7550 4300
 	1    0    0    -1  

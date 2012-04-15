@@ -82,6 +82,8 @@ LibName10=pga_sockets
 LibName11=valves
 LibName12=BTM511
 LibName13=logos
+Libname14=SRF02
+Libname15=keystone1294
 LibDir=lib
 [general]
 version=1

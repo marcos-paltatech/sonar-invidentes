@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sat 14 Apr 2012 04:13:28 AM ART
+EESchema Schematic File Version 2  date Sun 15 Apr 2012 04:55:50 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -24,8 +24,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 6
 Title "Bluetooth Module"
-Date "14 apr 2012"
-Rev "0.3"
+Date "15 apr 2012"
+Rev "0.4"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
 Comment2 "Authors: Pablo Odorico, Juan Bajo, Marcos Chaparro"
@@ -118,9 +118,9 @@ F 1 "GND" H 5750 2330 30  0001 C CNN
 	1    5750 2400
 	1    0    0    -1  
 $EndComp
-Text HLabel 2300 3600 0    60   Input ~ 0
+Text HLabel 2100 3350 0    60   Input ~ 0
 AT_RX
-Text HLabel 2300 3950 0    60   Output ~ 0
+Text HLabel 2100 3700 0    60   Output ~ 0
 AT_TX
 NoConn ~ 6700 4800
 NoConn ~ 6700 4700
@@ -155,29 +155,7 @@ NoConn ~ 4600 3400
 NoConn ~ 4600 3500
 NoConn ~ 5700 2550
 NoConn ~ 5800 2550
-$Comp
-L JUMPER AT1
-U 1 1 4F84CD79
-P 2800 3600
-F 0 "AT1" H 2800 3750 60  0000 C CNN
-F 1 "JUMPER" H 2800 3520 40  0000 C CNN
-F 4 "68001-202HLF" H 2800 3600 60  0001 C CNN "mfg#"
-	1    2800 3600
-	-1   0    0    -1  
-$EndComp
-$Comp
-L JUMPER AT2
-U 1 1 4F84CD7F
-P 2800 3950
-F 0 "AT2" H 2800 4100 60  0000 C CNN
-F 1 "JUMPER" H 2800 3870 40  0000 C CNN
-F 4 "68001-202HLF" H 2800 3950 60  0001 C CNN "mfg#"
-	1    2800 3950
-	-1   0    0    -1  
-$EndComp
-Text Notes 1750 3200 0    60   ~ 0
-The jumpers allow the module's UART to\nbe connected to a PC to be configured.
-Text Notes 1750 4250 0    60   ~ 0
+Text Notes 2000 4100 0    60   ~ 0
 Default: 9600, N, 8, 1
 Text GLabel 9550 750  0    60   Input ~ 0
 3.3V
@@ -228,10 +206,6 @@ Text Label 7850 5000 0    60   ~ 0
 A+
 Text Label 7850 5350 0    60   ~ 0
 A-
-Text Label 3500 3700 0    60   ~ 0
-BTX
-Text Label 3500 3600 0    60   ~ 0
-BRX
 $Comp
 L C C13
 U 1 1 4F877382
@@ -242,6 +216,34 @@ F 4 "C0603C104K4RACTU" H 9850 950 60  0001 C CNN "mfg#"
 	1    9850 950 
 	1    0    0    -1  
 $EndComp
+Text Label 9100 5000 0    60   ~ 0
+SND_FILT
+$Comp
+L JUMPER BTAT2
+U 1 1 4F8B136E
+P 2600 3700
+F 0 "BTAT2" H 2600 3850 60  0000 C CNN
+F 1 "JUMPER" H 2600 3620 40  0000 C CNN
+F 4 "68001-202HLF" H 2600 3700 60  0001 C CNN "mfg#"
+	1    2600 3700
+	-1   0    0    1   
+$EndComp
+$Comp
+L JUMPER BTAT1
+U 1 1 4F8B1385
+P 2600 3350
+F 0 "BTAT1" H 2600 3500 60  0000 C CNN
+F 1 "JUMPER" H 2600 3270 40  0000 C CNN
+F 4 "68001-202HLF" H 2600 3350 60  0001 C CNN "mfg#"
+	1    2600 3350
+	-1   0    0    1   
+$EndComp
+Text Label 3100 3600 0    60   ~ 0
+BTM_RX
+Text Label 3100 3700 0    60   ~ 0
+BTM_TX
+Text Notes 1800 2900 0    60   ~ 0
+The jumpers allow the module's\nUART to be connected to a PC for\nconfiguration purposes.
 Wire Wire Line
 	9100 5550 9100 5800
 Wire Notes Line
@@ -299,26 +301,6 @@ Wire Wire Line
 Wire Wire Line
 	5750 2300 5750 2400
 Wire Wire Line
-	3100 3600 4600 3600
-Wire Wire Line
-	3200 3700 4600 3700
-Wire Wire Line
-	2500 3600 2300 3600
-Wire Wire Line
-	2300 3950 2500 3950
-Wire Wire Line
-	3200 3700 3200 3950
-Wire Wire Line
-	3200 3950 3100 3950
-Wire Notes Line
-	1650 3000 1650 4350
-Wire Notes Line
-	1650 4350 3700 4350
-Wire Notes Line
-	3700 4350 3700 3000
-Wire Notes Line
-	3700 3000 1650 3000
-Wire Wire Line
 	7000 5200 7000 5000
 Connection ~ 7000 5000
 Wire Wire Line
@@ -356,6 +338,22 @@ Connection ~ 9850 1150
 Connection ~ 9850 1150
 Connection ~ 10200 1150
 Connection ~ 10200 1150
-Text Label 9100 5000 0    60   ~ 0
-SND_FILT
+Wire Wire Line
+	2900 3600 4600 3600
+Wire Wire Line
+	2900 3700 4600 3700
+Wire Wire Line
+	2900 3600 2900 3350
+Wire Wire Line
+	2300 3350 2100 3350
+Wire Wire Line
+	2300 3700 2100 3700
+Wire Notes Line
+	3550 2750 3550 4200
+Wire Notes Line
+	3550 2750 1650 2750
+Wire Notes Line
+	1650 2750 1650 4200
+Wire Notes Line
+	1650 4200 3550 4200
 $EndSCHEMATC

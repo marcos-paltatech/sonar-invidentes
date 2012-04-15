@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sat 14 Apr 2012 04:13:28 AM ART
+EESchema Schematic File Version 2  date Sun 15 Apr 2012 04:55:50 PM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -24,8 +24,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 6
 Title "STM32 MCU"
-Date "14 apr 2012"
-Rev "0.3"
+Date "15 apr 2012"
+Rev "0.4"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
 Comment2 "Authors: Pablo Odorico, Juan Bajo, Marcos Chaparro"
@@ -143,7 +143,6 @@ NoConn ~ 4600 2250
 NoConn ~ 4600 1850
 NoConn ~ 4600 1750
 NoConn ~ 4600 1650
-NoConn ~ 4600 1550
 NoConn ~ 4600 1150
 NoConn ~ 4600 1050
 Text HLabel 5050 2900 2    60   Output ~ 0
@@ -289,11 +288,11 @@ STLink SWD for programming\nand debugging.
 $Comp
 L C C7
 U 1 1 4F84E188
-P 5350 1650
-F 0 "C7" H 5400 1750 50  0000 L CNN
-F 1 "100nF" H 5400 1550 50  0000 L CNN
-F 4 "C0603C104K4RACTU" H 5350 1650 60  0001 C CNN "mfg#"
-	1    5350 1650
+P 5650 1650
+F 0 "C7" H 5700 1750 50  0000 L CNN
+F 1 "100nF" H 5700 1550 50  0000 L CNN
+F 4 "C0603C104K4RACTU" H 5650 1650 60  0001 C CNN "mfg#"
+	1    5650 1650
 	1    0    0    -1  
 $EndComp
 Text GLabel 8700 700  0    60   Input ~ 0
@@ -553,10 +552,10 @@ MCU
 $Comp
 L GND #PWR016
 U 1 1 4F866276
-P 5350 1850
-F 0 "#PWR016" H 5350 1850 30  0001 C CNN
-F 1 "GND" H 5350 1780 30  0001 C CNN
-	1    5350 1850
+P 5650 1850
+F 0 "#PWR016" H 5650 1850 30  0001 C CNN
+F 1 "GND" H 5650 1780 30  0001 C CNN
+	1    5650 1850
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -709,7 +708,7 @@ Wire Wire Line
 Wire Wire Line
 	4600 7150 5250 7150
 Wire Wire Line
-	4600 1450 5350 1450
+	4600 1450 5650 1450
 Wire Wire Line
 	9850 2600 9850 2700
 Wire Wire Line
@@ -819,4 +818,8 @@ Wire Wire Line
 	4600 2150 4950 2150
 Connection ~ 10250 700 
 Connection ~ 10250 1100
+Wire Wire Line
+	4600 1550 4750 1550
+Text HLabel 4750 1550 2    60   Input ~ 0
+BATT_LEVEL
 $EndSCHEMATC
