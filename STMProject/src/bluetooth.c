@@ -347,7 +347,7 @@ bool btConnect()
 		}
     }
     if(!connOk) {
-		printf("BT Error de conexion.\r\n", cmd);
+		printf("BT Error de conexion.\r\n");
 		ledBlueSet(false);
 		return false;
     }

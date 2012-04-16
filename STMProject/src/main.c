@@ -73,6 +73,9 @@ int main(void)
             printf("Bye.\r\n\r\n");
             quit= true;
             break;
+        case CMD_RESET:
+        	NVIC_SystemReset();
+        	break;
         case CMD_HELP:
             cmdHelp();
             break;

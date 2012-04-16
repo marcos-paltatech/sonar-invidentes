@@ -28,6 +28,8 @@ cmd_type readCmd(char* cmd, int len)
         type= CMD_MEMCHECK;
     else if(!strncasecmp("quit", cmd, readLen))
         type= CMD_QUIT;
+    else if(!strncasecmp("reset", cmd, readLen))
+        type= CMD_RESET;
     else if(!strncasecmp("help", cmd, readLen) || !strncasecmp("?", cmd, readLen))
         type= CMD_HELP;
     else if(!strncasecmp("", cmd, readLen))
@@ -49,6 +51,7 @@ void cmdHelp()
     printf("  flashmem   Entrar en modo para programar memoria flash.\r\n");
     printf("  memcheck   Calcular y mostrar checksum total de memoria flash.\r\n");
     printf("  quit       Terminar.\r\n");
+    printf("  reset      Software reset.\r\n");
     printf("  help/?     Esta ayuda.\r\n");
     printf("\r\n");
 }
