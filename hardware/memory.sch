@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sun 15 Apr 2012 04:55:50 PM ART
+EESchema Schematic File Version 2  date Tue 17 Apr 2012 12:41:08 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -17,14 +17,13 @@ LIBS:SRF02
 LIBS:W25Q80BV
 LIBS:STM32F100RBT6B
 LIBS:LD1117xx
-LIBS:sonar_board-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 5 6
 Title "Flash Memory"
-Date "15 apr 2012"
+Date "17 apr 2012"
 Rev "0.4"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"

@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sun 15 Apr 2012 04:55:50 PM ART
+EESchema Schematic File Version 2  date Tue 17 Apr 2012 12:41:08 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -17,14 +17,13 @@ LIBS:SRF02
 LIBS:W25Q80BV
 LIBS:STM32F100RBT6B
 LIBS:LD1117xx
-LIBS:sonar_board-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 6
 Title "Bluetooth Module"
-Date "15 apr 2012"
+Date "17 apr 2012"
 Rev "0.4"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
@@ -63,10 +62,8 @@ F 1 "GND" H 9100 5730 30  0001 C CNN
 $EndComp
 Text HLabel 10250 5000 2    60   Input ~ 0
 DACInput
-Text Notes 10100 5250 2    60   ~ 0
-Coupling Cap.
-Text Notes 9300 5750 0    60   ~ 0
-Low-pass filter to\nsmooth DAC's output.
+Text Notes 9450 5400 0    60   ~ 0
+Coupling Cap., and low-pass\nfilter to smooth DAC's output.
 $Comp
 L JUMPER SND1
 U 1 1 4F84AECC
@@ -96,8 +93,8 @@ F 1 "GND" H 6950 4230 30  0001 C CNN
 	1    6950 4300
 	1    0    0    -1  
 $EndComp
-Text Notes 8050 4650 0    60   ~ 0
-The jumpers can be used to use another audio input,\nor use the audio output elsewhere.
+Text Notes 7950 4600 0    60   ~ 0
+The jumpers allow the module to use another audio input, or\nto use the MCU's audio output elsewhere (eg. headphones).
 Text GLabel 6300 2400 2    60   Input ~ 0
 3.3V
 $Comp

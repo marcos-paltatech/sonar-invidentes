@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sun 15 Apr 2012 04:55:50 PM ART
+EESchema Schematic File Version 2  date Tue 17 Apr 2012 12:41:08 AM ART
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -17,14 +17,13 @@ LIBS:SRF02
 LIBS:W25Q80BV
 LIBS:STM32F100RBT6B
 LIBS:LD1117xx
-LIBS:sonar_board-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 6
 Title "STM32 MCU"
-Date "15 apr 2012"
+Date "17 apr 2012"
 Rev "0.4"
 Comp "Departamento de Ingeniería Eléctrica y Computadoras, Universidad Nacional del Sur"
 Comment1 "Directors: Ricardo Cayssials, Edgardo Ferro"
@@ -169,7 +168,7 @@ $EndComp
 Text Notes 6400 4950 0    60   ~ 0
 STDIN/STDOUT serial used\nfor debugging purposes.
 Text Notes 7100 5250 0    60   ~ 0
-Default:\n115200,N,8,1
+Params:\n115200,N,8,1
 $Comp
 L CONN_3 P2
 U 1 1 4F84BD42
@@ -189,8 +188,8 @@ F 1 "GND" H 6700 2730 30  0001 C CNN
 	1    6700 2800
 	1    0    0    -1  
 $EndComp
-Text Notes 6400 2350 0    60   ~ 0
-Extra serial for extensibility.
+Text Notes 6400 2250 0    60   ~ 0
+Extra UART/ADC/GPIO\nfor extensibility.
 $Comp
 L R R3
 U 1 1 4F84C44B
@@ -568,6 +567,8 @@ F 4 "C0603C104K4RACTU" H 10550 900 60  0001 C CNN "mfg#"
 	1    10550 900 
 	1    0    0    -1  
 $EndComp
+Text HLabel 4750 1550 2    60   Input ~ 0
+BATT_LEVEL
 Wire Wire Line
 	4600 2900 5050 2900
 Wire Wire Line
@@ -579,17 +580,11 @@ Wire Wire Line
 Wire Wire Line
 	6450 5400 6450 5500
 Wire Notes Line
-	7850 2950 6300 2950
+	6300 2950 7850 2950
 Wire Wire Line
 	4600 2500 6800 2500
 Wire Wire Line
 	4600 2600 6800 2600
-Wire Notes Line
-	7850 2150 7850 2950
-Wire Notes Line
-	7850 2150 6300 2150
-Wire Notes Line
-	6300 2150 6300 2950
 Wire Wire Line
 	4950 7500 4950 7450
 Wire Wire Line
@@ -820,6 +815,10 @@ Connection ~ 10250 700
 Connection ~ 10250 1100
 Wire Wire Line
 	4600 1550 4750 1550
-Text HLabel 4750 1550 2    60   Input ~ 0
-BATT_LEVEL
+Wire Notes Line
+	6300 2950 6300 2050
+Wire Notes Line
+	6300 2050 7850 2050
+Wire Notes Line
+	7850 2050 7850 2950
 $EndSCHEMATC

@@ -8,7 +8,7 @@
 # Exportar board:
 # File -> Plot (en el mismo directorio)
 # Capas: Front, GND, VCC, Back, SilkS_Front, SilkS_Back, Comments
-# Scaling 3:2
+# Scaling 3:1
 
 gs -q -sPAPERSIZE=a4 -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=doc/sonar_board_v0.pdf \
 sonar_board.ps \
