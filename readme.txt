@@ -22,5 +22,9 @@ hardware_proto/
     El proyecto esta hecho con KiCAD.
 
 STMProject/
-    Proyecto para la placa STM32-Discovery.
+    Proyecto para el prototipo usando la placa STM32-Discovery.
     El proyecto es para el IDE "Atollic TrueSTUDIO for STMicroelectronics STM32".
+	
+SonarBoardProject/
+	Proyecto para la placa SonarBoard.
+	El proyecto es para el IDE "CooCox".
