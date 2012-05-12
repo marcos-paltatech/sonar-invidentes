@@ -1,6 +1,5 @@
 #include "spi_flash.h"
 
-#include "STM32vldiscovery.h"
 #include "stm32f10x_conf.h"
 
 #include "adler32.h"
@@ -31,14 +30,13 @@ uint8_t flashSendByte(uint8_t byte)
 static
 uint8_t flashReadByte()
 {
-    return flashSendByte(FLASH_DUMMY_BYTE);
+	return flashSendByte(0x00);
 }
 
 static inline
 void flashWriteEnable()
 {
     flashSelect();
-    // Enviar instruccion Write-Enable
     flashSendByte(FLASH_CMD_WREN);
     flashDeselect();
 }
@@ -49,12 +47,8 @@ void flashWaitWriteEnd()
     flashSelect();
     // Leer el status register
     flashSendByte(FLASH_CMD_RDSR);
-
-    uint8_t status;
-    do {
-        // Enviar byte dummy para generar el clock mientras esperamos
-        status= flashSendByte(FLASH_DUMMY_BYTE);
-    } while((status & FLASH_WIP_FLAG) == SET);
+    // Esperar hasta que no este en estado busy
+    waitWhile((flashReadByte() & FLASH_WIP_FLAG) == SET);
 
     flashDeselect();
 }
@@ -88,7 +82,6 @@ void flashSetup()
     gpioConfig.GPIO_Pin= GPIO_Pin_4;
     gpioConfig.GPIO_Mode= GPIO_Mode_IN_FLOATING;
     GPIO_Init(GPIOB, &gpioConfig);
-
     // Config pin CS: PB6
     gpioConfig.GPIO_Pin= GPIO_Pin_6;
     gpioConfig.GPIO_Mode= GPIO_Mode_Out_PP;
@@ -110,6 +103,18 @@ void flashSetup()
     spiConfig.SPI_CRCPolynomial= 7;
     SPI_Init(SPI1, &spiConfig);
     SPI_Cmd(SPI1, ENABLE);
+
+    // Configuracion de la memoria
+    flashSelect();
+    flashSendByte(0x80);
+    flashDeselect();
+    flashSelect();
+    flashSendByte(0x50);
+    flashDeselect();
+    flashSelect();
+    flashSendByte(0x01);
+    flashSendByte(0x00);
+    flashDeselect();
 
     setupDone= true;
 }
@@ -143,22 +148,30 @@ void flashEraseAll()
 void flashWritePage(uint8_t* data, uint16_t len, uint32_t addr)
 {
     flashWriteEnable();
-    flashSelect();
 
-    // Instruccion "page program" (write)
+    flashSelect();
     flashSendByte(FLASH_CMD_WRITE);
-    // Enviar los 24-bits de addr
     flashSendByte((addr & 0xFF0000) >> 16);
     flashSendByte((addr & 0x00FF00) >> 8);
     flashSendByte((addr & 0x0000FF) >> 0);
-    // Escribir datos
-    while(len--) {
-        flashSendByte(*data);
-        data++;
-    }
+    flashSendByte(data[0]);
+	flashSendByte(data[1]);
+	flashDeselect();
+	flashWaitWriteEnd();
 
+    // Escribir datos
+    for(uint16_t i=2; i<len; i += 2) {
+    	flashSelect();
+    	flashSendByte(FLASH_CMD_WRITE);
+        flashSendByte(data[i]);
+    	flashSendByte(data[i+1]);
+    	flashDeselect();
+    	flashWaitWriteEnd();
+    }
     flashDeselect();
-    flashWaitWriteEnd();
+    flashSelect();
+    flashSendByte(FLASH_CMD_WRDI);
+    flashDeselect();
 }
 
 void flashReadBuffer(uint8_t* data, uint16_t len, uint32_t addr)
@@ -167,7 +180,7 @@ void flashReadBuffer(uint8_t* data, uint16_t len, uint32_t addr)
 
     flashSendByte(FLASH_CMD_READ);
     // Enviar los 24-bits de addr
-    flashSendByte((addr & 0xFFFFFF) >> 16);
+    flashSendByte((addr & 0xFF0000) >> 16);
     flashSendByte((addr & 0x00FF00) >> 8);
     flashSendByte((addr & 0x0000FF) >> 0);
     // Leer datos
@@ -183,11 +196,7 @@ void flashReadBuffer(uint8_t* data, uint16_t len, uint32_t addr)
 
 void flashProgramMode()
 {
-    STM32vldiscovery_LEDInit(LED3);
-    STM32vldiscovery_LEDInit(LED4);
-
-    STM32vldiscovery_LEDOn(LED3);
-    STM32vldiscovery_LEDOn(LED4);
+	SB_LedSet(SB_LedR, true);
 
     // Leer cantidad de paginas a programar
     uint16_t usedPages;
@@ -198,13 +207,14 @@ void flashProgramMode()
     // terminado de borrar la mem porque empieza enseguida
     _write_r(0, 0, &usedPages, 2);
 
-    STM32vldiscovery_LEDOn(LED3);
-    STM32vldiscovery_LEDOff(LED4);
+	SB_LedSet(SB_LedY, true);
+	SB_LedSet(SB_LedR, false);
 
     uint16_t index= 0;
     uint8_t pageBuffer[FLASH_PAGE_SIZE];
     uint32_t checksum;
 
+    uint8_t blinkCount= 0;
     while(index != 0xFFFF) {
         // Leer indice de pagina
         _read_r(0, 0, &index, 2);
@@ -218,11 +228,12 @@ void flashProgramMode()
         checksum= adler32(pageBuffer, FLASH_PAGE_SIZE);
         _write_r(0, 0, &checksum, 4);
 
-        STM32vldiscovery_LEDToggle(LED3);
-        STM32vldiscovery_LEDToggle(LED4);
+        blinkCount++;
+        if(blinkCount & 0xF == 0)
+        	SB_LedToggle(SB_LedY);
     }
-    STM32vldiscovery_LEDOn(LED3);
-    STM32vldiscovery_LEDOn(LED4);
+    SB_LedSet(SB_LedY, false);
+    SB_LedSet(SB_LedG, true);
 }
 
 uint32_t flashFullChecksum()
@@ -240,5 +251,5 @@ uint32_t flashFullChecksum()
 
 bool flashTest()
 {
-    return flashGetID()==FLASH_ID_W25Q80BV;
+    return flashGetID() == FLASH_ID;
 }

@@ -1,11 +1,5 @@
 #include "bluetooth.h"
 #include "timer.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include <STM32vldiscovery.h> // Usado para el pushbutton
-#include "stm32f10x_conf.h"
 
 #include "audioplayer.h" // TODO sacar, usado en la interrupcion del boton
 
@@ -27,7 +21,7 @@ static char devsAddrs[maxDevsFound][addrLen+1]; // Considerar \0 al final
 // Configuracion
 //
 
-void setupBluetooth()
+void btSetup()
 {
     // Inicializar variables de AT
     atLine[0]= 0;
@@ -74,8 +68,6 @@ void setupBluetooth()
     nvicConfig.NVIC_IRQChannelCmd= ENABLE;
     NVIC_Init(&nvicConfig);
     // Por defecto esta deshabilitada
-
-    STM32vldiscovery_PBInit(BUTTON_USER, BUTTON_MODE_EXTI);
 }
 
 //
@@ -250,7 +242,7 @@ bool btConnect()
     USART_ITConfig(USART3, USART_IT_RXNE, DISABLE);
 
     // QUERY
-    ledBlueSetPeriod(1000);
+    SB_LedBlinkPeriod(SB_LedY, 1000);
     printf("BT Buscando headsets.\r\n");
 
     const uint8_t queryRetries= 5;
@@ -260,7 +252,7 @@ bool btConnect()
         atWrite(cmd, strlen(cmd));
         if(!atReadMACs(5000)) { // Doy un tiempo de espera mayor al programado en ATS517
             printf("BT Error al leer MACs.");
-            ledBlueSet(false);
+            SB_LedSet(SB_LedY, false);
             return false;
         }
         if(!devsFound)
@@ -269,7 +261,7 @@ bool btConnect()
     }
     if(!devsFound) {
         printf("BT No se encontro ningun headset.\r\n");
-        ledBlueSet(false);
+        SB_LedSet(SB_LedY, false);
         return false;
     }
 
@@ -291,13 +283,13 @@ bool btConnect()
     atWrite(cmd, strlen(cmd));
     if(!atReadOK(1000)) {
         printf("BT Error configurando PIN.\r\n");
-        ledBlueSet(false);
+        SB_LedSet(SB_LedY, false);
         return false;
     }
     sleep(200);
 
     // Iniciar pairing
-    ledBlueSetPeriod(200);
+    SB_LedBlinkPeriod(SB_LedY, 200);
     printf("BT Empezando pairing.\r\n");
 
     const uint8_t pairRetries= 5;
@@ -308,7 +300,7 @@ bool btConnect()
 		atWrite(cmd, strlen(cmd));
 		if(!atReadOK(1000)) {
 			printf("BT Error, no llego el OK de AT+BTW.\r\n");
-			ledBlueSet(false);
+			SB_LedSet(SB_LedY, false);
 			return false;
 		}
 		// Esperar algo como "PAIR 0 001A0EE5081D 00" por 8 segundos
@@ -320,7 +312,7 @@ bool btConnect()
 		}
     }
     if(!pairOk) {
-    	ledBlueSet(false);
+    	SB_LedSet(SB_LedY, false);
     	printf("BT Error de pairing.\r\n");
     	return false;
     }
@@ -328,7 +320,7 @@ bool btConnect()
     sleep(200);
 
     // CONNECTION
-    ledBlueSetPeriod(50);
+    SB_LedBlinkPeriod(SB_LedY, 50);
     printf("BT Empezando conexion.\r\n");
 
     const uint8_t connRetries= 5;
@@ -346,10 +338,10 @@ bool btConnect()
     }
     if(!connOk) {
 		printf("BT Error de conexion.\r\n");
-		ledBlueSet(false);
+		SB_LedSet(SB_LedY, false);
 		return false;
     }
-    ledBlueSetPeriod(700);
+    SB_LedBlinkPeriod(SB_LedY, 700);
     printf("BT Conexion OK.\r\n");
     btState= BT_CONNECTED;
 
@@ -407,16 +399,16 @@ void USART3_IRQHandler(void)
     // HSG"AU1"
     if(!strncmp("HSG\"AU1", atLine, 7)) {
         btState= BT_PLAYING;
-        ledBlueSet(true);
+        SB_LedSet(SB_LedY, true);
         printf("BT Playing.\r\n");
     // HSG"AU0"
     } else if(!strncmp("HSG\"AU0", atLine, 7)) {
         btState= BT_CONNECTED;
-        ledBlueSetPeriod(700);
+        SB_LedBlinkPeriod(SB_LedY, 700);
         printf("BT Stopped.\r\n");
     // NO CARRIER 1112
     } else if(!strncmp("NO CARR", atLine, 7)) {
-        ledBlueSet(false);
+        SB_LedSet(SB_LedY, false);
         btState= BT_DISCONNECTED;
         printf("BT Disconnected.\r\n");
     }
@@ -427,8 +419,11 @@ void USART3_IRQHandler(void)
 //
 void EXTI0_IRQHandler(void)
 {
-    if(!STM32vldiscovery_PBGetState(BUTTON_USER))
-        return;
+	const bool state= SB_ButtonState(SB_Button1);
+	static bool lastState= false;
+	if(state != lastState)
+		return;
+	lastState= state;
 
     static uint32_t lastTime= 0;
     if(getMsecs()-lastTime < 400) return;
@@ -437,6 +432,51 @@ void EXTI0_IRQHandler(void)
 	playerPlayTrack(trackId);
 	trackId= (trackId+1) % 9;
 
-    EXTI_ClearITPendingBit(USER_BUTTON_EXTI_LINE);
+    EXTI_ClearITPendingBit(EXTI_Line0);
     lastTime= getMsecs();
+}
+
+//
+// Configuracion persistente del modulo bluetooth
+//
+
+// Configuracion persistente del modulo bluetooth
+void btSetupModule()
+{
+	if(!btTest()) {
+		printf("Modulo no encontrado.\r\n");
+		return;
+	} else {
+		printf("Configurando modulo.\r\n");
+	}
+
+	// Mirar doc/config_btm.txt
+	atWrite("ATE0\r", 5);
+	atReadOK(300);
+	atWrite("AT+BTN=\"Sonar\"\r", 15);
+	atReadOK(300);
+	atWrite("ATS515=$20020C\r", 15);
+	atReadOK(300);
+	atWrite("ATS517=4\r", 9);
+	atReadOK(300);
+	atWrite("ATS518=5\r", 9);
+	atReadOK(300);
+	atWrite("ATS321=3\r", 9);
+	atReadOK(300);
+	atWrite("ATS102=$8\r", 10);
+	atReadOK(300);
+	atWrite("ATS590=2\r", 9);
+	atReadOK(300);
+	atWrite("ATS415=0\r", 9);
+	atReadOK(300);
+	atWrite("ATS345=0\r", 9);
+	atReadOK(300);
+	atWrite("AT&W\r", 5);
+	atReadOK(500);
+
+	printf("Reiniciando...\r\n");
+	atWrite("ATZ\r", 4);
+	atReadOK(5000);
+
+	printf("Listo.\r\n");
 }

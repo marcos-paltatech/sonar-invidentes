@@ -4,7 +4,7 @@
 #include "sonarboard.h"
 
 // Retarget de STDIN/STDOUT por USART1 remapeado a PA9/PA10
-void setupRetarget();
+void retargetSetup();
 
 
 // Atollic-specific Redefinitions

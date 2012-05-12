@@ -14,7 +14,7 @@
     uint32_t mt=getMsecs()+(timeout); \
     while(!(cond) && getMsecs()<mt); }
 
-void setupTimer();
+void timerSetup();
 
 // Cantidad de milisegundos desde que inicio el programa
 uint32_t getMsecs();
@@ -28,11 +28,10 @@ void SysTick_Handler(void);
 //
 // Funciones para manejar LEDs
 //
-
-void ledBlueSet(bool on);
-void ledBlueSetPeriod(uint16_t period);
-
-void ledGreenSet(bool on);
-void ledGreenSetPeriod(uint16_t period);
+void SB_LedSet(SB_Led led, bool value);
+void SB_LedBlinkPeriod(SB_Led led, uint16_t period);
+void SB_LedToggle(SB_Led led);
+// Prende y apaga todos los leds
+void SB_LedTest();
 
 #endif

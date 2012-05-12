@@ -1,19 +1,16 @@
 #include "timer.h"
 
-#include "STM32vldiscovery.h"
-
 #define TIMER_FREQ  100 // 10ms
 static uint32_t msecs;
 
-#define LEDGREEN   LED3
-#define LEDBLUE     LED4
+static uint16_t gLedPeriod; // 0==Off, 0xFFFF=On
+static uint32_t gLedLastToggle;
+static uint16_t yLedPeriod; // 0==Off, 0xFFFF=On
+static uint32_t yLedLastToggle;
+static uint16_t rLedPeriod; // 0==Off, 0xFFFF=On
+static uint32_t rLedLastToggle;
 
-static uint16_t bluePeriod; // 0==Off, 0xFFFF=On
-static uint32_t blueLastToggle;
-static uint16_t greenPeriod; // 0==Off, 0xFFFF=On
-static uint32_t greenLastToggle;
-
-void setupTimer()
+void timerSetup()
 {
     msecs= 0;
 
@@ -22,12 +19,12 @@ void setupTimer()
     RCC_GetClocksFreq(&clocks);
     uint32_t sysClock= clocks.SYSCLK_Frequency;
 
-    STM32vldiscovery_LEDInit(LEDBLUE);
-    STM32vldiscovery_LEDInit(LEDGREEN);
-    bluePeriod= 0;
-    greenPeriod= 0;
-    blueLastToggle= 0;
-    greenLastToggle= 0;
+    gLedPeriod= 0;
+    gLedLastToggle= 0;
+    yLedPeriod= 0;
+    yLedLastToggle= 0;
+    rLedPeriod= 0;
+    rLedLastToggle= 0;
 
     // Iniciar systimer
     SysTick_Config(sysClock/TIMER_FREQ);
@@ -40,13 +37,17 @@ void SysTick_Handler(void)
     msecs += 1000/TIMER_FREQ;
 
     // Blinking de leds
-    if(bluePeriod && bluePeriod!=0xFFFF && msecs-blueLastToggle>=bluePeriod) {
-        STM32vldiscovery_LEDToggle(LEDBLUE);
-        blueLastToggle= msecs;
+    if(gLedPeriod && gLedPeriod!=0xFFFF && msecs-gLedLastToggle>=gLedPeriod) {
+        SB_LedToggle(SB_LedG);
+        gLedLastToggle= msecs;
     }
-    if(greenPeriod && greenPeriod!=0xFFFF && msecs-greenLastToggle>=greenPeriod) {
-        STM32vldiscovery_LEDToggle(LEDGREEN);
-        greenLastToggle= msecs;
+    if(yLedPeriod && yLedPeriod!=0xFFFF && msecs-yLedLastToggle>=yLedPeriod) {
+        SB_LedToggle(SB_LedY);
+        yLedLastToggle= msecs;
+    }
+    if(rLedPeriod && rLedPeriod!=0xFFFF && msecs-rLedLastToggle>=rLedPeriod) {
+        SB_LedToggle(SB_LedR);
+        rLedLastToggle= msecs;
     }
 }
 
@@ -55,45 +56,53 @@ uint32_t getMsecs()
     return msecs;
 }
 
-void sleep(uint32_t msecs)
+void sleep(uint32_t msecsTime)
 {
-    uint32_t stopTime= getMsecs() + msecs;
-    waitWhile(getMsecs() < stopTime);
+    uint32_t stopTime= msecs + msecsTime;
+    waitWhile(msecs < stopTime);
 }
 
 //
 // Funciones para manejar LEDs
 //
 
-void ledBlueSet(bool on)
+void SB_LedSet(SB_Led led, bool value)
 {
-    if(on) {
-        bluePeriod= 0xFFFF;
-        STM32vldiscovery_LEDOn(LEDBLUE);
-    } else {
-        bluePeriod= 0x0000;
-        STM32vldiscovery_LEDOff(LEDBLUE);
-    }
+	SB_LedBlinkPeriod(led, (value ? 0xFFFF : 0x0000));
+	if(value)
+		SB_LedGPIO->BSRR= led;
+	else
+		SB_LedGPIO->BRR= led;
 }
 
-void ledBlueSetPeriod(uint16_t period)
+void SB_LedToggle(SB_Led led)
 {
-    bluePeriod= period;
+	SB_LedGPIO->ODR ^= led;
 }
 
-void ledGreenSet(bool on)
+void SB_LedBlinkPeriod(SB_Led led, uint16_t period)
 {
-    if(on) {
-        greenPeriod= 0xFFFF;
-        STM32vldiscovery_LEDOn(LEDGREEN);
-    } else {
-        greenPeriod= 0x0000;
-        STM32vldiscovery_LEDOff(LEDGREEN);
-    }
+	switch(led) {
+		case SB_LedG: gLedPeriod= period; break;
+		case SB_LedY: yLedPeriod= period; break;
+		default:
+		case SB_LedR: rLedPeriod= period; break;
+	}
 }
 
-void ledGreenSetPeriod(uint16_t period)
+void SB_LedTest()
 {
-    greenPeriod= period;
+	uint8_t delay= 75;
+	SB_LedSet(SB_LedG, true);
+	sleep(delay);
+	SB_LedSet(SB_LedY, true);
+	sleep(delay);
+	SB_LedSet(SB_LedR, true);
+	sleep(delay);
+	SB_LedSet(SB_LedG, false);
+	sleep(delay);
+	SB_LedSet(SB_LedY, false);
+	sleep(delay);
+	SB_LedSet(SB_LedR, false);
+	sleep(delay);
 }
-

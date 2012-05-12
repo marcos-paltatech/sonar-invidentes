@@ -1,6 +1,6 @@
 #include "io_retarget.h"
 
-void setupRetarget()
+void retargetSetup()
 {
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO, ENABLE);
 

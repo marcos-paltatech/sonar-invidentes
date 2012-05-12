@@ -24,10 +24,14 @@ cmd_type readCmd()
         type= CMD_BTCALL;
     else if(!strncasecmp("bthang", cmdBuffer, readLen))
         type= CMD_BTHANG;
+    else if(!strncasecmp("btconfig", cmdBuffer, readLen))
+        type= CMD_BTCONFIG;
     else if(!strncasecmp("flashmem", cmdBuffer, readLen))
         type= CMD_FLASHMEM;
     else if(!strncasecmp("memcheck", cmdBuffer, readLen))
         type= CMD_MEMCHECK;
+    else if(!strncasecmp("battlevel", cmdBuffer, readLen))
+        type= CMD_BATTLEVEL;
     else if(!strncasecmp("quit", cmdBuffer, readLen))
         type= CMD_QUIT;
     else if(!strncasecmp("reset", cmdBuffer, readLen))
@@ -50,8 +54,10 @@ void cmdHelp()
     printf("  btconnect  Establecer conexion por bluetooth y llamar al headset.\r\n");
     printf("  btcall     Empezar a transmitir audio por bluetooth.\r\n");
     printf("  bthang     Terminar de transmitir audio por bluetooth.\r\n");
+    printf("  btconfig   Configuracion persistente del modulo bluetooth.\r\n");
     printf("  flashmem   Entrar en modo para programar memoria flash.\r\n");
     printf("  memcheck   Calcular y mostrar checksum total de memoria flash.\r\n");
+    printf("  battlevel  Muestra el nivel de la bateria.\r\n");
     printf("  quit       Terminar.\r\n");
     printf("  reset      Software reset.\r\n");
     printf("  help/?     Esta ayuda.\r\n");

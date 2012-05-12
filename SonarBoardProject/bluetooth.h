@@ -19,7 +19,10 @@ typedef enum {
 } bt_state;
 
 // Configuracion general
-void setupBluetooth();
+void btSetup();
+
+// Configuracion persistente del modulo bluetooth
+void btSetupModule();
 
 // Se conecta con el headset, puede tardar varios segundos
 // Devuelve true si no hubo errores

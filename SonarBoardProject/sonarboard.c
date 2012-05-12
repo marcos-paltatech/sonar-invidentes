@@ -1,13 +1,40 @@
 #include "sonarboard.h"
 
-#define ledGPIO	GPIOC
-#define btnGPIO	GPIOA
 static enum {
 	ledCount= 3,
 	ledClock= RCC_APB2Periph_GPIOC,
 	btnCount= 3,
-	btnClock= RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO
+	btnClock= RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO,
+	adcClock= RCC_APB2Periph_GPIOC | RCC_APB2Periph_ADC1
 };
+
+static void setupBattADC()
+{
+	RCC_ADCCLKConfig(RCC_PCLK2_Div8); // 3 Mhz
+	RCC_APB2PeriphClockCmd(adcClock, ENABLE);
+
+	// PC0
+	GPIO_InitTypeDef gpioConfig;
+	gpioConfig.GPIO_Mode= GPIO_Mode_AIN;
+	gpioConfig.GPIO_Pin= GPIO_Pin_0;
+	GPIO_Init(GPIOC, &gpioConfig);
+
+	ADC_InitTypeDef adcConfig;
+	adcConfig.ADC_Mode= ADC_Mode_Independent;
+	adcConfig.ADC_ScanConvMode= DISABLE;
+	adcConfig.ADC_ContinuousConvMode= ENABLE;
+	adcConfig.ADC_ExternalTrigConv= ADC_ExternalTrigConv_None;
+	adcConfig.ADC_DataAlign= ADC_DataAlign_Right;
+	adcConfig.ADC_NbrOfChannel= 1;
+	ADC_RegularChannelConfig(ADC1, ADC_Channel_10, 1, ADC_SampleTime_239Cycles5);
+	ADC_Init(ADC1, &adcConfig);
+	ADC_Cmd(ADC1, ENABLE);
+
+	ADC_ResetCalibration(ADC1);
+	waitWhile(ADC_GetResetCalibrationStatus(ADC1));
+	ADC_StartCalibration(ADC1);
+	waitWhile(ADC_GetCalibrationStatus(ADC1));
+}
 
 void SB_Setup()
 {
@@ -29,14 +56,17 @@ void SB_Setup()
 	gpioConfig.GPIO_Pin= SB_LedG | SB_LedY | SB_LedR;
 	gpioConfig.GPIO_Mode= GPIO_Mode_Out_PP;
 	gpioConfig.GPIO_Speed= GPIO_Speed_2MHz;
-	GPIO_Init(ledGPIO, &gpioConfig);
+	GPIO_Init(SB_LedGPIO, &gpioConfig);
+
+	// Setup del ADC para nivel de bateria
+	setupBattADC();
 
 	// Setup user button
 	//
 	RCC_APB2PeriphClockCmd(btnClock, ENABLE);
 	gpioConfig.GPIO_Pin = SB_Button1;
 	gpioConfig.GPIO_Mode = GPIO_Mode_IN_FLOATING;
-	GPIO_Init(btnGPIO, &gpioConfig);
+	GPIO_Init(SB_ButtonGPIO, &gpioConfig);
 
 	GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource0);
 
@@ -55,15 +85,16 @@ void SB_Setup()
 	NVIC_Init(&nvicConfig);
 }
 
-void SB_LedSet(SB_Led led, bool value)
+bool SB_ButtonState(SB_Button button)
 {
-	if(value)
-		ledGPIO->BSRR= led;
-	else
-		ledGPIO->BRR= led;
+	return GPIO_ReadInputDataBit(SB_ButtonGPIO, button);
 }
 
-void SB_LedToggle(SB_Led led)
+uint16_t SB_GetBatteryLevel()
 {
-	ledGPIO->ODR ^= led;
+	ADC_Cmd(ADC1, ENABLE);
+	// Empezar conversion
+    ADC_SoftwareStartConvCmd(ADC1, ENABLE);
+    sleep(200);
+    return ADC_GetConversionValue(ADC1);
 }

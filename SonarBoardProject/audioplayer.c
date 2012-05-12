@@ -2,8 +2,6 @@
 // DAC1 esta conectado con DMA1 Channel 3
 // TIM6 y TIM7 son los timers diseniados para triggear el DAC
 
-#include <stdio.h>
-
 #include "stm32f10x_conf.h"
 
 #include "audiotracks.h" // Estructuras de datos con informacion de los tracks en memoria
@@ -166,7 +164,7 @@ void playerPlay(uint32_t page, uint32_t pageCount)
     if(!playerSetup())
         return;
 
-    ledGreenSet(true);
+    SB_LedSet(SB_LedG, true);
 
     // Activar el timer
     TIM_Cmd(TIM6, ENABLE);
@@ -209,7 +207,7 @@ void playerStop()
     // Desactivar el DAC
     DAC_Cmd(DAC_Channel_1, DISABLE);
     printf("Stopped playing.\r\n");
-    ledGreenSet(false);
+    SB_LedSet(SB_LedG, false);
 }
 
 
