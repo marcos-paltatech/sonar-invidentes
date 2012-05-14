@@ -1,6 +1,15 @@
-Una vez grabadas los tracks:
+Grabar en mono
 
-File -> Export Multiple
-    Export Format: Other uncompressed files
-    Options: RAW (header-less), Unsigned 8 bit PCM
-    
+Eliminar DC: high pass filter con frecuencia 1hz
+
+Eliminar ruido: seleccionar y eliminar
+Effect: Aplify 15
+Eliminar ruido: seleccionar y eliminar
+
+Separar palabras en tracks, sin dejar silencio
+
+Cambiar nombres
+Ordenar tracks por nombre
+
+Resamplear todos los tracks a 16khz
+Seleccionar todos los tracks y exportar como RAW 8bits unsigned, usando export multiple
