@@ -27,6 +27,8 @@ static bool pcmBufferIndex;
 static uint16_t pcmCurrentPage;
 // Ultima pagina a reproducir
 static uint16_t pcmLastPage;
+// Estamos reproduciendo?
+static bool playing;
 
 static uint16_t samplingRate= 16000;
 static uint8_t channelCount= 1;
@@ -51,6 +53,7 @@ bool setAutoReload(TIM_TypeDef* tim, uint32_t rate, uint8_t channels)
 
 static bool playerSetup()
 {
+	playing= false;
 	// Es necesario que se haya llamado setupITs();
 
     NVIC_InitTypeDef nvicConfig;
@@ -156,6 +159,11 @@ void playerDMATransfer()
 // pageCount debe ser multiplo de PLAYER_BUFFER_PAGES;
 void playerPlay(uint32_t page, uint32_t pageCount)
 {
+	if(playing) {
+		printf("playerPlay: Already playing.\r\n");
+		return;
+	}
+
     pcmCurrentPage= page;
     pcmLastPage= page + pageCount - 1;
 
@@ -164,14 +172,15 @@ void playerPlay(uint32_t page, uint32_t pageCount)
     if(!playerSetup())
         return;
 
-    SB_LedSet(SB_LedG, true);
-
     // Activar el timer
     TIM_Cmd(TIM6, ENABLE);
 
     // Seleccionamos pcmBuffer1 y lo llenamos
     pcmBufferIndex= 0;
     playerReadData();
+
+    playing= true;
+    SB_LedSet(SB_LedR, true);
 
     // Empezamos la transmision DMA de pcmBuffer1
     // Cuando se termine se va a llamar a DMA1_Channel3_IRQHandler()
@@ -185,12 +194,13 @@ void playerPlayTrack(uint8_t trackId)
         for(int i=0; i<TRACKS_COUNT; i++) {
             const uint16_t start= TRACKS_PAGES[i];
             const uint16_t len= TRACKS_PAGES[i+1]-TRACKS_PAGES[i];
-            printf("  - Track %2d | Start %3d, Length %3d.\r\n", i, start, len);
+            printf("  - Track %02d | Start %3d, Length %3d.\r\n", i, start, len);
         }
-        char c;
+        char c1, c2;
         do {
-            _read_r(0, 0, &c, 1);
-            trackId= c - '0';
+            _read_r(0, 0, &c1, 1);
+            _read_r(0, 0, &c2, 1);
+            trackId= (c1 - '0') * 10 + (c2 - '0');
         } while(trackId < 0 || trackId >= TRACKS_COUNT);
     }
     printf("Playing track %d.\r\n", trackId);
@@ -207,7 +217,9 @@ void playerStop()
     // Desactivar el DAC
     DAC_Cmd(DAC_Channel_1, DISABLE);
     printf("Stopped playing.\r\n");
-    SB_LedSet(SB_LedG, false);
+
+    SB_LedSet(SB_LedR, false);
+    playing= false;
 }
 
 

@@ -45,9 +45,10 @@ void SB_Setup()
 
     // Interrupciones usadas:
     // 0,0	TIM6 para el DAC (audioplayer.c)
-    // 0,1	USART3 RX para leer respuestas del modulo bluetooth (bluetooth.c)
+    // 0,1  System timer
+    // 0,2	USART3 RX para leer respuestas del modulo bluetooth (bluetooth.c)
     // 1,3	Interrupcion fin de buffer DMA (audioplayer.c)
-    // 4,4	Interrupcion del boton
+    // 3,3	Interrupcion del boton
 
 	// Setup leds
 	//
@@ -73,16 +74,22 @@ void SB_Setup()
 	EXTI_InitTypeDef extiConfig;
 	extiConfig.EXTI_Line= EXTI_Line0;
 	extiConfig.EXTI_Mode= EXTI_Mode_Interrupt;
-	extiConfig.EXTI_Trigger= EXTI_Trigger_Rising;
+	extiConfig.EXTI_Trigger= EXTI_Trigger_Rising_Falling;
 	extiConfig.EXTI_LineCmd = ENABLE;
 	EXTI_Init(&extiConfig);
 
 	NVIC_InitTypeDef nvicConfig;
 	nvicConfig.NVIC_IRQChannel= EXTI0_IRQn;
-	nvicConfig.NVIC_IRQChannelPreemptionPriority= 4;
-	nvicConfig.NVIC_IRQChannelSubPriority= 4;
+	nvicConfig.NVIC_IRQChannelPreemptionPriority= 3;
+	nvicConfig.NVIC_IRQChannelSubPriority= 3;
 	nvicConfig.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&nvicConfig);
+
+    // Setup del system timer
+	//
+    timerSetup();
+    // Seteamos la prioridad a 0,1
+    NVIC_SetPriority(SysTick_IRQn, (!0 << 0x01));
 }
 
 bool SB_ButtonState(SB_Button button)

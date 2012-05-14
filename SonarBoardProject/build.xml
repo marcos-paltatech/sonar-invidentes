@@ -46,19 +46,19 @@
       
       <!-- include compile path -->
       <includepath path="."/>
-      <includepath path="cmsis"/>
-      <includepath path="cmsis_boot"/>
       <includepath path="stm_lib"/>
       <includepath path="stm_lib/inc"/>
+      <includepath path="cmsis_boot"/>
+      <includepath path="cmsis"/>
       
       <!-- arm-none-eabi-gcc compiler arguments -->
       <compilerarg value="-mcpu=cortex-m3"/>
       <compilerarg value="-mthumb"/>
-            
+      <compilerarg value="-Wall"/>      
       <compilerarg value="-ffunction-sections"/>
-      <compilerarg value="-O0"/>
       <compilerarg value="-std=c99"/>
       <compilerarg value="-g"/>
+      <compilerarg value="-O0"/>
       
       <!-- arm-none-eabi-gcc linker arguments -->
       <linkerarg value="-O0"/>

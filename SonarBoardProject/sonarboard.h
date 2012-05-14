@@ -2,7 +2,8 @@
 #define SONARBOARD_H
 
 // Header del MCU
-#include "STM32f10x.h"
+#include "stm32f10x.h"
+#include "system_stm32f10x.h"
 // Modulos usados
 #include "stm32f10x_dac.h"
 #include "stm32f10x_adc.h"
@@ -38,9 +39,9 @@ uint16_t SB_GetBatteryLevel();
 // Leds
 #define SB_LedGPIO	GPIOC
 typedef enum {
-	SB_LedG= GPIO_Pin_9, // Green led
+	SB_LedG= GPIO_Pin_7, // Green led
 	SB_LedY= GPIO_Pin_8, // Yellow led
-	SB_LedR= GPIO_Pin_7, // Red led
+	SB_LedR= GPIO_Pin_9, // Red led
 } SB_Led;
 // Funciones para setear los sensores en timer.c
 

@@ -1,7 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
 #include "sonarboard.h"
 
 #include "timer.h"
@@ -11,6 +7,9 @@
 #include "bluetooth.h"
 #include "cli.h"
 
+//
+// Auto-prueba de la placa
+//
 bool selfTest(bool silent)
 {
 	if(!silent)
@@ -30,14 +29,51 @@ bool selfTest(bool silent)
     return btOK && flashOK;
 }
 
+bool globalSetup()
+{
+	SB_LedBlinkPeriod(SB_LedG, 1000);
+}
+
+// Interrupcion del boton
+void EXTI0_IRQHandler(void)
+{
+	EXTI_ClearITPendingBit(EXTI_Line0);
+
+	static bool lastPushed= false;
+	static uint32_t lastTime= 0;
+	uint32_t startTime= getMsecs();
+	bool pushed= SB_ButtonState(SB_Button1);
+
+	// Reiniciar si se mantiene el boton por 3 segundos y se suelta
+	if(!pushed && getMsecs()-lastTime>3000) {
+		NVIC_SystemReset();
+		return;
+	}
+
+	if(!pushed && btGetState()==BT_DISCONNECTED) {
+		SB_LedSet(SB_LedR, false);
+		if(btConnect())
+			btStartPlaying();
+		else
+			SB_LedBlinkPeriod(SB_LedR, 100);
+	}
+
+	static int trackId= 0;
+	if(pushed && btGetState()==BT_PLAYING) {
+		playerPlayTrack(trackId);
+		trackId= (trackId+1) % 24;
+	}
+
+	lastPushed= pushed;
+	lastTime= startTime;
+}
+
 int main(void)
 {
-	// Configuracion general de la placa
+	// Configuracion general de la placa, configura tambien al system timer
 	SB_Setup();
     // UART stdin/stdout
     retargetSetup();
-    // System timer, usado por varios modulos
-    timerSetup();
     // Memoria Flash
     flashSetup();
     // Bluetooth
@@ -46,7 +82,10 @@ int main(void)
     for(int i=0; i<20; i++) printf("\r\n");
     printf("SonarBoard                                                              v0.4\r\n");
     printf("--------------------------------------------------------------------------------\r\n\r\n");
-    printf("Type ? for help.\r\n\r\n");
+    printf("Usar ? para ayuda.\r\n\r\n");
+
+    // Configuracion del dispositivo para dejarlo listo en forma autonoma
+    globalSetup();
 
     bool quit= false;
     while(!quit) {
@@ -61,10 +100,12 @@ int main(void)
             break;
         case CMD_BTCONNECT: {
             uint32_t startTime= getMsecs();
-            if(!btConnect())
+            if(!btConnect()) {
                 printf("Error al conectarse por Bluetooth.\r\n");
-            else
-                printf("Conexion exitosa en %.1f segs.\r\n", (getMsecs()-startTime)/1000.0f);
+            } else {
+                printf("Conexion exitosa en %d segs.\r\n", (getMsecs()-startTime)/1000);
+                btStartPlaying();
+            }
             break; }
         case CMD_BTCALL:
             btStartPlaying();

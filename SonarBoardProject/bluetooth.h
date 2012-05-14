@@ -9,7 +9,6 @@
 #define BT_DEFAULT_PIN  "0000" // Debe ser de 4 caracteres numericos
 
 typedef enum {
-    BT_NONE,           // Todavia no se verifico la presencia del modulo
     BT_DISCONNECTED,   // Sabemos que esta el modulo
     BT_CONNECTED,      // Estamos conectados al headset (paired+connected)
     BT_STARTEDPLAY,    // Dimos la instruccion de empezar a reproducir pero no tenemos confirmacion
@@ -23,6 +22,9 @@ void btSetup();
 
 // Configuracion persistente del modulo bluetooth
 void btSetupModule();
+
+// Devuelve el estado actual
+bt_state btGetState();
 
 // Se conecta con el headset, puede tardar varios segundos
 // Devuelve true si no hubo errores
@@ -38,7 +40,5 @@ void btStopPlaying();
 
 // Interrupcion de comunicacion con el modulo bluetooth
 void USART3_IRQHandler(void);
-
-void EXTI0_IRQHandler(void);
 
 #endif

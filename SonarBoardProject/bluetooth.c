@@ -27,7 +27,7 @@ void btSetup()
     atLine[0]= 0;
     atLinePos= 0;
     // Inicializar variables de Bluetooth
-    btState= BT_NONE;
+    btState= BT_DISCONNECTED;
     devsFound= 0;
     devIndex= 0;
 
@@ -64,7 +64,7 @@ void btSetup()
     NVIC_InitTypeDef nvicConfig;
     nvicConfig.NVIC_IRQChannel= USART3_IRQn;
     nvicConfig.NVIC_IRQChannelPreemptionPriority= 0;
-    nvicConfig.NVIC_IRQChannelSubPriority= 1;
+    nvicConfig.NVIC_IRQChannelSubPriority= 2;
     nvicConfig.NVIC_IRQChannelCmd= ENABLE;
     NVIC_Init(&nvicConfig);
     // Por defecto esta deshabilitada
@@ -212,16 +212,19 @@ bool btConnect()
     const uint8_t cmdLen= 50;
     char cmd[cmdLen];
 
+    btState= BT_DISCONNECTED;
     // VERIFICAR MODULO
-    btState= BT_NONE;
     if(!btTest()) {
         printf("BT Modulo no encontrado.\r\n");
         return false;
     }
 
+    SB_LedSet(SB_LedY, true);
+
     atWrite("ATI\r", 4);
     if(!atReadLine(cmd, cmdLen, 1000)) {
         printf("BT El modulo no respodio a ATI.\r\n");
+        SB_LedSet(SB_LedY, false);
         return false;
     }
     printf("BT Modulo encontrado: '%s'.\r\n", cmd);
@@ -230,10 +233,10 @@ bool btConnect()
     atWrite("ATZ\r", 4);
     if(!atReadOK(5000)) {
         printf("BT Error al reiniciar modulo.\r\n");
+        SB_LedSet(SB_LedY, true);
         return false;
     }
 
-    btState= BT_DISCONNECTED;
     // En este estado podriamos configurar el modulo, pero ya deberian estar todas
     // las configuraciones de config_bt.txt hechas y almacenadas con AT&W; ATZ
 
@@ -245,7 +248,7 @@ bool btConnect()
     SB_LedBlinkPeriod(SB_LedY, 1000);
     printf("BT Buscando headsets.\r\n");
 
-    const uint8_t queryRetries= 5;
+    const uint8_t queryRetries= 2;
     uint8_t queryTries= 0;
     while(!devsFound && queryTries < queryRetries) {
         sprintf(cmd, "AT+BTI%s\r", BT_DEVLCASS_STR);
@@ -292,7 +295,7 @@ bool btConnect()
     SB_LedBlinkPeriod(SB_LedY, 200);
     printf("BT Empezando pairing.\r\n");
 
-    const uint8_t pairRetries= 5;
+    const uint8_t pairRetries= 3;
     uint8_t pairTries= 0;
     bool pairOk= false;
     while(!pairOk && pairTries < pairRetries) {
@@ -415,28 +418,6 @@ void USART3_IRQHandler(void)
 }
 
 //
-// Manejo del boton
-//
-void EXTI0_IRQHandler(void)
-{
-	const bool state= SB_ButtonState(SB_Button1);
-	static bool lastState= false;
-	if(state != lastState)
-		return;
-	lastState= state;
-
-    static uint32_t lastTime= 0;
-    if(getMsecs()-lastTime < 400) return;
-
-	static int trackId= 0;
-	playerPlayTrack(trackId);
-	trackId= (trackId+1) % 9;
-
-    EXTI_ClearITPendingBit(EXTI_Line0);
-    lastTime= getMsecs();
-}
-
-//
 // Configuracion persistente del modulo bluetooth
 //
 
@@ -479,4 +460,9 @@ void btSetupModule()
 	atReadOK(5000);
 
 	printf("Listo.\r\n");
+}
+
+bt_state btGetState()
+{
+	return btState;
 }
