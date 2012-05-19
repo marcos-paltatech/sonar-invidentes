@@ -22,7 +22,7 @@ static void setupBattADC()
 	ADC_InitTypeDef adcConfig;
 	adcConfig.ADC_Mode= ADC_Mode_Independent;
 	adcConfig.ADC_ScanConvMode= DISABLE;
-	adcConfig.ADC_ContinuousConvMode= ENABLE;
+	adcConfig.ADC_ContinuousConvMode= DISABLE;
 	adcConfig.ADC_ExternalTrigConv= ADC_ExternalTrigConv_None;
 	adcConfig.ADC_DataAlign= ADC_DataAlign_Right;
 	adcConfig.ADC_NbrOfChannel= 1;
@@ -45,8 +45,8 @@ void SB_Setup()
 
     // Interrupciones usadas:
     // 0,0	TIM6 para el DAC (audioplayer.c)
-    // 0,1  System timer
-    // 0,2	USART3 RX para leer respuestas del modulo bluetooth (bluetooth.c)
+    // 0,1	USART3 RX para leer respuestas del modulo bluetooth (bluetooth.c)
+    // 0,2  System timer
     // 1,3	Interrupcion fin de buffer DMA (audioplayer.c)
     // 3,3	Interrupcion del boton
 
@@ -88,8 +88,8 @@ void SB_Setup()
     // Setup del system timer
 	//
     timerSetup();
-    // Seteamos la prioridad a 0,1
-    NVIC_SetPriority(SysTick_IRQn, (!0 << 0x01));
+    // Seteamos la prioridad a 0,2
+    NVIC_SetPriority(SysTick_IRQn, (!0 << 2));
 }
 
 bool SB_ButtonState(SB_Button button)
@@ -102,6 +102,12 @@ uint16_t SB_GetBatteryLevel()
 	ADC_Cmd(ADC1, ENABLE);
 	// Empezar conversion
     ADC_SoftwareStartConvCmd(ADC1, ENABLE);
-    sleep(200);
-    return ADC_GetConversionValue(ADC1);
+    waitWhile(ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);
+    uint16_t value= ADC_GetConversionValue(ADC1);
+    ADC_Cmd(ADC1, DISABLE);
+
+    // 4095 -> 3.3v en el ADC -> ~19.4v de entrada
+    value= (value * 19400) / 4095;
+
+    return value;
 }

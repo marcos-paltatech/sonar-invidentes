@@ -64,7 +64,7 @@ void btSetup()
     NVIC_InitTypeDef nvicConfig;
     nvicConfig.NVIC_IRQChannel= USART3_IRQn;
     nvicConfig.NVIC_IRQChannelPreemptionPriority= 0;
-    nvicConfig.NVIC_IRQChannelSubPriority= 2;
+    nvicConfig.NVIC_IRQChannelSubPriority= 1;
     nvicConfig.NVIC_IRQChannelCmd= ENABLE;
     NVIC_Init(&nvicConfig);
     // Por defecto esta deshabilitada
@@ -248,7 +248,7 @@ bool btConnect()
     SB_LedBlinkPeriod(SB_LedY, 1000);
     printf("BT Buscando headsets.\r\n");
 
-    const uint8_t queryRetries= 2;
+    const uint8_t queryRetries= 4;
     uint8_t queryTries= 0;
     while(!devsFound && queryTries < queryRetries) {
         sprintf(cmd, "AT+BTI%s\r", BT_DEVLCASS_STR);

@@ -125,7 +125,7 @@ int main(void)
             printf("Checksum: 0x%08X\r\n", flashFullChecksum());
             break;
         case CMD_BATTLEVEL:
-        	printf("Nivel de la bateria: %d mV.\r\n", SB_GetBatteryLevel());
+        	printf("Nivel de la bateria: %d mV\r\n", SB_GetBatteryLevel());
         	break;
         case CMD_QUIT:
             printf("Bye.\r\n\r\n");
