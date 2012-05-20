@@ -13,7 +13,6 @@ typedef enum {
     CMD_FLASHMEM,
     CMD_MEMCHECK,
     CMD_BATTLEVEL,
-    CMD_QUIT,
     CMD_RESET,
     CMD_HELP,
     CMD_INVALID,

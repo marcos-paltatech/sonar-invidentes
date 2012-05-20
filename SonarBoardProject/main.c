@@ -127,10 +127,6 @@ int main(void)
         case CMD_BATTLEVEL:
         	printf("Nivel de la bateria: %d mV\r\n", SB_GetBatteryLevel());
         	break;
-        case CMD_QUIT:
-            printf("Bye.\r\n\r\n");
-            quit= true;
-            break;
         case CMD_RESET:
         	NVIC_SystemReset();
         	break;

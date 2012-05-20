@@ -32,8 +32,6 @@ cmd_type readCmd()
         type= CMD_MEMCHECK;
     else if(!strncasecmp("battlevel", cmdBuffer, readLen))
         type= CMD_BATTLEVEL;
-    else if(!strncasecmp("quit", cmdBuffer, readLen))
-        type= CMD_QUIT;
     else if(!strncasecmp("reset", cmdBuffer, readLen))
         type= CMD_RESET;
     else if(!strncasecmp("help", cmdBuffer, readLen) || !strncasecmp("?", cmdBuffer, readLen))
@@ -57,8 +55,7 @@ void cmdHelp()
     printf("  btconfig   Configuracion persistente del modulo bluetooth.\r\n");
     printf("  flashmem   Entrar en modo para programar memoria flash.\r\n");
     printf("  memcheck   Calcular y mostrar checksum total de memoria flash.\r\n");
-    printf("  battlevel  Muestra el nivel de la bateria.\r\n");
-    printf("  quit       Terminar.\r\n");
+    printf("  battlevel  Muestra el voltaje de la bateria.\r\n");
     printf("  reset      Software reset.\r\n");
     printf("  help/?     Esta ayuda.\r\n");
     printf("\r\n");
