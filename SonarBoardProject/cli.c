@@ -18,6 +18,8 @@ cmd_type readCmd()
         type= CMD_SELFTEST;
     else if(!strncasecmp("play", cmdBuffer, readLen))
         type= CMD_PLAY;
+    else if(!strncasecmp("sensors", cmdBuffer, readLen))
+        type= CMD_SENSORS;
     else if(!strncasecmp("btconnect", cmdBuffer, readLen))
         type= CMD_BTCONNECT;
     else if(!strncasecmp("btcall", cmdBuffer, readLen))
@@ -49,6 +51,7 @@ void cmdHelp()
     printf("Comandos:\r\n");
     printf("  selftest   Verificar hardware/software.\r\n");
     printf("  play       Reproducir un track.\r\n");
+    printf("  sensors    Muestra informacion de los sensores.\r\n");
     printf("  btconnect  Establecer conexion por bluetooth y llamar al headset.\r\n");
     printf("  btcall     Empezar a transmitir audio por bluetooth.\r\n");
     printf("  bthang     Terminar de transmitir audio por bluetooth.\r\n");

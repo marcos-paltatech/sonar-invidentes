@@ -6,6 +6,7 @@
 typedef enum {
     CMD_SELFTEST,
     CMD_PLAY,
+    CMD_SENSORS,
     CMD_BTCONNECT,
     CMD_BTCALL,
     CMD_BTHANG,

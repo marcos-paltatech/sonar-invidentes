@@ -46,9 +46,10 @@ void SB_Setup()
     // Interrupciones usadas:
     // 0,0	TIM6 para el DAC (audioplayer.c)
     // 0,1	USART3 RX para leer respuestas del modulo bluetooth (bluetooth.c)
-    // 0,2  System timer
+    // 0,2  System timer (timer.c)
     // 1,3	Interrupcion fin de buffer DMA (audioplayer.c)
-    // 3,3	Interrupcion del boton
+    // 3,2	Interrupcion de sensores (distances.c)
+    // 3,3	Interrupcion del boton (main.c)
 
 	// Setup leds
 	//

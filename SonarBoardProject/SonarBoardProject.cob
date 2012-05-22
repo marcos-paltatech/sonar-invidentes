@@ -19,6 +19,7 @@
     <Component id="c3dde901-96ed-11df-80ae-001d7d723e56" name="USART"/>
     <Component id="994b0730-4bc0-11e0-8e4a-001d7dcd0baf" name="CMSIS Boot"/>
     <Component id="64d2c4e0-4e11-11e0-8ec0-001d7dcd0baf" name="MISC"/>
+    <Component id="14a0a401-b94c-11e0-9d2c-0019b96a65b3" name="STM32_StdPerph_Template"/>
   </Components>
   <ExcludedFiles/>
   <Drivers/>

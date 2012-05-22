@@ -4,6 +4,7 @@
 // Header del MCU
 #include "stm32f10x.h"
 #include "system_stm32f10x.h"
+#include "stm32f10x_conf.h"
 // Modulos usados
 #include "stm32f10x_dac.h"
 #include "stm32f10x_adc.h"

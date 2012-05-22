@@ -33,6 +33,12 @@ static bool playing;
 static uint16_t samplingRate= 16000;
 static uint8_t channelCount= 1;
 
+#define PLAYER_QUEUE_SIZE	6
+static bool queueMode;
+static uint8_t tracksQueue[PLAYER_QUEUE_SIZE];
+static uint8_t queuePosition;
+static uint8_t queueSize;
+
 // Setear la frecuencia de autoreload de TIM6 en funcion de la freq de sistema
 static
 bool setAutoReload(TIM_TypeDef* tim, uint32_t rate, uint8_t channels)
@@ -207,6 +213,21 @@ void playerPlayTrack(uint8_t trackId)
     playerPlay(TRACKS_PAGES[trackId], TRACKS_PAGES[trackId+1]-TRACKS_PAGES[trackId]);
 }
 
+void playerPlayTracks(uint8_t* tracks, uint8_t count)
+{
+	if(count > PLAYER_QUEUE_SIZE) {
+		count= PLAYER_QUEUE_SIZE;
+		printf("playerPlayTracks: Too many tracks, playing the first %d.\r\n", count);
+	}
+
+	queueMode= true;
+	queuePosition= 0;
+	queueSize= count;
+	memcpy(tracksQueue, tracks, count * sizeof(uint8_t));
+
+	playerPlayTrack(tracksQueue[queuePosition]);
+}
+
 void playerStop()
 {
     // Desactivar el timer que mueve al DAC
@@ -215,11 +236,22 @@ void playerStop()
     // Desactivar DMA
     DMA1_Channel3->CCR= 0;
     // Desactivar el DAC
-    DAC_Cmd(DAC_Channel_1, DISABLE);
-    printf("Stopped playing.\r\n");
+    //DAC_Cmd(DAC_Channel_1, DISABLE);
 
     SB_LedSet(SB_LedR, false);
     playing= false;
+
+	if(queueMode) {
+		queuePosition++;
+		if(queuePosition < queueSize) {
+			playerPlayTrack(tracksQueue[queuePosition]);
+			return;
+		} else {
+			queueMode= false;
+		}
+	}
+
+	printf("Stopped playing.\r\n");
 }
 
 

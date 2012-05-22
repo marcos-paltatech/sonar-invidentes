@@ -6,6 +6,8 @@
 #include "audioplayer.h"
 #include "bluetooth.h"
 #include "cli.h"
+#include "distances.h"
+#include "srf02_sensor.h"
 
 //
 // Auto-prueba de la placa
@@ -78,6 +80,10 @@ int main(void)
     flashSetup();
     // Bluetooth
     btSetup();
+    // Sensores
+    //srf02_setup();
+    // Medicion de distancias
+    //distSetup();
 
     for(int i=0; i<20; i++) printf("\r\n");
     printf("SonarBoard                                                              v0.4\r\n");
@@ -98,6 +104,10 @@ int main(void)
         case CMD_PLAY:
             playerPlayTrack(0xFF);
             break;
+        case CMD_SENSORS:
+        	//distStartMeasuring(true);
+        	srf02_setup();
+        	break;
         case CMD_BTCONNECT: {
             uint32_t startTime= getMsecs();
             if(!btConnect()) {

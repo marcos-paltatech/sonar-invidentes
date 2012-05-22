@@ -61,12 +61,12 @@ void flashSetup()
 
     // Activar AFIO clock, necesario para setear MAPR
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+    // Activar clocks para SPI y GPIOB
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_SPI1, ENABLE);
+
     // Remapping de los pines de SPI1 a PB3..PB5 (NSS en PA15 no se usa)
     GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);
     GPIO_PinRemapConfig(GPIO_Remap_SPI1, ENABLE);
-
-    // Activar clocks para SPI y GPIOB
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_SPI1, ENABLE);
 
     GPIO_InitTypeDef gpioConfig;
     gpioConfig.GPIO_Speed= GPIO_Speed_50MHz;
@@ -241,7 +241,7 @@ uint32_t flashFullChecksum()
     uint8_t pageBuffer[FLASH_PAGE_SIZE];
 
     uint32_t sum= 0;
-    for(int16_t i= 0; i<FLASH_PAGE_COUNT; i++) {
+    for(int16_t i= 0; i<10/*FLASH_PAGE_COUNT*/; i++) {
         flashReadBuffer(pageBuffer, FLASH_PAGE_SIZE, i * FLASH_PAGE_SIZE);
         sum += adler32(pageBuffer, FLASH_PAGE_SIZE);
     }

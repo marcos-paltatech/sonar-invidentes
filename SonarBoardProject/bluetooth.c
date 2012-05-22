@@ -313,6 +313,7 @@ bool btConnect()
 		} else {
 			pairOk= true;
 		}
+		pairTries++;
     }
     if(!pairOk) {
     	SB_LedSet(SB_LedY, false);
