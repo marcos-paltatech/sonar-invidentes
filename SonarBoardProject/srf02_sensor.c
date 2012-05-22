@@ -7,6 +7,7 @@ void srf02_setup()
 
 	// Clocks
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C1, ENABLE); // Este comando rompe a SPI
+
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_AFIO, ENABLE);
 
 	GPIO_PinRemapConfig(GPIO_Remap_I2C1, ENABLE);
@@ -88,13 +89,13 @@ uint16_t srf02_getResult(uint8_t sensorAddr)
 	I2C_Send7bitAddress(I2C1, sensorAddr, I2C_Direction_Receiver);
 	while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED));
 
-	sleep(20);
+	sleep(10);
 	if(I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_BYTE_RECEIVED))
 	{
 		high = I2C_ReceiveData(I2C1);
 		//printf("Leo alto de %x\r\n", sensorAddr);
 	}
-	sleep(20);
+	sleep(10);
 	I2C_AcknowledgeConfig(I2C1, DISABLE);
 
 	if(I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_BYTE_RECEIVED))
@@ -102,7 +103,7 @@ uint16_t srf02_getResult(uint8_t sensorAddr)
 		low = I2C_ReceiveData(I2C1);
 		//printf("Leo bajo de %x\r\n", sensorAddr);
 	}
-	sleep(20);
+	sleep(10);
 
 	I2C_NACKPositionConfig(I2C1, I2C_NACKPosition_Current);
 

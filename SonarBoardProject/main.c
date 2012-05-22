@@ -83,7 +83,7 @@ int main(void)
     // Sensores
     //srf02_setup();
     // Medicion de distancias
-    //distSetup();
+    distSetup();
 
     for(int i=0; i<20; i++) printf("\r\n");
     printf("SonarBoard                                                              v0.4\r\n");
@@ -105,8 +105,7 @@ int main(void)
             playerPlayTrack(0xFF);
             break;
         case CMD_SENSORS:
-        	//distStartMeasuring(true);
-        	srf02_setup();
+        	distStartMeasuring(true);
         	break;
         case CMD_BTCONNECT: {
             uint32_t startTime= getMsecs();

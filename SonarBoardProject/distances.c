@@ -33,9 +33,8 @@ void distSetup()
 void distStartMeasuring(bool oneShot)
 {
 	oneShotMode= oneShot;
+	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
 	TIM_Cmd(TIM2, ENABLE);
-    // Activar interrupcion para TIM2
-    TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
 }
 
 void distStopMeasuring()
@@ -50,21 +49,35 @@ void TIM2_IRQHandler()
     if(TIM_GetITStatus(TIM2, TIM_IT_Update) == RESET)
     	return;
 
+    uint32_t start= getMsecs();
+    srf02_setup();
+
+    printf("A %d ms.\r\n", getMsecs()-start);
+
 	srf02_setCommand(SENS_LEFT);
 	srf02_setCommand(SENS_RIGHT);
 	srf02_setCommand(SENS_FRONT);
+
+	printf("B %d ms.\r\n", getMsecs()-start);
 	sleep(60);
+	printf("C %d ms.\r\n", getMsecs()-start);
+
 	uint16_t dl= srf02_getResult(SENS_LEFT);
-	uint16_t df= srf02_getResult(SENS_FRONT);
 	uint16_t dr= srf02_getResult(SENS_RIGHT);
+	uint16_t df= srf02_getResult(SENS_FRONT);
+
+	printf("D %d ms.\r\n", getMsecs()-start);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C1, DISABLE);
+
+	printf("Total %d ms.\r\n", getMsecs()-start);
 
 	printf("%d %d %d\r\n", dl, df, dr);
+
+	TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 
     if(oneShotMode) {
     	oneShotMode= false;
     	distStopMeasuring();
     }
-
-	TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 }
 
