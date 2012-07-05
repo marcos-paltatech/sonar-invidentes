@@ -46,8 +46,8 @@ void EXTI0_IRQHandler(void)
 	uint32_t startTime= getMsecs();
 	bool pushed= SB_ButtonState(SB_Button1);
 
-	// Reiniciar si se mantiene el boton por 3 segundos y se suelta
-	if(!pushed && getMsecs()-lastTime>3000) {
+	// Reiniciar si se mantiene el boton por 5 segundos y se suelta
+	if(!pushed && getMsecs()-lastTime>5000) {
 		NVIC_SystemReset();
 		return;
 	}
@@ -58,14 +58,27 @@ void EXTI0_IRQHandler(void)
 			btStartPlaying();
 		else
 			SB_LedBlinkPeriod(SB_LedR, 100);
+
+
 	}
 
+	if(pushed && btGetState()==BT_PLAYING) {
+		// modo one-shot
+		distStartMeasuring(true);
+	}
+
+	if(!pushed && btGetState()==BT_PLAYING && getMsecs()-lastTime>2000) {
+		// modo continuo
+		distStartMeasuring(false);
+	}
+
+/*
 	static int trackId= 0;
 	if(pushed && btGetState()==BT_PLAYING) {
 		playerPlayTrack(trackId);
 		trackId= (trackId+1) % 24;
 	}
-
+*/
 	lastPushed= pushed;
 	lastTime= startTime;
 }
@@ -88,7 +101,7 @@ int main(void)
     for(int i=0; i<20; i++) printf("\r\n");
     printf("SonarBoard                                                              v0.4\r\n");
     printf("--------------------------------------------------------------------------------\r\n\r\n");
-    printf("Usar ? para ayuda.\r\n\r\n");
+    printf("Usar ? para ayuda.......\r\n\r\n");
 
     // Configuracion del dispositivo para dejarlo listo en forma autonoma
     globalSetup();
@@ -97,12 +110,16 @@ int main(void)
     while(!quit) {
         cmd_type cmd= readCmd();
 
+        uint8_t hablado[10];
         switch(cmd) {
         case CMD_SELFTEST:
         	selfTest(false);
             break;
         case CMD_PLAY:
-            playerPlayTrack(0xFF);
+        	printf ("PLAY\r\n");
+
+        	playerPlayTracks(hablado, 7);
+            //playerPlayTrack(0xFF);
             break;
         case CMD_SENSORS:
         	distStartMeasuring(true);

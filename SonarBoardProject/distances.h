@@ -4,7 +4,7 @@
 #include "sonarboard.h"
 
 // Frecuencia de medicion: 250ms
-#define DIST_FREQ	  4
+#define DIST_FREQ	  0.3
 
 void distSetup();
 
