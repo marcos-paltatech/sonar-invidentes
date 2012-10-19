@@ -58,8 +58,6 @@ void EXTI0_IRQHandler(void)
 			btStartPlaying();
 		else
 			SB_LedBlinkPeriod(SB_LedR, 100);
-
-
 	}
 
 	if(pushed && btGetState()==BT_PLAYING) {
@@ -99,7 +97,7 @@ int main(void)
     distSetup();
 
     for(int i=0; i<20; i++) printf("\r\n");
-    printf("SonarBoard                                                              v0.4\r\n");
+    printf("SonarBoard   4:24                                                           v0.4\r\n");
     printf("--------------------------------------------------------------------------------\r\n\r\n");
     printf("Usar ? para ayuda.......\r\n\r\n");
 

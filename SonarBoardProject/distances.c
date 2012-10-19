@@ -169,9 +169,12 @@ void TIM2_IRQHandler()
     for(i=0; i<ITER; i++)
     {
 		srf02_setCommand(SENS_LEFT);
-		srf02_setCommand(SENS_RIGHT);
 		sleep(60);
 		mediciones[i] = srf02_getResult(SENS_LEFT); //izquierda
+
+
+		srf02_setCommand(SENS_RIGHT);
+		sleep(60);
 		mediciones[i+ITER*2] = srf02_getResult(SENS_RIGHT); //derecha
 
 		//printf("B %d ms.\r\n", getMsecs()-start);

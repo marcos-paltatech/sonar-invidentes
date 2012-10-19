@@ -41,20 +41,18 @@
       
       <!-- defines -->
       <defineset>
-        <define name="STM32F100RB"/>
-        <define name="__ASSEMBLY__"/>
         <define name="USE_STDPERIPH_DRIVER"/>
+        <define name="__ASSEMBLY__"/>
         <define name="STM32F10X_MD_VL"/>
+        <define name="STM32F100RB"/>
       </defineset>
       
       <!-- include compile path -->
       <includepath path="."/>
       <includepath path="cmsis"/>
-      <includepath path="cmsis_boot/startup"/>
-      <includepath path="stm_lib/inc"/>
-      <includepath path="syscalls"/>
-      <includepath path="stm_lib/src"/>
       <includepath path="cmsis_boot"/>
+      <includepath path="stm_lib/inc"/>
+      <includepath path="stm_lib/src"/>
       
       <!-- arm-none-eabi-gcc compiler arguments -->
       <compilerarg value="-mcpu=cortex-m3"/>
