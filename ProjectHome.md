@@ -1,0 +1,1 @@
+Diseño de un sonar para invidentes con modo autónomo y/o acoplable a un teléfono inteligente tipo Apple iPhone o similar.
